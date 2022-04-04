@@ -102,7 +102,7 @@ class Bonsai:
             return [branch]
 
         # Find a split SS: selected split
-        ss = self.find_split(avc)     
+        ss = self.find_split(avc, X, y, z, i_start, i_end)     
         if (not isinstance(ss, dict) or
             "selected" not in ss):
             branch["is_leaf"] = True
@@ -202,7 +202,7 @@ class Bonsai:
         # integer index for leaves (from 0 to len(leaves))
         for i, leaf in enumerate(self.leaves): 
             leaf["index"] = i 
-        self.update_feature_importances()
+        #self.update_feature_importances()
         self.tree_ind, self.tree_val = reconstruct_tree(self.leaves)
         return 0
 
@@ -256,8 +256,12 @@ class Bonsai:
         n_col = len(columns)
         for leaf in self.leaves:
             for eq in leaf["eqs"]:
-                if eq["svar"] < n_col:
-                    eq["name"] = columns[int(eq["svar"])]
+                if isinstance(eq["svar"], list):
+                    if (eq["svar"][0] < n_col) & (eq["svar"][1] < n_col):
+                        eq["name"] = (columns[int(eq["svar"][0])], columns[int(eq["svar"][1])])
+                else:
+                    if eq["svar"] < n_col:
+                        eq["name"] = columns[int(eq["svar"])]
         out = json.loads(json.dumps(self.leaves, default=default))
         if compact:
             suplst = ["i_start", "i_end", "depth",
@@ -335,7 +339,7 @@ class Bonsai:
                 cov += cov_j
                 eff_j = cov_j*gamma_j
                 for eq in leaf["eqs"]:
-                    self.feature_importances_[eq["svar"]] += eff_j
+                    self.feature_importances_[int(eq["svar"])] += eff_j
             self.feature_importances_ /= J
             self.feature_importances_ /= cov
         return self.feature_importances_ 

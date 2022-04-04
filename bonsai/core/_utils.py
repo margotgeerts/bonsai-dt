@@ -19,7 +19,7 @@ def get_child_branch(ss, parent_branch, i_split, side):
     ss_key = [key for key in ss.keys() if key[-2:] == side]
     ss_key += [key for key in ss.keys() if key[-2:] == "@m"]
     sidx = int(ss["selected"][0])
-    svar = int(ss["selected"][1])
+    svar = ss["selected"][1]
     sval = ss["selected"][2]
     missing = ss["selected"][9]
     parent_id = parent_branch["_id"]
@@ -129,10 +129,10 @@ def reconstruct_tree(leaves):
     # binary search tree
     bst = {}     
 
-    # output tree raw: [isleaf, svar, left, right, sval, out, index]
+    # output tree raw: [isleaf, svar1, svar2, left, right, sval1, sval2, sval3, out, index]
     # output tree row - 8 columns:
-    #       integer section: [isleaf, svar, missing, left, right, index,
-    #       float section:      sval, out]
+    #       integer section: [isleaf, svar1, svar2, missing, left, right, index,
+    #       float section:      sval1, sval2, sval3, out]
 
     tree_raw = {} 
     for leaf in leaves:
@@ -141,27 +141,34 @@ def reconstruct_tree(leaves):
         t = 0 # node index
         for depth, eq in enumerate(eqs):
             child_index = int(">="==eq["op"])
-            svar = int(eq["svar"])
+            if isinstance(eq["svar"], list):
+                svar = [int(eq["svar"][0]), int(eq["svar"][1])]
+                if len(eq["sval"]) == 2:
+                    sval = [float(eq["sval"][0]), float(eq["sval"][1]), -1]
+                else:
+                    sval = [float(eq["sval"][0]), float(eq["sval"][1]), float(eq["sval"][2])]
+            else:
+                svar = [int(eq["svar"]), -1]
+                sval = [float(eq["sval"]), -1]
             #sidx = eq["sidx"]
             if child_index == 0:
                 missing = int(eq["missing"]==0)
             else:
                 missing = int(eq["missing"]==1)
-            sval = float(eq["sval"])
             if "children" not in node_ptr:
                 node_ptr["children"] = [{"t": t_max+1}, {"t": t_max+2}]
-                tree_raw[t] = [-1, svar, missing, t_max+1, t_max+2, -1, 
-                                sval, -1]
+                tree_raw[t] = [-1, svar[0], svar[1], missing, t_max+1, t_max+2, -1, 
+                                sval[0], sval[1], sval[2], -1]
                 t_max += 2
             node_ptr = node_ptr["children"][child_index]
             t = node_ptr["t"]
-        tree_raw[t] = [1, -1, -1, -1, -1, leaf["index"], -1, leaf["y"]]
+        tree_raw[t] = [1, -1, -1, -1, -1, -1, leaf["index"], -1, -1, -1, leaf["y"]]
 
-    tree_ind = np.zeros((t_max+1, 6), dtype=np.int, order="C")
-    tree_val = np.zeros((t_max+1, 2), dtype=np.float, order="C")
+    tree_ind = np.zeros((t_max+1, 7), dtype=np.int, order="C")
+    tree_val = np.zeros((t_max+1, 4), dtype=np.float, order="C")
     for t, node in tree_raw.items():
-        tree_ind[t,:] = np.array(node[:6], dtype=np.int)
-        tree_val[t,:] = np.array(node[6:], dtype=np.float)
+        tree_ind[t,:] = np.array(node[:7], dtype=np.int)
+        tree_val[t,:] = np.array(node[7:], dtype=np.float)
 
     return tree_ind, tree_val
 

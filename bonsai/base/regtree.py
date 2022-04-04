@@ -26,7 +26,7 @@ class RegTree(Bonsai):
         self.min_samples_leaf = min_samples_leaf
         self.min_varsum_decrease = min_varsum_decrease
 
-        def find_split(avc):
+        def find_split(avc, X, y, z, i_start, i_end):
 
             if avc.shape[0] == 0:
                 return None
