@@ -15,7 +15,9 @@ from libc.math cimport sqrt
 DTYPE = np.float64
 ctypedef np.float64_t DTYPE_t
 
-cdef inline square(x) nogil: return x * x
+
+cpdef DTYPE_t square(DTYPE_t x) nogil: 
+    return x * x
 
 def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):
     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)
@@ -45,7 +47,7 @@ cdef size_t _reorder(
     cdef size_t i_tail = i_end - 1
     cdef size_t do_swap = 0
     cdef DTYPE_t intercept, slope, dist, dist_1, dist_2
-    cdef np.ndarray[DTYPE_t, ndim=2] focal1, focal2
+    cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
 
     with nogil:
         while i_head <= i_tail:
@@ -57,27 +59,30 @@ cdef size_t _reorder(
                 break
 
             do_swap = 0 
-            if len(split_value) == 1:
-                j_split = <size_t>j_split
-                if isnan(X[i_head,j_split]):
+            if split_value.shape[0] == 1:
+                if isnan(X[i_head,<size_t>j_split[0]]):
                     if missing == 1: # send the missing to the right node
                         do_swap = 1
                 else:
-                    if X[i_head,j_split] >= split_value:
+                    if X[i_head,<size_t>j_split[0]] >= <DTYPE_t>split_value[0]:
                         do_swap = 1
             else:
                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):
                     if missing == 1: # send the missing to the right node
                         do_swap = 1
                 else:
-                    if len(split_value) == 2:
+                    if split_value.shape[0] == 2:
                         intercept, slope = split_value[0], split_value[1]
                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:
                             do_swap = 1
                     else:
-                        focal1, focal2, dist = X[split_value[0],:], X[split_value[1],:], split_value[2]
-                        dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1[0]) + square(X[i_head, j_split[1]] - focal1[1]))
-                        dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2[0]) + square(X[i_head, j_split[1]] - focal2[1]))
+                        focal1_x = X[<size_t>split_value[0], 0]
+                        focal1_y = X[<size_t>split_value[0], 1]
+                        focal2_x = X[<size_t>split_value[1], 0]
+                        focal2_y = X[<size_t>split_value[1], 1]
+                        dist = split_value[2]
+                        dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
+                        dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))
                         if (dist_1 + dist_2) >= dist:
                             do_swap = 1
 
@@ -255,7 +260,7 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
     cdef size_t i, t
     cdef size_t n_samples = X.shape[0]
     cdef DTYPE_t dist, dist_1, dist_2
-    cdef np.ndarray[DTYPE_t, ndim=2] focal1, focal2
+    cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
 
     with nogil:
         for i in range(n_samples):
@@ -278,9 +283,13 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
                         else:
                             t = tree_ind[t,5]
                     else:
-                        focal1, focal2, dist = X[<size_t>tree_val[t,0],:], X[<size_t>tree_val[t,1],:], tree_val[t,2]
-                        dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1[0]) + square(X[i,tree_ind[t,1]] - focal1[1]))
-                        dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2[0]) + square(X[i,tree_ind[t,1]] - focal2[1]))
+                        focal1_x = X[<size_t>tree_val[t,0],0]
+                        focal1_y = X[<size_t>tree_val[t,0],1]
+                        focal2_x = X[<size_t>tree_val[t,1],0]
+                        focal2_y = X[<size_t>tree_val[t,1],1]
+                        dist = tree_val[t,2]
+                        dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
+                        dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
                         if (dist_1 + dist_2) >= dist:
                             t = tree_ind[t,5]
                         else:
