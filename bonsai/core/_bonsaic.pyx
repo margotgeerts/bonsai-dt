@@ -9,7 +9,7 @@ import numpy as np
 cimport numpy as np
 cimport cython
 from libc.math cimport isnan
-from libc.math cimport sqrt
+from libc.math cimport sqrt, pow
 
 
 DTYPE = np.float64
@@ -18,6 +18,9 @@ ctypedef np.float64_t DTYPE_t
 
 cpdef DTYPE_t square(DTYPE_t x) nogil: 
     return x * x
+
+cpdef double euclidean(double x10, double x11, double x20, double x21) nogil: 
+    return sqrt(square(x10 - x20) + square(x11 - x21))
 
 def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):
     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)
@@ -113,6 +116,28 @@ def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
     _sketch(X, y, z, xdim, cnvs, cnvsn)
+    return 0
+
+def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None, 
+        np.ndarray[DTYPE_t, ndim=1] y not None, 
+        np.ndarray[DTYPE_t, ndim=1] z not None, 
+        np.ndarray[DTYPE_t, ndim=2] xdim not None, 
+        np.ndarray[DTYPE_t, ndim=2] cnvs not None):
+
+    # canvas --> (sketch) --> avc 
+    # AVC: Attribute-Value Class group in RainForest
+    _sketch_diagonal(X, y, z, xdim, cnvs)
+    return 0
+
+def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None, 
+        np.ndarray[DTYPE_t, ndim=1] y not None, 
+        np.ndarray[DTYPE_t, ndim=1] z not None, 
+        np.ndarray[DTYPE_t, ndim=2] xdim not None, 
+        np.ndarray[DTYPE_t, ndim=2] cnvs not None):
+
+    # canvas --> (sketch) --> avc 
+    # AVC: Attribute-Value Class group in RainForest
+    _sketch_gaussian(X, y, z, xdim, cnvs)
     return 0
 
 cdef void _sketch(
@@ -214,6 +239,140 @@ cdef void _sketch(
                 cnvs[k_tld, 8] += z_na
 
     # done _sketch
+                    
+cdef void _sketch_diagonal(
+        np.ndarray[DTYPE_t, ndim=2] X, 
+        np.ndarray[DTYPE_t, ndim=1] y, 
+        np.ndarray[DTYPE_t, ndim=1] z, 
+        np.ndarray[DTYPE_t, ndim=2] xdim, 
+        np.ndarray[DTYPE_t, ndim=2] cnvs):
+
+    cdef size_t i, j, k
+    cdef size_t n = X.shape[0]
+    cdef size_t n_cnvs = <size_t> cnvs.shape[0]
+    cdef double y_i, z_i
+    cdef double x_i_0, x_i_1, x_j_0, x_j_1
+    cdef double m1, m2, x2, y2, b
+    cdef size_t idx = 0
+    
+    
+    with nogil:
+        for i in range(n):
+            x_i_0 = X[i,0]
+            x_i_1 = X[i,1]
+            
+            
+            for j in range(i+1, n):
+                x_j_0 = X[j,0]
+                x_j_1 = X[j,1]
+                
+                m1 = (x_j_1-x_i_1)/(x_j_0-x_i_0)
+                m2 = -1 * pow(m1, -1)
+                x2 = (x_i_0+x_j_0)/2
+                y2 = (x_i_1+x_j_1)/2
+                b = y2 - (m2*x2)
+                
+                idx += 1
+                
+                cnvs[idx, 2] = [b, m2]
+        
+        
+        for k in range(1, n_cnvs+1):    
+            
+            for i in range(n):
+                y_i = y[i]
+                z_i = z[i]
+                
+                b, m2 = cnvs[k, 2]
+                
+                if (X[i,0] * m2) + b < X[i,1]:
+                    #add to left
+                    cnvs[k, 3] += 1
+                    cnvs[k, 4] += y_i
+                    cnvs[k, 5] += z_i
+                else:
+                    #add to right
+                    cnvs[k, 6] += 1
+                    cnvs[k, 7] += y_i
+                    cnvs[k, 8] += z_i
+                
+
+            
+            
+            
+    
+    
+                    
+cdef void _sketch_gaussian(
+        np.ndarray[DTYPE_t, ndim=2] X, 
+        np.ndarray[DTYPE_t, ndim=1] y, 
+        np.ndarray[DTYPE_t, ndim=1] z, 
+        np.ndarray[DTYPE_t, ndim=2] xdim, 
+        np.ndarray[DTYPE_t, ndim=2] cnvs):
+
+    cdef size_t i, j, k, l
+    cdef size_t n = X.shape[0]
+    cdef size_t n_cnvs = <size_t> cnvs.shape[0]
+    cdef double y_i, z_i
+    cdef size_t idx = 0
+    cdef double x_i_0, x_i_1, x_j_0, x_j_1, x_l_0, x_l_1
+    cdef double halfpoint_0, halfpoint_1
+    cdef double distance, distanceij
+    cdef size_t id1, id2
+    cdef double dist, dist1, dist2
+    cdef double focal1_x, focal1_y, focal2_x, focal2_y
+    
+    with nogil:
+        for i in range(n):
+            x_i_0 = X[i,0]
+            x_i_1 = X[i,1]
+            
+            
+            for j in range(i+1, n):
+                x_j_0 = X[j,0]
+                x_j_1 = X[j,1]
+                
+                for l in range(n):
+                    if l==i or l==j:
+                        continue
+                    idx +=1
+                    x_l_0 = X[l,0]
+                    x_l_1 = X[l,1]
+                    halfpoint_0 = (x_i_0 + x_j_0) / 2.0
+                    halfpoint_1 = (x_i_1 + x_j_1) / 2.0
+                    distance = euclidean(halfpoint_0, halfpoint_1, x_l_0, x_l_1)
+                    distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
+                    if distance < distanceij:
+                        continue
+                    cnvs[idx, 2] = [i, j, distance]
+        
+        
+        for k in range(1, n_cnvs+1):    
+            
+            for i in range(n):
+                y_i = y[i]
+                z_i = z[i]
+                
+                id1, id2, dist = cnvs[k, 2]
+                
+                focal1_x = X[id1,0]
+                focal1_y = X[id1,1]
+                focal2_x = X[id2,0]
+                focal2_y = X[id2,1]
+                dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))
+                dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))
+                if (dist_1 + dist_2) < dist:
+                    cnvs[k, 3] += 1
+                    cnvs[k, 4] += y_i
+                    cnvs[k, 5] += z_i
+                else:
+                    #add to right
+                    cnvs[k, 6] += 1
+                    cnvs[k, 7] += y_i
+                    cnvs[k, 8] += z_i
+    
+    
+    
 
 def apply_tree(tree_ind, tree_val, X, y, output_type):
     if output_type == "index":

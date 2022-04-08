@@ -34,7 +34,9 @@ class Bonsai:
                 subsample = 1.0, # subsample rate for rows (samples)
                 random_state = None,
                 z_type = "M2",
-                n_jobs = -1):
+                n_jobs = -1,
+                diagonal = True,
+                gaussian = True):
 
         self.find_split = find_split # user-defined
         self.is_leaf = is_leaf       # user-defined
@@ -55,6 +57,8 @@ class Bonsai:
         self.n_jobs     = n_jobs
         if self.n_jobs < 0:
             self.n_jobs = cpu_count()
+        self.diagonal = diagonal
+        self.gaussian = gaussian
 
     def get_avc(self, X, y, z, i_start, i_end, parallel):
         n, m = X.shape
@@ -84,7 +88,25 @@ class Bonsai:
         parallel(delayed(psketch)(i) for i in range(self.n_jobs))
         #t1 = time.time() - t0
         #print(i_end-i_start, t1)
-
+        
+        #get avc for diagonal & gaussian splits
+        jj_start = int(self.xdim[m,4] + 
+                        self.xdim[m,3]*2)
+            # start after offset + n_bin*2 of last feature
+        jj_end = 0
+        if self.diagonal:
+            jj_end += n*(n-1)
+        if self.gaussian:
+            jj_end += n*(n-1)*(n-2)
+        X_ij = X[i_start:i_end,:2]
+        xdim_j = self.xdim[:2,:]
+        cnvs_j = self.cnvs[jj_start:jj_end,:]
+        cnvsn_j = self.cnvsn[j_start:j_end,:]
+        if self.diagonal:
+            sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
+        if self.gaussian:
+            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
+        
         return self.cnvs
 
     def split_branch(self, X, y, z, branch, parallel):
@@ -219,7 +241,7 @@ class Bonsai:
 
     def init_cnvs(self, X):
         self.xdim = get_xdim(X, self.n_hist_max)
-        self.cnvs = get_cnvs(self.xdim)
+        self.cnvs = get_cnvs(self.xdim, self.diagonal, self.gaussian)
         self.cnvsn = get_cnvsn(self.xdim)
 
     def set_cnvs(self, xdim, cnvs, cnvsn):

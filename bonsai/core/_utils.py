@@ -100,12 +100,17 @@ def get_cnvsn(xdim):
     cnvsn[:,0] = np.arange(m)
     return cnvsn
 
-def get_cnvs(xdim):
+def get_cnvs(xdim, diagonal, gaussian):
     m, _ = xdim.shape
     n = int(np.sum(xdim[:,3]))
     n_ = n * 2 # half for missing to the left, the other half to the right
+    if diagonal:
+        n_ = n_ + (n*(n-1))
+    if gaussian:
+        n_ = n_ + (n*(n-1)*(n-2))
     cnvs = np.zeros((n_, 10), dtype=np.float, order="C")
-    cnvs[:,0] = np.arange(n_) 
+    cnvs[:,0] = np.arange(n_)
+    last_i=0
     for j in range(m):
         x_min = xdim[j, 1]
         x_delta = xdim[j, 2]
@@ -119,7 +124,17 @@ def get_cnvs(xdim):
             cnvs[i, 2] = split_val
             cnvs[(n_bin + i), 1] = j
             cnvs[(n_bin + i), 2] = split_val
-            
+            last_i = n_bin+offset+k
+    if diagonal:
+        for i2 in range(n*(n-1)):
+            cnvs[(last_i+i2), 1] = [0, 1]
+            cnvs[(last_i+i2), 2] = [0.0, 0.0]
+        last_i += (n*(n-1))
+    if gaussian:
+        for i3 in range(n*(n-1)*(n-2)):
+            cnvs[(last_i+i3), 1] = [0, 1]
+            cnvs[(last_i+i2), 2] = [0.0, 0.0, 0.0]
+        
     return cnvs
 
 def reconstruct_tree(leaves):
