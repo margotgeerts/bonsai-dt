@@ -108,10 +108,13 @@ class Bonsai:
             branch["is_leaf"] = True
             return [branch]
 
-        svar = ss["selected"][1]
-        sval = ss["selected"][2]
+        svar = np.array(ss["selected"][1], np.int32)
+        sval = np.array(ss["selected"][2], np.float64)
         missing = ss["selected"][9]
 
+        if (svar.shape == 0) | (sval.shape ==0):
+            print(svar, sval)
+        
         i_split = reorder(X, y, z, i_start, i_end, 
                             svar, sval, missing)
 

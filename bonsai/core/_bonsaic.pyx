@@ -29,7 +29,7 @@ cdef size_t _reorder(
         np.ndarray[DTYPE_t, ndim=1] z, 
         size_t i_start, 
         size_t i_end, 
-        np.ndarray[size_t, ndim=1] j_split, 
+        np.ndarray[np.int32_t, ndim=1] j_split, 
         np.ndarray[DTYPE_t, ndim=1] split_value, 
         size_t missing):
     """

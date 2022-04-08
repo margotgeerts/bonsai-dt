@@ -1672,7 +1672,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *, PyArrayObje
 static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject *, PyArrayObject *, PyArrayObject *, PyArrayObject *); /*proto*/
 static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject *, PyArrayObject *, PyArrayObject *, PyArrayObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t), { 0 }, 0, 'R', 0, 0 };
-static __Pyx_TypeInfo __Pyx_TypeInfo_size_t = { "size_t", NULL, sizeof(size_t), { 0 }, 0, IS_UNSIGNED(size_t) ? 'U' : 'I', IS_UNSIGNED(size_t), 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t = { "int32_t", NULL, sizeof(__pyx_t_5numpy_int32_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int32_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int32_t), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int_t = { "int_t", NULL, sizeof(__pyx_t_5numpy_int_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int_t), 0 };
 #define __Pyx_MODULE_NAME "bonsai.core._bonsaic"
 extern int __pyx_module_is_main_bonsai__core___bonsaic;
@@ -2083,9 +2083,11 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
   Py_ssize_t __pyx_t_5;
   __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_t_6;
   __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_t_7;
-  size_t __pyx_t_8;
-  size_t __pyx_t_9;
+  Py_ssize_t __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
   size_t __pyx_t_10;
+  size_t __pyx_t_11;
+  size_t __pyx_t_12;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2127,7 +2129,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_j_split.rcbuffer->pybuffer, (PyObject*)__pyx_v_j_split, &__Pyx_TypeInfo_size_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_j_split.rcbuffer->pybuffer, (PyObject*)__pyx_v_j_split, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
   }
   __pyx_pybuffernd_j_split.diminfo[0].strides = __pyx_pybuffernd_j_split.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_j_split.diminfo[0].shape = __pyx_pybuffernd_j_split.rcbuffer->pybuffer.shape[0];
   {
@@ -2255,7 +2257,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             __pyx_t_2 = 0;
             if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_j_split.diminfo[0].shape;
             __pyx_t_3 = __pyx_v_i_head;
-            __pyx_t_4 = ((size_t)(*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides)));
+            __pyx_t_4 = ((size_t)(*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides)));
             __pyx_t_1 = (isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
             if (__pyx_t_1) {
 
@@ -2308,7 +2310,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               __pyx_t_2 = 0;
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_j_split.diminfo[0].shape;
               __pyx_t_4 = __pyx_v_i_head;
-              __pyx_t_3 = ((size_t)(*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides)));
+              __pyx_t_3 = ((size_t)(*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides)));
               __pyx_t_5 = 0;
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_split_value.diminfo[0].shape;
               __pyx_t_1 = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_3, __pyx_pybuffernd_X.diminfo[1].strides)) >= ((__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t)(*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_split_value.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_split_value.diminfo[0].strides)))) != 0);
@@ -2548,12 +2550,14 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 __pyx_t_5 = 0;
                 if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_j_split.diminfo[0].shape;
                 __pyx_t_3 = __pyx_v_i_head;
-                __pyx_t_4 = (*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_j_split.diminfo[0].strides));
-                __pyx_t_2 = 1;
-                if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_j_split.diminfo[0].shape;
-                __pyx_t_8 = __pyx_v_i_head;
-                __pyx_t_9 = (*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides));
-                __pyx_v_dist_1 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_y), 0)));
+                __pyx_t_2 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_j_split.diminfo[0].strides));
+                if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
+                __pyx_t_8 = 1;
+                if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_pybuffernd_j_split.diminfo[0].shape;
+                __pyx_t_4 = __pyx_v_i_head;
+                __pyx_t_9 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_j_split.diminfo[0].strides));
+                if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_X.diminfo[1].shape;
+                __pyx_v_dist_1 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_y), 0)));
 
                 /* "bonsai/core/_bonsaic.pyx":85
  *                         dist = split_value[2]
@@ -2562,15 +2566,17 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  *                         if (dist_1 + dist_2) >= dist:
  *                             do_swap = 1
  */
-                __pyx_t_2 = 0;
-                if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_j_split.diminfo[0].shape;
-                __pyx_t_9 = __pyx_v_i_head;
-                __pyx_t_8 = (*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_j_split.diminfo[0].strides));
+                __pyx_t_8 = 0;
+                if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_pybuffernd_j_split.diminfo[0].shape;
+                __pyx_t_4 = __pyx_v_i_head;
+                __pyx_t_9 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_j_split.diminfo[0].strides));
+                if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_t_5 = 1;
                 if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_j_split.diminfo[0].shape;
-                __pyx_t_4 = __pyx_v_i_head;
-                __pyx_t_3 = (*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_j_split.diminfo[0].strides));
-                __pyx_v_dist_2 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_3, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_y), 0)));
+                __pyx_t_3 = __pyx_v_i_head;
+                __pyx_t_2 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_j_split.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_j_split.diminfo[0].strides));
+                if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
+                __pyx_v_dist_2 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_y), 0)));
 
                 /* "bonsai/core/_bonsaic.pyx":86
  *                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
@@ -2625,8 +2631,8 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
             __pyx_t_3 = __pyx_v_m;
             __pyx_t_4 = __pyx_t_3;
-            for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_4; __pyx_t_8+=1) {
-              __pyx_v_j = __pyx_t_8;
+            for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_4; __pyx_t_10+=1) {
+              __pyx_v_j = __pyx_t_10;
 
               /* "bonsai/core/_bonsaic.pyx":93
  *                 # swap X rows
@@ -2635,18 +2641,18 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  *                 # swap y, z values
  *                 y[i_head], y[i_tail] = y[i_tail], y[i_head]
  */
-              __pyx_t_9 = __pyx_v_i_tail;
-              __pyx_t_10 = __pyx_v_j;
-              __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_X.diminfo[1].strides));
-              __pyx_t_10 = __pyx_v_i_head;
-              __pyx_t_9 = __pyx_v_j;
-              __pyx_t_6 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides));
-              __pyx_t_9 = __pyx_v_i_head;
-              __pyx_t_10 = __pyx_v_j;
-              *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_X.diminfo[1].strides) = __pyx_t_7;
-              __pyx_t_10 = __pyx_v_i_tail;
-              __pyx_t_9 = __pyx_v_j;
-              *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides) = __pyx_t_6;
+              __pyx_t_11 = __pyx_v_i_tail;
+              __pyx_t_12 = __pyx_v_j;
+              __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_X.diminfo[1].strides));
+              __pyx_t_12 = __pyx_v_i_head;
+              __pyx_t_11 = __pyx_v_j;
+              __pyx_t_6 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_X.diminfo[1].strides));
+              __pyx_t_11 = __pyx_v_i_head;
+              __pyx_t_12 = __pyx_v_j;
+              *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_X.diminfo[1].strides) = __pyx_t_7;
+              __pyx_t_12 = __pyx_v_i_tail;
+              __pyx_t_11 = __pyx_v_j;
+              *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_X.diminfo[1].strides) = __pyx_t_6;
             }
 
             /* "bonsai/core/_bonsaic.pyx":95
