@@ -208,6 +208,5 @@ def reconstruct_tree(leaves):
     for t, node in tree_raw.items():
         tree_ind[t,:] = np.array(node[:7], dtype=np.int)
         tree_val[t,:] = np.array(node[7:], dtype=np.float)
-
     return tree_ind, tree_val
 

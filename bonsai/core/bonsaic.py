@@ -82,7 +82,7 @@ class Bonsai:
             jj_start = int(self.xdim[j_start,4]*2)
             jj_end = int(self.xdim[j_end-1,4]*2 + 
                         self.xdim[j_end-1,3]*2)
-            print(jj_end)
+            #print(jj_end)
             X_ij = X[i_start:i_end,j_start:j_end]
             xdim_j = self.xdim[j_start:j_end,:]
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
@@ -95,11 +95,11 @@ class Bonsai:
         #t1 = time.time() - t0
         #print(i_end-i_start, t1)
         
-        print(self.cnvs[0:3,:,:])
+        #print(self.cnvs[0:3,:,:])
         #get avc for diagonal & gaussian splits
         jj_start = int(self.xdim[m-1,4]*2 + 
                         self.xdim[m-1,3]*2)
-        print(jj_start)
+        #print(jj_start)
             # start after offset + n_bin*2 of last feature
         jj_end = jj_start
         X_ij = X[i_start:i_end,:2]
@@ -108,17 +108,17 @@ class Bonsai:
             jj_end += n*(n-1)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
-            print(jj_end)
-            print(self.cnvs[(jj_start-3):(jj_start+4),:,:])
-            print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
+            #print(jj_end)
+            #print(self.cnvs[(jj_start-3):(jj_start+4),:,:])
+            #print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
         if self.gaussian:
             jj_start = jj_end
             jj_end += n*(n-1)*(n-2)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
-            print(jj_end)
-            print(self.cnvs[jj_start:(jj_start+4),:,:])
-            print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
+            #print(jj_end)
+            #print(self.cnvs[jj_start:(jj_start+4),:,:])
+            #print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
             
         
         return self.cnvs
@@ -253,6 +253,8 @@ class Bonsai:
         X = X.astype(np.float)
         n, m = X.shape
         y = np.zeros(n, dtype=np.float)
+        print('predict') 
+        print(self.tree_ind, self.tree_val)
         out = apply_tree(self.tree_ind, self.tree_val, X, y, output_type)
         return out 
 
