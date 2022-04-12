@@ -180,7 +180,7 @@ def reconstruct_tree(leaves):
         t = 0 # node index
         for depth, eq in enumerate(eqs):
             child_index = int(">="==eq["op"])
-            if isinstance(eq["svar"], list):
+            if eq["sval"][1]!=-1:
                 svar = [int(eq["svar"][0]), int(eq["svar"][1])]
                 if eq["sval"][2] == -1:
                     sval = [float(eq["sval"][0]), float(eq["sval"][1]), -1]
