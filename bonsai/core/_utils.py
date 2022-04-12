@@ -108,8 +108,8 @@ def get_cnvs(xdim, diagonal, gaussian):
         n_ = n_ + (n*(n-1))
     if gaussian:
         n_ = n_ + (n*(n-1)*(n-2))
-    cnvs = np.zeros((n_, 10), dtype=np.float, order="C")
-    cnvs[:,0] = np.arange(n_)
+    cnvs = np.zeros((n_, 12, 3), dtype=np.float, order="C")
+    cnvs[:,0,0] = np.arange(n_)
     last_i=0
     for j in range(m):
         x_min = xdim[j, 1]
@@ -120,21 +120,31 @@ def get_cnvs(xdim, diagonal, gaussian):
         for k in range(n_bin):
             i = offset + k
             split_val += x_delta 
-            cnvs[i, 1] = j
-            cnvs[i, 2] = split_val
-            cnvs[(n_bin + i), 1] = j
-            cnvs[(n_bin + i), 2] = split_val
+            cnvs[i, 1, 0] = j
+            cnvs[i, 2, 0] = split_val
+            cnvs[i, 2, 1] = -1
+            cnvs[i, 2, 2] = -1
+            cnvs[(n_bin + i), 1, 0] = j
+            cnvs[(n_bin + i), 2, 0] = split_val
+            cnvs[(n_bin + i), 2, 1] = -1
+            cnvs[(n_bin + i), 2, 2] = -1
             last_i = n_bin+offset+k
     if diagonal:
         for i2 in range(n*(n-1)):
-            cnvs[(last_i+i2), 1] = [0, 1]
-            cnvs[(last_i+i2), 2] = [0.0, 0.0]
+            cnvs[(last_i+i2), 1, 0] = 0
+            cnvs[(last_i+i2), 1, 1] = 1
+            cnvs[(last_i+i2), 2, 0] = 0.0
+            cnvs[(last_i+i2), 2, 1] = 0.0
+            cnvs[(last_i+i2), 2, 1] = -1
         last_i += (n*(n-1))
     if gaussian:
         for i3 in range(n*(n-1)*(n-2)):
-            cnvs[(last_i+i3), 1] = [0, 1]
-            cnvs[(last_i+i2), 2] = [0.0, 0.0, 0.0]
-        
+            cnvs[(last_i+i3), 1, 0] = 0
+            cnvs[(last_i+i3), 1, 1] = 1
+            cnvs[(last_i+i3), 2, 0] = 0.0
+            cnvs[(last_i+i3), 2, 1] = 0.0
+            cnvs[(last_i+i3), 2, 2] = 0.0
+            
     return cnvs
 
 def reconstruct_tree(leaves):

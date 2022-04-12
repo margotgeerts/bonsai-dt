@@ -34,7 +34,7 @@ cdef size_t _reorder(
         size_t i_end, 
         np.ndarray[np.int32_t, ndim=1] j_split, 
         np.ndarray[DTYPE_t, ndim=1] split_value, 
-        size_t missing):
+        np.ndarray[size_t, ndim=1] missing):
     """
     - X: 2-d numpy array (n x m)
     - y: 1-d numpy array (n)
@@ -62,19 +62,19 @@ cdef size_t _reorder(
                 break
 
             do_swap = 0 
-            if split_value.shape[0] == 1:
+            if split_value[1] == -1:
                 if isnan(X[i_head,<size_t>j_split[0]]):
-                    if missing == 1: # send the missing to the right node
+                    if missing[0] == 1: # send the missing to the right node
                         do_swap = 1
                 else:
                     if X[i_head,<size_t>j_split[0]] >= <DTYPE_t>split_value[0]:
                         do_swap = 1
             else:
                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):
-                    if missing == 1: # send the missing to the right node
+                    if missing[0] == 1: # send the missing to the right node
                         do_swap = 1
                 else:
-                    if split_value.shape[0] == 2:
+                    if split_value[2] == -1:
                         intercept, slope = split_value[0], split_value[1]
                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:
                             do_swap = 1
@@ -110,7 +110,7 @@ def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=1] y not None, 
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs not None, 
+        np.ndarray[DTYPE_t, ndim=3] cnvs not None, 
         np.ndarray[DTYPE_t, ndim=2] cnvsn not None):
 
     # canvas --> (sketch) --> avc 
@@ -122,7 +122,7 @@ def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=1] y not None, 
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs not None):
+        np.ndarray[DTYPE_t, ndim=3] cnvs not None):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
@@ -133,7 +133,7 @@ def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=1] y not None, 
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs not None):
+        np.ndarray[DTYPE_t, ndim=3] cnvs not None):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
@@ -145,7 +145,7 @@ cdef void _sketch(
         np.ndarray[DTYPE_t, ndim=1] y, 
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs, 
+        np.ndarray[DTYPE_t, ndim=3] cnvs, 
         np.ndarray[DTYPE_t, ndim=2] cnvsn):
 
     cdef size_t i, j, k, k_raw, k_tld
@@ -185,9 +185,9 @@ cdef void _sketch(
                     elif k_prox > xdim[j, 3] - 1:
                         k_prox = xdim[j, 3] - 1
                     k = <size_t> (k_prox + (xdim[j, 4] - xdim0)*2)
-                    cnvs[k, 3] += 1
-                    cnvs[k, 4] += y_i
-                    cnvs[k, 5] += z_i
+                    cnvs[k, 3, 0] += 1
+                    cnvs[k, 4, 0] += y_i
+                    cnvs[k, 5, 0] += z_i
 
         # accumulate stats
         for j in range(m):
@@ -195,19 +195,19 @@ cdef void _sketch(
             
             for k_raw in range(1, n_bin): 
                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
-                cnvs[k, 3] += cnvs[k-1, 3] 
-                cnvs[k, 4] += cnvs[k-1, 4] 
-                cnvs[k, 5] += cnvs[k-1, 5] 
+                cnvs[k, 3, 0] += cnvs[k-1, 3, 0] 
+                cnvs[k, 4, 0] += cnvs[k-1, 4, 0] 
+                cnvs[k, 5, 0] += cnvs[k-1, 5, 0] 
                 # fill the right node at the same time
-                cnvs[k, 6] = n - cnvs[k, 3] - cnvsn[j, 1]
-                cnvs[k, 7] = y_tot - cnvs[k, 4] - cnvsn[j, 2]
-                cnvs[k, 8] = z_tot - cnvs[k, 5] - cnvsn[j, 3]
+                cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
+                cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]
+                cnvs[k, 8, 0] = z_tot - cnvs[k, 5, 0] - cnvsn[j, 3]
 
             # fill the right node
             k = <size_t> ((xdim[j, 4] - xdim0)*2)
-            cnvs[k, 6] = n - cnvs[k, 3] - cnvsn[j, 1]
-            cnvs[k, 7] = y_tot - cnvs[k, 4] - cnvsn[j, 2]
-            cnvs[k, 8] = z_tot - cnvs[k, 5] - cnvsn[j, 3]
+            cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
+            cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]
+            cnvs[k, 8, 0] = z_tot - cnvs[k, 5, 0] - cnvsn[j, 3]
 
         # missing values
         for j in range(m):
@@ -223,20 +223,20 @@ cdef void _sketch(
             for k_raw in range(n_bin):
                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
                 k_tld = k + n_bin
-                cnvs[k_tld, 3] = cnvs[k, 3]
-                cnvs[k_tld, 4] = cnvs[k, 4]
-                cnvs[k_tld, 5] = cnvs[k, 5]
-                cnvs[k_tld, 6] = cnvs[k, 6]
-                cnvs[k_tld, 7] = cnvs[k, 7]
-                cnvs[k_tld, 8] = cnvs[k, 8]
-                cnvs[k_tld, 9] = 1
+                cnvs[k_tld, 3, 0] = cnvs[k, 3, 0]
+                cnvs[k_tld, 4, 0] = cnvs[k, 4, 0]
+                cnvs[k_tld, 5, 0] = cnvs[k, 5, 0]
+                cnvs[k_tld, 6, 0] = cnvs[k, 6, 0]
+                cnvs[k_tld, 7, 0] = cnvs[k, 7, 0]
+                cnvs[k_tld, 8, 0] = cnvs[k, 8, 0]
+                cnvs[k_tld, 9, 0] = 1
 
-                cnvs[k, 3] += n_na
-                cnvs[k, 4] += y_na
-                cnvs[k, 5] += z_na
-                cnvs[k_tld, 6] += n_na
-                cnvs[k_tld, 7] += y_na
-                cnvs[k_tld, 8] += z_na
+                cnvs[k, 3, 0] += n_na
+                cnvs[k, 4, 0] += y_na
+                cnvs[k, 5, 0] += z_na
+                cnvs[k_tld, 6, 0] += n_na
+                cnvs[k_tld, 7, 0] += y_na
+                cnvs[k_tld, 8, 0] += z_na
 
     # done _sketch
                     
@@ -245,14 +245,14 @@ cdef void _sketch_diagonal(
         np.ndarray[DTYPE_t, ndim=1] y, 
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs):
+        np.ndarray[DTYPE_t, ndim=3] cnvs):
 
     cdef size_t i, j, k
     cdef size_t n = X.shape[0]
     cdef size_t n_cnvs = <size_t> cnvs.shape[0]
     cdef double y_i, z_i
     cdef double x_i_0, x_i_1, x_j_0, x_j_1
-    cdef double m1, m2, x2, y2, b
+    cdef DTYPE_t m1, m2, x2, y2, b
     cdef size_t idx = 0
     
     
@@ -274,7 +274,9 @@ cdef void _sketch_diagonal(
                 
                 idx += 1
                 
-                cnvs[idx, 2] = [b, m2]
+                cnvs[idx, 2, 0] = b
+                cnvs[idx, 2, 1] = m2
+                cnvs[idx, 2, 2] = -1
         
         
         for k in range(1, n_cnvs+1):    
@@ -283,18 +285,19 @@ cdef void _sketch_diagonal(
                 y_i = y[i]
                 z_i = z[i]
                 
-                b, m2 = cnvs[k, 2]
+                b = cnvs[k, 2, 0]
+                m2 = cnvs[k, 2, 1]
                 
                 if (X[i,0] * m2) + b < X[i,1]:
                     #add to left
-                    cnvs[k, 3] += 1
-                    cnvs[k, 4] += y_i
-                    cnvs[k, 5] += z_i
+                    cnvs[k, 3, 0] += 1
+                    cnvs[k, 4, 0] += y_i
+                    cnvs[k, 5, 0] += z_i
                 else:
                     #add to right
-                    cnvs[k, 6] += 1
-                    cnvs[k, 7] += y_i
-                    cnvs[k, 8] += z_i
+                    cnvs[k, 6, 0] += 1
+                    cnvs[k, 7, 0] += y_i
+                    cnvs[k, 8, 0] += z_i
                 
 
             
@@ -308,7 +311,7 @@ cdef void _sketch_gaussian(
         np.ndarray[DTYPE_t, ndim=1] y, 
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
-        np.ndarray[DTYPE_t, ndim=2] cnvs):
+        np.ndarray[DTYPE_t, ndim=3] cnvs):
 
     cdef size_t i, j, k, l
     cdef size_t n = X.shape[0]
@@ -344,7 +347,9 @@ cdef void _sketch_gaussian(
                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
                     if distance < distanceij:
                         continue
-                    cnvs[idx, 2] = [i, j, distance]
+                    cnvs[idx, 2, 0] = i
+                    cnvs[idx, 2, 1] = j
+                    cnvs[idx, 2, 2] = distance
         
         
         for k in range(1, n_cnvs+1):    
@@ -353,7 +358,9 @@ cdef void _sketch_gaussian(
                 y_i = y[i]
                 z_i = z[i]
                 
-                id1, id2, dist = cnvs[k, 2]
+                id1 = <size_t>cnvs[k, 2, 0]
+                id2 = <size_t>cnvs[k, 2, 1]
+                dist = cnvs[k, 2, 2]
                 
                 focal1_x = X[id1,0]
                 focal1_y = X[id1,1]
@@ -362,14 +369,14 @@ cdef void _sketch_gaussian(
                 dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))
                 dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))
                 if (dist_1 + dist_2) < dist:
-                    cnvs[k, 3] += 1
-                    cnvs[k, 4] += y_i
-                    cnvs[k, 5] += z_i
+                    cnvs[k, 3, 0] += 1
+                    cnvs[k, 4, 0] += y_i
+                    cnvs[k, 5, 0] += z_i
                 else:
                     #add to right
-                    cnvs[k, 6] += 1
-                    cnvs[k, 7] += y_i
-                    cnvs[k, 8] += z_i
+                    cnvs[k, 6, 0] += 1
+                    cnvs[k, 7, 0] += y_i
+                    cnvs[k, 8, 0] += z_i
     
     
     

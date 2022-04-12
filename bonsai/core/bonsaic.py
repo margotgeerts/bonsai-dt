@@ -11,6 +11,8 @@ User need to provide two additional functions to complete the Bonsai class:
 from bonsai.core._bonsaic import (
     reorder, 
     sketch,
+    sketch_diagonal, 
+    sketch_gaussian,
     apply_tree)
 from bonsai.core._utils import (
     reconstruct_tree,
@@ -64,7 +66,7 @@ class Bonsai:
         n, m = X.shape
         y_i = y[i_start:i_end]
         z_i = z[i_start:i_end]
-        self.cnvs[:,3:] = 0  # initialize canvas
+        self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
 
         # TODO: smart guidance on "n_jobs"
@@ -79,7 +81,7 @@ class Bonsai:
                         self.xdim[j_end-1,3]*2)
             X_ij = X[i_start:i_end,j_start:j_end]
             xdim_j = self.xdim[j_start:j_end,:]
-            cnvs_j = self.cnvs[jj_start:jj_end,:]
+            cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             cnvsn_j = self.cnvsn[j_start:j_end,:]
             sketch(X_ij, y_i, z_i, xdim_j, cnvs_j, cnvsn_j)
             return 0
@@ -90,8 +92,8 @@ class Bonsai:
         #print(i_end-i_start, t1)
         
         #get avc for diagonal & gaussian splits
-        jj_start = int(self.xdim[m,4] + 
-                        self.xdim[m,3]*2)
+        jj_start = int(self.xdim[m-1,4] + 
+                        self.xdim[m-1,3]*2)
             # start after offset + n_bin*2 of last feature
         jj_end = 0
         if self.diagonal:
@@ -100,8 +102,7 @@ class Bonsai:
             jj_end += n*(n-1)*(n-2)
         X_ij = X[i_start:i_end,:2]
         xdim_j = self.xdim[:2,:]
-        cnvs_j = self.cnvs[jj_start:jj_end,:]
-        cnvsn_j = self.cnvsn[j_start:j_end,:]
+        cnvs_j = self.cnvs[jj_start:jj_end,:,:]
         if self.diagonal:
             sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
         if self.gaussian:
@@ -130,10 +131,12 @@ class Bonsai:
             branch["is_leaf"] = True
             return [branch]
 
-        svar = np.array(ss["selected"][1], np.int32)
-        sval = np.array(ss["selected"][2], np.float64)
+        svar = ss["selected"][1]
+        sval = ss["selected"][2]
         missing = ss["selected"][9]
-
+        
+        print(svar)
+        print(sval)
         if (svar.shape == 0) | (sval.shape ==0):
             print(svar, sval)
         
@@ -248,7 +251,7 @@ class Bonsai:
         self.xdim = xdim
         self.cnvs = cnvs
         self.cnvsn = cnvsn
-        self.cnvs[:,3:] = 0  # initialize canvas
+        self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
  
     def get_cnvs(self):
