@@ -61,13 +61,19 @@ def get_child_branch(ss, parent_branch, i_split, side):
 
     return child_branch
 
-def get_xdim(X, n_hist_max):
+def get_xdim(X, n_hist_max, rm_outliers):
 
     m = X.shape[1]
 
+    if rm_outliers:
+        q1=0.5
+        q2=99.5
+    else:
+        q1 = 0.0
+        q2 = 100.0
     # NOTE: x_min, x_max after removing outliers (top 1%, bottom 1%)
-    x_min = np.nanpercentile(X, q=0.5, axis=0)
-    x_max = np.nanpercentile(X, q=99.5, axis=0)
+    x_min = np.nanpercentile(X, q=q1, axis=0)
+    x_max = np.nanpercentile(X, q=q2, axis=0)
     #x_min = np.nanmin(np.ma.masked_invalid(X), axis=0)
     #x_max = np.nanmax(np.ma.masked_invalid(X), axis=0)
 
@@ -87,7 +93,7 @@ def get_xdim(X, n_hist_max):
         xdim[j, 0] = j
         xdim[j, 1] = x_min[j]
         xdim[j, 2] = (x_max[j] - x_min[j])/n_bin # delta
-        xdim[j, 3] = max(n_bin - 1, 1)
+        xdim[j, 3] = max(n_bin, 1)
         if j > 0:
             xdim[j, 4] = xdim[j-1, 4] + xdim[j-1, 3] 
 
@@ -103,13 +109,15 @@ def get_cnvsn(xdim):
 def get_cnvs(xdim, diagonal, gaussian):
     m, _ = xdim.shape
     n = int(np.sum(xdim[:,3]))
+    n_samples = int(max(xdim[:,3]))
     n_ = n * 2 # half for missing to the left, the other half to the right
     if diagonal:
-        n_ = n_ + (n*(n-1))
+        n_ = n_ + (n_samples*(n_samples-1))
     if gaussian:
-        n_ = n_ + (n*(n-1)*(n-2))
-    cnvs = np.zeros((n_, 12, 3), dtype=np.float, order="C")
+        n_ = n_ + (n_samples*(n_samples-1)*(n_samples-2))
+    cnvs = np.zeros((n_, 10, 3), dtype=np.float, order="C")
     cnvs[:,0,0] = np.arange(n_)
+    print("initialize canvas")
     last_i=0
     for j in range(m):
         x_min = xdim[j, 1]
@@ -122,29 +130,35 @@ def get_cnvs(xdim, diagonal, gaussian):
             split_val += x_delta 
             cnvs[i, 1, 0] = j
             cnvs[i, 2, 0] = split_val
+            cnvs[i, 1, 1] = -1
+            cnvs[i, 1, 2] = -1
             cnvs[i, 2, 1] = -1
             cnvs[i, 2, 2] = -1
             cnvs[(n_bin + i), 1, 0] = j
             cnvs[(n_bin + i), 2, 0] = split_val
+            cnvs[(n_bin + i), 1, 1] = -1
+            cnvs[(n_bin + i), 1, 2] = -1
             cnvs[(n_bin + i), 2, 1] = -1
             cnvs[(n_bin + i), 2, 2] = -1
-            last_i = n_bin+offset+k
+        last_i = (n_bin*2)+offset
+    print("orthogonal ends at: "+str(last_i))
     if diagonal:
-        for i2 in range(n*(n-1)):
+        for i2 in range(n_samples*(n_samples-1)):
             cnvs[(last_i+i2), 1, 0] = 0
             cnvs[(last_i+i2), 1, 1] = 1
             cnvs[(last_i+i2), 2, 0] = 0.0
             cnvs[(last_i+i2), 2, 1] = 0.0
             cnvs[(last_i+i2), 2, 1] = -1
-        last_i += (n*(n-1))
+        last_i += (n_samples*(n_samples-1))
+        print("diagonal ends at: "+str(last_i))
     if gaussian:
-        for i3 in range(n*(n-1)*(n-2)):
+        for i3 in range(n_samples*(n_samples-1)*(n_samples-2)):
             cnvs[(last_i+i3), 1, 0] = 0
             cnvs[(last_i+i3), 1, 1] = 1
             cnvs[(last_i+i3), 2, 0] = 0.0
             cnvs[(last_i+i3), 2, 1] = 0.0
             cnvs[(last_i+i3), 2, 2] = 0.0
-            
+        print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
     return cnvs
 
 def reconstruct_tree(leaves):

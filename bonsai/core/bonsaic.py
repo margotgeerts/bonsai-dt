@@ -38,7 +38,8 @@ class Bonsai:
                 z_type = "M2",
                 n_jobs = -1,
                 diagonal = True,
-                gaussian = True):
+                gaussian = True,
+                rm_outliers = True):
 
         self.find_split = find_split # user-defined
         self.is_leaf = is_leaf       # user-defined
@@ -66,9 +67,11 @@ class Bonsai:
         n, m = X.shape
         y_i = y[i_start:i_end]
         z_i = z[i_start:i_end]
-        self.cnvs[:,3:,:] = 0  # initialize canvas
+        #self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
-
+        
+        print("fill canvas")
+        
         # TODO: smart guidance on "n_jobs"
         k = int(np.ceil(m/self.n_jobs))
         def psketch(i):
@@ -91,6 +94,8 @@ class Bonsai:
         parallel(delayed(psketch)(i) for i in range(self.n_jobs))
         #t1 = time.time() - t0
         #print(i_end-i_start, t1)
+        
+        print(self.cnvs[0:3,:,:])
         #get avc for diagonal & gaussian splits
         jj_start = int(self.xdim[m-1,4]*2 + 
                         self.xdim[m-1,3]*2)
@@ -104,12 +109,16 @@ class Bonsai:
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
             print(jj_end)
+            print(self.cnvs[(jj_start-3):(jj_start+4),:,:])
+            print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
         if self.gaussian:
             jj_start = jj_end
             jj_end += n*(n-1)*(n-2)
-            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
+            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
             print(jj_end)
+            print(self.cnvs[jj_start:(jj_start+4),:,:])
+            print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
             
         
         return self.cnvs
@@ -125,9 +134,6 @@ class Bonsai:
         # Get AVC-GROUP
         avc = self.get_avc(X, y, z, i_start, i_end, parallel)
         print(avc.shape)
-        print(avc[387,:,:])
-        print(avc[388,:,:])
-        print(avc[389,:,:])
         if avc.shape[0] < 2:
             branch["is_leaf"] = True
             return [branch]
@@ -251,7 +257,7 @@ class Bonsai:
         return out 
 
     def init_cnvs(self, X):
-        self.xdim = get_xdim(X, self.n_hist_max)
+        self.xdim = get_xdim(X, self.n_hist_max, self.rm_outliers)
         self.cnvs = get_cnvs(self.xdim, self.diagonal, self.gaussian)
         self.cnvsn = get_cnvsn(self.xdim)
 
