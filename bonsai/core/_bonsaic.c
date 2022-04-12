@@ -1094,10 +1094,19 @@ typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
  * 
  * DTYPE = np.float64
  * ctypedef np.float64_t DTYPE_t             # <<<<<<<<<<<<<<
- * 
+ * ctypedef unsigned long ULong
  * 
  */
 typedef __pyx_t_5numpy_float64_t __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t;
+
+/* "bonsai/core/_bonsaic.pyx":17
+ * DTYPE = np.float64
+ * ctypedef np.float64_t DTYPE_t
+ * ctypedef unsigned long ULong             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+typedef unsigned long __pyx_t_6bonsai_4core_8_bonsaic_ULong;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1677,7 +1686,6 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
 static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject *, PyArrayObject *, PyArrayObject *, PyArrayObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t = { "int32_t", NULL, sizeof(__pyx_t_5numpy_int32_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int32_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int32_t), 0 };
-static __Pyx_TypeInfo __Pyx_TypeInfo_size_t = { "size_t", NULL, sizeof(size_t), { 0 }, 0, IS_UNSIGNED(size_t) ? 'U' : 'I', IS_UNSIGNED(size_t), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int_t = { "int_t", NULL, sizeof(__pyx_t_5numpy_int_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int_t), 0 };
 #define __Pyx_MODULE_NAME "bonsai.core._bonsaic"
 extern int __pyx_module_is_main_bonsai__core___bonsaic;
@@ -1786,7 +1794,7 @@ static PyObject *__pyx_codeobj__10;
 static PyObject *__pyx_codeobj__12;
 /* Late includes */
 
-/* "bonsai/core/_bonsaic.pyx":19
+/* "bonsai/core/_bonsaic.pyx":20
  * 
  * 
  * cpdef DTYPE_t square(DTYPE_t x) nogil:             # <<<<<<<<<<<<<<
@@ -1798,7 +1806,7 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_1square(PyObject *__pyx_self, 
 static __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_f_6bonsai_4core_8_bonsaic_square(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_r;
 
-  /* "bonsai/core/_bonsaic.pyx":20
+  /* "bonsai/core/_bonsaic.pyx":21
  * 
  * cpdef DTYPE_t square(DTYPE_t x) nogil:
  *     return x * x             # <<<<<<<<<<<<<<
@@ -1808,7 +1816,7 @@ static __pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t __pyx_f_6bonsai_4core_8_bonsaic_s
   __pyx_r = (__pyx_v_x * __pyx_v_x);
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":19
+  /* "bonsai/core/_bonsaic.pyx":20
  * 
  * 
  * cpdef DTYPE_t square(DTYPE_t x) nogil:             # <<<<<<<<<<<<<<
@@ -1832,7 +1840,7 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_1square(PyObject *__pyx_self, 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("square (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 19, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1856,7 +1864,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_square(CYTHON_UNUSED PyObject 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("square", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_6bonsai_4core_8_bonsaic_square(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_6bonsai_4core_8_bonsaic_square(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1873,7 +1881,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_square(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":22
+/* "bonsai/core/_bonsaic.pyx":23
  *     return x * x
  * 
  * cpdef double euclidean(double x10, double x11, double x20, double x21) nogil:             # <<<<<<<<<<<<<<
@@ -1885,7 +1893,7 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_3euclidean(PyObject *__pyx_sel
 static double __pyx_f_6bonsai_4core_8_bonsaic_euclidean(double __pyx_v_x10, double __pyx_v_x11, double __pyx_v_x20, double __pyx_v_x21, CYTHON_UNUSED int __pyx_skip_dispatch) {
   double __pyx_r;
 
-  /* "bonsai/core/_bonsaic.pyx":23
+  /* "bonsai/core/_bonsaic.pyx":24
  * 
  * cpdef double euclidean(double x10, double x11, double x20, double x21) nogil:
  *     return sqrt(square(x10 - x20) + square(x11 - x21))             # <<<<<<<<<<<<<<
@@ -1895,7 +1903,7 @@ static double __pyx_f_6bonsai_4core_8_bonsaic_euclidean(double __pyx_v_x10, doub
   __pyx_r = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square((__pyx_v_x10 - __pyx_v_x20), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square((__pyx_v_x11 - __pyx_v_x21), 0)));
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":22
+  /* "bonsai/core/_bonsaic.pyx":23
  *     return x * x
  * 
  * cpdef double euclidean(double x10, double x11, double x20, double x21) nogil:             # <<<<<<<<<<<<<<
@@ -1948,23 +1956,23 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_3euclidean(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x11)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 1); __PYX_ERR(0, 22, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 1); __PYX_ERR(0, 23, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x20)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 2); __PYX_ERR(0, 22, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 2); __PYX_ERR(0, 23, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x21)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 3); __PYX_ERR(0, 22, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, 3); __PYX_ERR(0, 23, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "euclidean") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "euclidean") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -1974,14 +1982,14 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_3euclidean(PyObject *__pyx_sel
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_x10 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L3_error)
-    __pyx_v_x11 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L3_error)
-    __pyx_v_x20 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x20 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L3_error)
-    __pyx_v_x21 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x21 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L3_error)
+    __pyx_v_x10 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+    __pyx_v_x11 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+    __pyx_v_x20 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x20 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+    __pyx_v_x21 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x21 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("euclidean", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.euclidean", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2003,7 +2011,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_2euclidean(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("euclidean", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_6bonsai_4core_8_bonsaic_euclidean(__pyx_v_x10, __pyx_v_x11, __pyx_v_x20, __pyx_v_x21, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_6bonsai_4core_8_bonsaic_euclidean(__pyx_v_x10, __pyx_v_x11, __pyx_v_x20, __pyx_v_x21, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2020,7 +2028,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_2euclidean(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":25
+/* "bonsai/core/_bonsaic.pyx":26
  *     return sqrt(square(x10 - x20) + square(x11 - x21))
  * 
  * def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):             # <<<<<<<<<<<<<<
@@ -2081,47 +2089,47 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_5reorder(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 1); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 1); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 2); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 2); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_i_start)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 3); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 3); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_i_end)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 4); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 4); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_j_split)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 5); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 5); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 6); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 6); __PYX_ERR(0, 26, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_missing)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 7); __PYX_ERR(0, 25, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, 7); __PYX_ERR(0, 26, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reorder") < 0)) __PYX_ERR(0, 25, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reorder") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 8) {
       goto __pyx_L5_argtuple_error;
@@ -2146,7 +2154,7 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_5reorder(PyObject *__pyx_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 25, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reorder", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.reorder", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2170,7 +2178,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_4reorder(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reorder", 0);
 
-  /* "bonsai/core/_bonsaic.pyx":26
+  /* "bonsai/core/_bonsaic.pyx":27
  * 
  * def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):
  *     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)             # <<<<<<<<<<<<<<
@@ -2178,21 +2186,21 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_4reorder(CYTHON_UNUSED PyObjec
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  if (!(likely(((__pyx_v_z) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_z, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyInt_As_size_t(__pyx_v_i_start); if (unlikely((__pyx_t_1 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_size_t(__pyx_v_i_end); if (unlikely((__pyx_t_2 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
-  if (!(likely(((__pyx_v_j_split) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_j_split, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  if (!(likely(((__pyx_v_split_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_split_value, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  if (!(likely(((__pyx_v_missing) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_missing, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_FromSize_t(__pyx_f_6bonsai_4core_8_bonsaic__reorder(((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y), ((PyArrayObject *)__pyx_v_z), __pyx_t_1, __pyx_t_2, ((PyArrayObject *)__pyx_v_j_split), ((PyArrayObject *)__pyx_v_split_value), ((PyArrayObject *)__pyx_v_missing))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (!(likely(((__pyx_v_z) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_z, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_size_t(__pyx_v_i_start); if (unlikely((__pyx_t_1 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_size_t(__pyx_v_i_end); if (unlikely((__pyx_t_2 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (!(likely(((__pyx_v_j_split) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_j_split, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (!(likely(((__pyx_v_split_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_split_value, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (!(likely(((__pyx_v_missing) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_missing, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_FromSize_t(__pyx_f_6bonsai_4core_8_bonsaic__reorder(((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y), ((PyArrayObject *)__pyx_v_z), __pyx_t_1, __pyx_t_2, ((PyArrayObject *)__pyx_v_j_split), ((PyArrayObject *)__pyx_v_split_value), ((PyArrayObject *)__pyx_v_missing))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":25
+  /* "bonsai/core/_bonsaic.pyx":26
  *     return sqrt(square(x10 - x20) + square(x11 - x21))
  * 
  * def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):             # <<<<<<<<<<<<<<
@@ -2211,7 +2219,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_4reorder(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":29
+/* "bonsai/core/_bonsaic.pyx":30
  * 
  * 
  * cdef size_t _reorder(             # <<<<<<<<<<<<<<
@@ -2290,36 +2298,36 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
   __pyx_pybuffernd_missing.rcbuffer = &__pyx_pybuffer_missing;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_j_split.rcbuffer->pybuffer, (PyObject*)__pyx_v_j_split, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_j_split.rcbuffer->pybuffer, (PyObject*)__pyx_v_j_split, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_j_split.diminfo[0].strides = __pyx_pybuffernd_j_split.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_j_split.diminfo[0].shape = __pyx_pybuffernd_j_split.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_split_value.rcbuffer->pybuffer, (PyObject*)__pyx_v_split_value, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_split_value.rcbuffer->pybuffer, (PyObject*)__pyx_v_split_value, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_split_value.diminfo[0].strides = __pyx_pybuffernd_split_value.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_split_value.diminfo[0].shape = __pyx_pybuffernd_split_value.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_missing.rcbuffer->pybuffer, (PyObject*)__pyx_v_missing, &__Pyx_TypeInfo_size_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_missing.rcbuffer->pybuffer, (PyObject*)__pyx_v_missing, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
   }
   __pyx_pybuffernd_missing.diminfo[0].strides = __pyx_pybuffernd_missing.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_missing.diminfo[0].shape = __pyx_pybuffernd_missing.rcbuffer->pybuffer.shape[0];
 
-  /* "bonsai/core/_bonsaic.pyx":48
+  /* "bonsai/core/_bonsaic.pyx":49
  *     """
  *     cdef size_t j
  *     cdef size_t m = X.shape[1]             # <<<<<<<<<<<<<<
@@ -2328,7 +2336,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
   __pyx_v_m = (__pyx_v_X->dimensions[1]);
 
-  /* "bonsai/core/_bonsaic.pyx":49
+  /* "bonsai/core/_bonsaic.pyx":50
  *     cdef size_t j
  *     cdef size_t m = X.shape[1]
  *     cdef size_t i_head = i_start             # <<<<<<<<<<<<<<
@@ -2337,7 +2345,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
   __pyx_v_i_head = __pyx_v_i_start;
 
-  /* "bonsai/core/_bonsaic.pyx":50
+  /* "bonsai/core/_bonsaic.pyx":51
  *     cdef size_t m = X.shape[1]
  *     cdef size_t i_head = i_start
  *     cdef size_t i_tail = i_end - 1             # <<<<<<<<<<<<<<
@@ -2346,7 +2354,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
   __pyx_v_i_tail = (__pyx_v_i_end - 1);
 
-  /* "bonsai/core/_bonsaic.pyx":51
+  /* "bonsai/core/_bonsaic.pyx":52
  *     cdef size_t i_head = i_start
  *     cdef size_t i_tail = i_end - 1
  *     cdef size_t do_swap = 0             # <<<<<<<<<<<<<<
@@ -2355,7 +2363,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
   __pyx_v_do_swap = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":55
+  /* "bonsai/core/_bonsaic.pyx":56
  *     cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -2370,7 +2378,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":56
+        /* "bonsai/core/_bonsaic.pyx":57
  * 
  *     with nogil:
  *         while i_head <= i_tail:             # <<<<<<<<<<<<<<
@@ -2381,7 +2389,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
           __pyx_t_1 = ((__pyx_v_i_head <= __pyx_v_i_tail) != 0);
           if (!__pyx_t_1) break;
 
-          /* "bonsai/core/_bonsaic.pyx":58
+          /* "bonsai/core/_bonsaic.pyx":59
  *         while i_head <= i_tail:
  * 
  *             if i_tail == 0:             # <<<<<<<<<<<<<<
@@ -2391,7 +2399,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
           __pyx_t_1 = ((__pyx_v_i_tail == 0) != 0);
           if (__pyx_t_1) {
 
-            /* "bonsai/core/_bonsaic.pyx":62
+            /* "bonsai/core/_bonsaic.pyx":63
  *                 # otherwise, segmentation fault,
  *                 # as size_t has no sign. 0 - 1 => huge number
  *                 break             # <<<<<<<<<<<<<<
@@ -2400,7 +2408,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
             goto __pyx_L7_break;
 
-            /* "bonsai/core/_bonsaic.pyx":58
+            /* "bonsai/core/_bonsaic.pyx":59
  *         while i_head <= i_tail:
  * 
  *             if i_tail == 0:             # <<<<<<<<<<<<<<
@@ -2409,7 +2417,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
           }
 
-          /* "bonsai/core/_bonsaic.pyx":64
+          /* "bonsai/core/_bonsaic.pyx":65
  *                 break
  * 
  *             do_swap = 0             # <<<<<<<<<<<<<<
@@ -2418,7 +2426,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
           __pyx_v_do_swap = 0;
 
-          /* "bonsai/core/_bonsaic.pyx":65
+          /* "bonsai/core/_bonsaic.pyx":66
  * 
  *             do_swap = 0
  *             if split_value[1] == -1:             # <<<<<<<<<<<<<<
@@ -2430,7 +2438,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
           __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_split_value.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_split_value.diminfo[0].strides)) == -1.0) != 0);
           if (__pyx_t_1) {
 
-            /* "bonsai/core/_bonsaic.pyx":66
+            /* "bonsai/core/_bonsaic.pyx":67
  *             do_swap = 0
  *             if split_value[1] == -1:
  *                 if isnan(X[i_head,<size_t>j_split[0]]):             # <<<<<<<<<<<<<<
@@ -2444,7 +2452,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             __pyx_t_1 = (isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
             if (__pyx_t_1) {
 
-              /* "bonsai/core/_bonsaic.pyx":67
+              /* "bonsai/core/_bonsaic.pyx":68
  *             if split_value[1] == -1:
  *                 if isnan(X[i_head,<size_t>j_split[0]]):
  *                     if missing[0] == 1: # send the missing to the right node             # <<<<<<<<<<<<<<
@@ -2453,10 +2461,10 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
               __pyx_t_2 = 0;
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_missing.diminfo[0].shape;
-              __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_missing.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_missing.diminfo[0].strides)) == 1) != 0);
+              __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_missing.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_missing.diminfo[0].strides)) == 1) != 0);
               if (__pyx_t_1) {
 
-                /* "bonsai/core/_bonsaic.pyx":68
+                /* "bonsai/core/_bonsaic.pyx":69
  *                 if isnan(X[i_head,<size_t>j_split[0]]):
  *                     if missing[0] == 1: # send the missing to the right node
  *                         do_swap = 1             # <<<<<<<<<<<<<<
@@ -2465,7 +2473,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                 __pyx_v_do_swap = 1;
 
-                /* "bonsai/core/_bonsaic.pyx":67
+                /* "bonsai/core/_bonsaic.pyx":68
  *             if split_value[1] == -1:
  *                 if isnan(X[i_head,<size_t>j_split[0]]):
  *                     if missing[0] == 1: # send the missing to the right node             # <<<<<<<<<<<<<<
@@ -2474,7 +2482,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
               }
 
-              /* "bonsai/core/_bonsaic.pyx":66
+              /* "bonsai/core/_bonsaic.pyx":67
  *             do_swap = 0
  *             if split_value[1] == -1:
  *                 if isnan(X[i_head,<size_t>j_split[0]]):             # <<<<<<<<<<<<<<
@@ -2484,7 +2492,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               goto __pyx_L10;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":70
+            /* "bonsai/core/_bonsaic.pyx":71
  *                         do_swap = 1
  *                 else:
  *                     if X[i_head,<size_t>j_split[0]] >= <DTYPE_t>split_value[0]:             # <<<<<<<<<<<<<<
@@ -2501,7 +2509,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               __pyx_t_1 = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_3, __pyx_pybuffernd_X.diminfo[1].strides)) >= ((__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t)(*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_split_value.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_split_value.diminfo[0].strides)))) != 0);
               if (__pyx_t_1) {
 
-                /* "bonsai/core/_bonsaic.pyx":71
+                /* "bonsai/core/_bonsaic.pyx":72
  *                 else:
  *                     if X[i_head,<size_t>j_split[0]] >= <DTYPE_t>split_value[0]:
  *                         do_swap = 1             # <<<<<<<<<<<<<<
@@ -2510,7 +2518,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                 __pyx_v_do_swap = 1;
 
-                /* "bonsai/core/_bonsaic.pyx":70
+                /* "bonsai/core/_bonsaic.pyx":71
  *                         do_swap = 1
  *                 else:
  *                     if X[i_head,<size_t>j_split[0]] >= <DTYPE_t>split_value[0]:             # <<<<<<<<<<<<<<
@@ -2521,7 +2529,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             }
             __pyx_L10:;
 
-            /* "bonsai/core/_bonsaic.pyx":65
+            /* "bonsai/core/_bonsaic.pyx":66
  * 
  *             do_swap = 0
  *             if split_value[1] == -1:             # <<<<<<<<<<<<<<
@@ -2531,7 +2539,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             goto __pyx_L9;
           }
 
-          /* "bonsai/core/_bonsaic.pyx":73
+          /* "bonsai/core/_bonsaic.pyx":74
  *                         do_swap = 1
  *             else:
  *                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):             # <<<<<<<<<<<<<<
@@ -2548,7 +2556,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             __pyx_t_1 = ((isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides))) | isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides)))) != 0);
             if (__pyx_t_1) {
 
-              /* "bonsai/core/_bonsaic.pyx":74
+              /* "bonsai/core/_bonsaic.pyx":75
  *             else:
  *                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):
  *                     if missing[0] == 1: # send the missing to the right node             # <<<<<<<<<<<<<<
@@ -2557,10 +2565,10 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
               __pyx_t_2 = 0;
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_missing.diminfo[0].shape;
-              __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(size_t *, __pyx_pybuffernd_missing.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_missing.diminfo[0].strides)) == 1) != 0);
+              __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_missing.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_missing.diminfo[0].strides)) == 1) != 0);
               if (__pyx_t_1) {
 
-                /* "bonsai/core/_bonsaic.pyx":75
+                /* "bonsai/core/_bonsaic.pyx":76
  *                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):
  *                     if missing[0] == 1: # send the missing to the right node
  *                         do_swap = 1             # <<<<<<<<<<<<<<
@@ -2569,7 +2577,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                 __pyx_v_do_swap = 1;
 
-                /* "bonsai/core/_bonsaic.pyx":74
+                /* "bonsai/core/_bonsaic.pyx":75
  *             else:
  *                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):
  *                     if missing[0] == 1: # send the missing to the right node             # <<<<<<<<<<<<<<
@@ -2578,7 +2586,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
               }
 
-              /* "bonsai/core/_bonsaic.pyx":73
+              /* "bonsai/core/_bonsaic.pyx":74
  *                         do_swap = 1
  *             else:
  *                 if isnan(X[i_head,0]) | isnan(X[i_head,1]):             # <<<<<<<<<<<<<<
@@ -2588,7 +2596,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               goto __pyx_L13;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":77
+            /* "bonsai/core/_bonsaic.pyx":78
  *                         do_swap = 1
  *                 else:
  *                     if split_value[2] == -1:             # <<<<<<<<<<<<<<
@@ -2601,7 +2609,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               __pyx_t_1 = (((*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_split_value.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_split_value.diminfo[0].strides)) == -1.0) != 0);
               if (__pyx_t_1) {
 
-                /* "bonsai/core/_bonsaic.pyx":78
+                /* "bonsai/core/_bonsaic.pyx":79
  *                 else:
  *                     if split_value[2] == -1:
  *                         intercept, slope = split_value[0], split_value[1]             # <<<<<<<<<<<<<<
@@ -2617,7 +2625,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 __pyx_v_intercept = __pyx_t_6;
                 __pyx_v_slope = __pyx_t_7;
 
-                /* "bonsai/core/_bonsaic.pyx":79
+                /* "bonsai/core/_bonsaic.pyx":80
  *                     if split_value[2] == -1:
  *                         intercept, slope = split_value[0], split_value[1]
  *                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:             # <<<<<<<<<<<<<<
@@ -2633,7 +2641,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 __pyx_t_1 = ((((__pyx_v_slope * (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides))) + __pyx_v_intercept) >= (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
                 if (__pyx_t_1) {
 
-                  /* "bonsai/core/_bonsaic.pyx":80
+                  /* "bonsai/core/_bonsaic.pyx":81
  *                         intercept, slope = split_value[0], split_value[1]
  *                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:
  *                             do_swap = 1             # <<<<<<<<<<<<<<
@@ -2642,7 +2650,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                   __pyx_v_do_swap = 1;
 
-                  /* "bonsai/core/_bonsaic.pyx":79
+                  /* "bonsai/core/_bonsaic.pyx":80
  *                     if split_value[2] == -1:
  *                         intercept, slope = split_value[0], split_value[1]
  *                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:             # <<<<<<<<<<<<<<
@@ -2651,7 +2659,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                 }
 
-                /* "bonsai/core/_bonsaic.pyx":77
+                /* "bonsai/core/_bonsaic.pyx":78
  *                         do_swap = 1
  *                 else:
  *                     if split_value[2] == -1:             # <<<<<<<<<<<<<<
@@ -2661,7 +2669,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 goto __pyx_L15;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":82
+              /* "bonsai/core/_bonsaic.pyx":83
  *                             do_swap = 1
  *                     else:
  *                         focal1_x = X[<size_t>split_value[0], 0]             # <<<<<<<<<<<<<<
@@ -2676,7 +2684,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal1_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":83
+                /* "bonsai/core/_bonsaic.pyx":84
  *                     else:
  *                         focal1_x = X[<size_t>split_value[0], 0]
  *                         focal1_y = X[<size_t>split_value[0], 1]             # <<<<<<<<<<<<<<
@@ -2690,7 +2698,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal1_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":84
+                /* "bonsai/core/_bonsaic.pyx":85
  *                         focal1_x = X[<size_t>split_value[0], 0]
  *                         focal1_y = X[<size_t>split_value[0], 1]
  *                         focal2_x = X[<size_t>split_value[1], 0]             # <<<<<<<<<<<<<<
@@ -2704,7 +2712,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal2_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":85
+                /* "bonsai/core/_bonsaic.pyx":86
  *                         focal1_y = X[<size_t>split_value[0], 1]
  *                         focal2_x = X[<size_t>split_value[1], 0]
  *                         focal2_y = X[<size_t>split_value[1], 1]             # <<<<<<<<<<<<<<
@@ -2718,7 +2726,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal2_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":86
+                /* "bonsai/core/_bonsaic.pyx":87
  *                         focal2_x = X[<size_t>split_value[1], 0]
  *                         focal2_y = X[<size_t>split_value[1], 1]
  *                         dist = split_value[2]             # <<<<<<<<<<<<<<
@@ -2729,7 +2737,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_split_value.diminfo[0].shape;
                 __pyx_v_dist = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_split_value.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_split_value.diminfo[0].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":87
+                /* "bonsai/core/_bonsaic.pyx":88
  *                         focal2_y = X[<size_t>split_value[1], 1]
  *                         dist = split_value[2]
  *                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))             # <<<<<<<<<<<<<<
@@ -2748,7 +2756,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_dist_1 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_y), 0)));
 
-                /* "bonsai/core/_bonsaic.pyx":88
+                /* "bonsai/core/_bonsaic.pyx":89
  *                         dist = split_value[2]
  *                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))             # <<<<<<<<<<<<<<
@@ -2767,7 +2775,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_dist_2 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_y), 0)));
 
-                /* "bonsai/core/_bonsaic.pyx":89
+                /* "bonsai/core/_bonsaic.pyx":90
  *                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:             # <<<<<<<<<<<<<<
@@ -2777,7 +2785,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
                 __pyx_t_1 = (((__pyx_v_dist_1 + __pyx_v_dist_2) >= __pyx_v_dist) != 0);
                 if (__pyx_t_1) {
 
-                  /* "bonsai/core/_bonsaic.pyx":90
+                  /* "bonsai/core/_bonsaic.pyx":91
  *                         dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:
  *                             do_swap = 1             # <<<<<<<<<<<<<<
@@ -2786,7 +2794,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
                   __pyx_v_do_swap = 1;
 
-                  /* "bonsai/core/_bonsaic.pyx":89
+                  /* "bonsai/core/_bonsaic.pyx":90
  *                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:             # <<<<<<<<<<<<<<
@@ -2801,7 +2809,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
           }
           __pyx_L9:;
 
-          /* "bonsai/core/_bonsaic.pyx":93
+          /* "bonsai/core/_bonsaic.pyx":94
  * 
  * 
  *             if do_swap == 1:             # <<<<<<<<<<<<<<
@@ -2811,7 +2819,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
           __pyx_t_1 = ((__pyx_v_do_swap == 1) != 0);
           if (__pyx_t_1) {
 
-            /* "bonsai/core/_bonsaic.pyx":95
+            /* "bonsai/core/_bonsaic.pyx":96
  *             if do_swap == 1:
  *                 # swap X rows
  *                 for j in range(m):             # <<<<<<<<<<<<<<
@@ -2823,7 +2831,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_4; __pyx_t_10+=1) {
               __pyx_v_j = __pyx_t_10;
 
-              /* "bonsai/core/_bonsaic.pyx":96
+              /* "bonsai/core/_bonsaic.pyx":97
  *                 # swap X rows
  *                 for j in range(m):
  *                     X[i_head,j], X[i_tail,j] = X[i_tail,j], X[i_head,j]             # <<<<<<<<<<<<<<
@@ -2844,7 +2852,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
               *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_X.diminfo[1].strides) = __pyx_t_6;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":98
+            /* "bonsai/core/_bonsaic.pyx":99
  *                     X[i_head,j], X[i_tail,j] = X[i_tail,j], X[i_head,j]
  *                 # swap y, z values
  *                 y[i_head], y[i_tail] = y[i_tail], y[i_head]             # <<<<<<<<<<<<<<
@@ -2860,7 +2868,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             __pyx_t_3 = __pyx_v_i_tail;
             *__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_y.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_y.diminfo[0].strides) = __pyx_t_7;
 
-            /* "bonsai/core/_bonsaic.pyx":99
+            /* "bonsai/core/_bonsaic.pyx":100
  *                 # swap y, z values
  *                 y[i_head], y[i_tail] = y[i_tail], y[i_head]
  *                 z[i_head], z[i_tail] = z[i_tail], z[i_head]             # <<<<<<<<<<<<<<
@@ -2876,7 +2884,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             __pyx_t_3 = __pyx_v_i_tail;
             *__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_z.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_z.diminfo[0].strides) = __pyx_t_6;
 
-            /* "bonsai/core/_bonsaic.pyx":101
+            /* "bonsai/core/_bonsaic.pyx":102
  *                 z[i_head], z[i_tail] = z[i_tail], z[i_head]
  *                 # decrease the tail index
  *                 i_tail -= 1             # <<<<<<<<<<<<<<
@@ -2885,7 +2893,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
  */
             __pyx_v_i_tail = (__pyx_v_i_tail - 1);
 
-            /* "bonsai/core/_bonsaic.pyx":93
+            /* "bonsai/core/_bonsaic.pyx":94
  * 
  * 
  *             if do_swap == 1:             # <<<<<<<<<<<<<<
@@ -2895,7 +2903,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
             goto __pyx_L18;
           }
 
-          /* "bonsai/core/_bonsaic.pyx":104
+          /* "bonsai/core/_bonsaic.pyx":105
  *             else:
  *                 # increase the head index
  *                 i_head += 1             # <<<<<<<<<<<<<<
@@ -2910,7 +2918,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
         __pyx_L7_break:;
       }
 
-      /* "bonsai/core/_bonsaic.pyx":55
+      /* "bonsai/core/_bonsaic.pyx":56
  *     cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -2929,7 +2937,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":106
+  /* "bonsai/core/_bonsaic.pyx":107
  *                 i_head += 1
  * 
  *     return i_head             # <<<<<<<<<<<<<<
@@ -2939,7 +2947,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
   __pyx_r = __pyx_v_i_head;
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":29
+  /* "bonsai/core/_bonsaic.pyx":30
  * 
  * 
  * cdef size_t _reorder(             # <<<<<<<<<<<<<<
@@ -2975,7 +2983,7 @@ static size_t __pyx_f_6bonsai_4core_8_bonsaic__reorder(PyArrayObject *__pyx_v_X,
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":109
+/* "bonsai/core/_bonsaic.pyx":110
  * 
  * 
  * def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3030,35 +3038,35 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_7sketch(PyObject *__pyx_self, 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 1); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 1); __PYX_ERR(0, 110, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 2); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 2); __PYX_ERR(0, 110, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_xdim)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 3); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 3); __PYX_ERR(0, 110, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cnvs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 4); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 4); __PYX_ERR(0, 110, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cnvsn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 5); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, 5); __PYX_ERR(0, 110, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch") < 0)) __PYX_ERR(0, 109, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch") < 0)) __PYX_ERR(0, 110, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -3079,18 +3087,18 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_7sketch(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 109, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sketch", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 110, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.sketch", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 109, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 110, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 111, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 112, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 113, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvsn), __pyx_ptype_5numpy_ndarray, 0, "cnvsn", 0))) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 111, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvsn), __pyx_ptype_5numpy_ndarray, 0, "cnvsn", 0))) __PYX_ERR(0, 115, __pyx_L1_error)
   __pyx_r = __pyx_pf_6bonsai_4core_8_bonsaic_6sketch(__pyx_self, __pyx_v_X, __pyx_v_y, __pyx_v_z, __pyx_v_xdim, __pyx_v_cnvs, __pyx_v_cnvsn);
 
   /* function exit code */
@@ -3147,36 +3155,36 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_6sketch(CYTHON_UNUSED PyObject
   __pyx_pybuffernd_cnvsn.rcbuffer = &__pyx_pybuffer_cnvsn;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvsn.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvsn, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvsn.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvsn, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 110, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvsn.diminfo[0].strides = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvsn.diminfo[0].shape = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvsn.diminfo[1].strides = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvsn.diminfo[1].shape = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.shape[1];
 
-  /* "bonsai/core/_bonsaic.pyx":118
+  /* "bonsai/core/_bonsaic.pyx":119
  *     # canvas --> (sketch) --> avc
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch(X, y, z, xdim, cnvs, cnvsn)             # <<<<<<<<<<<<<<
@@ -3185,7 +3193,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_6sketch(CYTHON_UNUSED PyObject
  */
   __pyx_f_6bonsai_4core_8_bonsaic__sketch(((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y), ((PyArrayObject *)__pyx_v_z), ((PyArrayObject *)__pyx_v_xdim), ((PyArrayObject *)__pyx_v_cnvs), ((PyArrayObject *)__pyx_v_cnvsn));
 
-  /* "bonsai/core/_bonsaic.pyx":119
+  /* "bonsai/core/_bonsaic.pyx":120
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch(X, y, z, xdim, cnvs, cnvsn)
  *     return 0             # <<<<<<<<<<<<<<
@@ -3197,7 +3205,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_6sketch(CYTHON_UNUSED PyObject
   __pyx_r = __pyx_int_0;
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":109
+  /* "bonsai/core/_bonsaic.pyx":110
  * 
  * 
  * def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3234,7 +3242,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_6sketch(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":121
+/* "bonsai/core/_bonsaic.pyx":122
  *     return 0
  * 
  * def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3286,29 +3294,29 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_9sketch_diagonal(PyObject *__p
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 1); __PYX_ERR(0, 121, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 1); __PYX_ERR(0, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 2); __PYX_ERR(0, 121, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 2); __PYX_ERR(0, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_xdim)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 3); __PYX_ERR(0, 121, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 3); __PYX_ERR(0, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cnvs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 4); __PYX_ERR(0, 121, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, 4); __PYX_ERR(0, 122, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch_diagonal") < 0)) __PYX_ERR(0, 121, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch_diagonal") < 0)) __PYX_ERR(0, 122, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3327,17 +3335,17 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_9sketch_diagonal(PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 121, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sketch_diagonal", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 122, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.sketch_diagonal", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 121, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 122, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 123, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 124, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 125, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 125, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 126, __pyx_L1_error)
   __pyx_r = __pyx_pf_6bonsai_4core_8_bonsaic_8sketch_diagonal(__pyx_self, __pyx_v_X, __pyx_v_y, __pyx_v_z, __pyx_v_xdim, __pyx_v_cnvs);
 
   /* function exit code */
@@ -3388,31 +3396,31 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_8sketch_diagonal(CYTHON_UNUSED
   __pyx_pybuffernd_cnvs.rcbuffer = &__pyx_pybuffer_cnvs;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 122, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 122, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 122, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 122, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 122, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
 
-  /* "bonsai/core/_bonsaic.pyx":129
+  /* "bonsai/core/_bonsaic.pyx":130
  *     # canvas --> (sketch) --> avc
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch_diagonal(X, y, z, xdim, cnvs)             # <<<<<<<<<<<<<<
@@ -3421,7 +3429,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_8sketch_diagonal(CYTHON_UNUSED
  */
   __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y), ((PyArrayObject *)__pyx_v_z), ((PyArrayObject *)__pyx_v_xdim), ((PyArrayObject *)__pyx_v_cnvs));
 
-  /* "bonsai/core/_bonsaic.pyx":130
+  /* "bonsai/core/_bonsaic.pyx":131
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch_diagonal(X, y, z, xdim, cnvs)
  *     return 0             # <<<<<<<<<<<<<<
@@ -3433,7 +3441,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_8sketch_diagonal(CYTHON_UNUSED
   __pyx_r = __pyx_int_0;
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":121
+  /* "bonsai/core/_bonsaic.pyx":122
  *     return 0
  * 
  * def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3468,7 +3476,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_8sketch_diagonal(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":132
+/* "bonsai/core/_bonsaic.pyx":133
  *     return 0
  * 
  * def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3520,29 +3528,29 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_11sketch_gaussian(PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 1); __PYX_ERR(0, 132, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 1); __PYX_ERR(0, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 2); __PYX_ERR(0, 132, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 2); __PYX_ERR(0, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_xdim)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 3); __PYX_ERR(0, 132, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 3); __PYX_ERR(0, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cnvs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 4); __PYX_ERR(0, 132, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, 4); __PYX_ERR(0, 133, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch_gaussian") < 0)) __PYX_ERR(0, 132, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sketch_gaussian") < 0)) __PYX_ERR(0, 133, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3561,17 +3569,17 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_11sketch_gaussian(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 132, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sketch_gaussian", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 133, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.sketch_gaussian", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 132, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 133, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 134, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 135, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 0, "X", 0))) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 0, "y", 0))) __PYX_ERR(0, 134, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_z), __pyx_ptype_5numpy_ndarray, 0, "z", 0))) __PYX_ERR(0, 135, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xdim), __pyx_ptype_5numpy_ndarray, 0, "xdim", 0))) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cnvs), __pyx_ptype_5numpy_ndarray, 0, "cnvs", 0))) __PYX_ERR(0, 137, __pyx_L1_error)
   __pyx_r = __pyx_pf_6bonsai_4core_8_bonsaic_10sketch_gaussian(__pyx_self, __pyx_v_X, __pyx_v_y, __pyx_v_z, __pyx_v_xdim, __pyx_v_cnvs);
 
   /* function exit code */
@@ -3622,31 +3630,31 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_10sketch_gaussian(CYTHON_UNUSE
   __pyx_pybuffernd_cnvs.rcbuffer = &__pyx_pybuffer_cnvs;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 133, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 133, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 133, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 133, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 133, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
 
-  /* "bonsai/core/_bonsaic.pyx":140
+  /* "bonsai/core/_bonsaic.pyx":141
  *     # canvas --> (sketch) --> avc
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch_gaussian(X, y, z, xdim, cnvs)             # <<<<<<<<<<<<<<
@@ -3655,7 +3663,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_10sketch_gaussian(CYTHON_UNUSE
  */
   __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y), ((PyArrayObject *)__pyx_v_z), ((PyArrayObject *)__pyx_v_xdim), ((PyArrayObject *)__pyx_v_cnvs));
 
-  /* "bonsai/core/_bonsaic.pyx":141
+  /* "bonsai/core/_bonsaic.pyx":142
  *     # AVC: Attribute-Value Class group in RainForest
  *     _sketch_gaussian(X, y, z, xdim, cnvs)
  *     return 0             # <<<<<<<<<<<<<<
@@ -3667,7 +3675,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_10sketch_gaussian(CYTHON_UNUSE
   __pyx_r = __pyx_int_0;
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":132
+  /* "bonsai/core/_bonsaic.pyx":133
  *     return 0
  * 
  * def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
@@ -3702,7 +3710,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_10sketch_gaussian(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":143
+/* "bonsai/core/_bonsaic.pyx":144
  *     return 0
  * 
  * cdef void _sketch(             # <<<<<<<<<<<<<<
@@ -3788,36 +3796,36 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
   __pyx_pybuffernd_cnvsn.rcbuffer = &__pyx_pybuffer_cnvsn;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvsn.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvsn, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvsn.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvsn, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvsn.diminfo[0].strides = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvsn.diminfo[0].shape = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvsn.diminfo[1].strides = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvsn.diminfo[1].shape = __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.shape[1];
 
-  /* "bonsai/core/_bonsaic.pyx":152
+  /* "bonsai/core/_bonsaic.pyx":153
  * 
  *     cdef size_t i, j, k, k_raw, k_tld
  *     cdef size_t n = X.shape[0]             # <<<<<<<<<<<<<<
@@ -3826,7 +3834,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
   __pyx_v_n = (__pyx_v_X->dimensions[0]);
 
-  /* "bonsai/core/_bonsaic.pyx":153
+  /* "bonsai/core/_bonsaic.pyx":154
  *     cdef size_t i, j, k, k_raw, k_tld
  *     cdef size_t n = X.shape[0]
  *     cdef size_t m = X.shape[1]             # <<<<<<<<<<<<<<
@@ -3835,7 +3843,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
   __pyx_v_m = (__pyx_v_X->dimensions[1]);
 
-  /* "bonsai/core/_bonsaic.pyx":154
+  /* "bonsai/core/_bonsaic.pyx":155
  *     cdef size_t n = X.shape[0]
  *     cdef size_t m = X.shape[1]
  *     cdef size_t n_cnvs = <size_t> cnvs.shape[0]/2             # <<<<<<<<<<<<<<
@@ -3844,7 +3852,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
   __pyx_v_n_cnvs = (((size_t)(__pyx_v_cnvs->dimensions[0])) / 2);
 
-  /* "bonsai/core/_bonsaic.pyx":156
+  /* "bonsai/core/_bonsaic.pyx":157
  *     cdef size_t n_cnvs = <size_t> cnvs.shape[0]/2
  *     cdef size_t n_bin
  *     cdef size_t xdim0 = <size_t> xdim[0, 4]             # <<<<<<<<<<<<<<
@@ -3857,7 +3865,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
   if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_xdim.diminfo[1].shape;
   __pyx_v_xdim0 = ((size_t)(*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_xdim.diminfo[1].strides)));
 
-  /* "bonsai/core/_bonsaic.pyx":159
+  /* "bonsai/core/_bonsaic.pyx":160
  *     cdef double k_prox
  *     cdef double y_i, z_i
  *     cdef double y_tot = 0.0             # <<<<<<<<<<<<<<
@@ -3866,7 +3874,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
   __pyx_v_y_tot = 0.0;
 
-  /* "bonsai/core/_bonsaic.pyx":160
+  /* "bonsai/core/_bonsaic.pyx":161
  *     cdef double y_i, z_i
  *     cdef double y_tot = 0.0
  *     cdef double z_tot = 0.0             # <<<<<<<<<<<<<<
@@ -3875,7 +3883,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
   __pyx_v_z_tot = 0.0;
 
-  /* "bonsai/core/_bonsaic.pyx":164
+  /* "bonsai/core/_bonsaic.pyx":165
  * 
  *     # update E[y] & E[z]
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -3890,7 +3898,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":166
+        /* "bonsai/core/_bonsaic.pyx":167
  *     with nogil:
  * 
  *         for i in range(n):             # <<<<<<<<<<<<<<
@@ -3902,7 +3910,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
         for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
           __pyx_v_i = __pyx_t_5;
 
-          /* "bonsai/core/_bonsaic.pyx":168
+          /* "bonsai/core/_bonsaic.pyx":169
  *         for i in range(n):
  * 
  *             y_i = y[i]             # <<<<<<<<<<<<<<
@@ -3912,7 +3920,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           __pyx_t_6 = __pyx_v_i;
           __pyx_v_y_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_y.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_y.diminfo[0].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":169
+          /* "bonsai/core/_bonsaic.pyx":170
  * 
  *             y_i = y[i]
  *             z_i = z[i]             # <<<<<<<<<<<<<<
@@ -3922,7 +3930,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           __pyx_t_6 = __pyx_v_i;
           __pyx_v_z_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_z.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_z.diminfo[0].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":170
+          /* "bonsai/core/_bonsaic.pyx":171
  *             y_i = y[i]
  *             z_i = z[i]
  *             y_tot += y_i             # <<<<<<<<<<<<<<
@@ -3931,7 +3939,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
           __pyx_v_y_tot = (__pyx_v_y_tot + __pyx_v_y_i);
 
-          /* "bonsai/core/_bonsaic.pyx":171
+          /* "bonsai/core/_bonsaic.pyx":172
  *             z_i = z[i]
  *             y_tot += y_i
  *             z_tot += z_i             # <<<<<<<<<<<<<<
@@ -3940,7 +3948,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
           __pyx_v_z_tot = (__pyx_v_z_tot + __pyx_v_z_i);
 
-          /* "bonsai/core/_bonsaic.pyx":173
+          /* "bonsai/core/_bonsaic.pyx":174
  *             z_tot += z_i
  * 
  *             for j in range(m):             # <<<<<<<<<<<<<<
@@ -3952,7 +3960,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
             __pyx_v_j = __pyx_t_8;
 
-            /* "bonsai/core/_bonsaic.pyx":177
+            /* "bonsai/core/_bonsaic.pyx":178
  *                 #if xdim[j, 2] < 1e-12:
  *                 #    continue
  *                 if isnan(X[i, j]):             # <<<<<<<<<<<<<<
@@ -3964,7 +3972,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             __pyx_t_11 = (isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
             if (__pyx_t_11) {
 
-              /* "bonsai/core/_bonsaic.pyx":178
+              /* "bonsai/core/_bonsaic.pyx":179
  *                 #    continue
  *                 if isnan(X[i, j]):
  *                     cnvsn[j, 1] += 1             # <<<<<<<<<<<<<<
@@ -3976,7 +3984,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
               *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvsn.diminfo[1].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":179
+              /* "bonsai/core/_bonsaic.pyx":180
  *                 if isnan(X[i, j]):
  *                     cnvsn[j, 1] += 1
  *                     cnvsn[j, 2] += y_i             # <<<<<<<<<<<<<<
@@ -3988,7 +3996,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
               *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvsn.diminfo[1].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":180
+              /* "bonsai/core/_bonsaic.pyx":181
  *                     cnvsn[j, 1] += 1
  *                     cnvsn[j, 2] += y_i
  *                     cnvsn[j, 3] += z_i             # <<<<<<<<<<<<<<
@@ -4000,7 +4008,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
               *__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvsn.diminfo[1].strides) += __pyx_v_z_i;
 
-              /* "bonsai/core/_bonsaic.pyx":177
+              /* "bonsai/core/_bonsaic.pyx":178
  *                 #if xdim[j, 2] < 1e-12:
  *                 #    continue
  *                 if isnan(X[i, j]):             # <<<<<<<<<<<<<<
@@ -4010,7 +4018,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               goto __pyx_L10;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":182
+            /* "bonsai/core/_bonsaic.pyx":183
  *                     cnvsn[j, 3] += z_i
  *                 else:
  *                     k_prox = (X[i, j] - xdim[j, 1])/xdim[j, 2]             # <<<<<<<<<<<<<<
@@ -4028,7 +4036,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_xdim.diminfo[1].shape;
               __pyx_v_k_prox = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_xdim.diminfo[1].strides))) / (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)));
 
-              /* "bonsai/core/_bonsaic.pyx":183
+              /* "bonsai/core/_bonsaic.pyx":184
  *                 else:
  *                     k_prox = (X[i, j] - xdim[j, 1])/xdim[j, 2]
  *                     if k_prox < 0:             # <<<<<<<<<<<<<<
@@ -4038,7 +4046,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               __pyx_t_11 = ((__pyx_v_k_prox < 0.0) != 0);
               if (__pyx_t_11) {
 
-                /* "bonsai/core/_bonsaic.pyx":184
+                /* "bonsai/core/_bonsaic.pyx":185
  *                     k_prox = (X[i, j] - xdim[j, 1])/xdim[j, 2]
  *                     if k_prox < 0:
  *                         k_prox = 0             # <<<<<<<<<<<<<<
@@ -4047,7 +4055,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
                 __pyx_v_k_prox = 0.0;
 
-                /* "bonsai/core/_bonsaic.pyx":183
+                /* "bonsai/core/_bonsaic.pyx":184
  *                 else:
  *                     k_prox = (X[i, j] - xdim[j, 1])/xdim[j, 2]
  *                     if k_prox < 0:             # <<<<<<<<<<<<<<
@@ -4057,7 +4065,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
                 goto __pyx_L11;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":185
+              /* "bonsai/core/_bonsaic.pyx":186
  *                     if k_prox < 0:
  *                         k_prox = 0
  *                     elif k_prox > xdim[j, 3] - 1:             # <<<<<<<<<<<<<<
@@ -4070,7 +4078,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               __pyx_t_11 = ((__pyx_v_k_prox > ((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)) - 1.0)) != 0);
               if (__pyx_t_11) {
 
-                /* "bonsai/core/_bonsaic.pyx":186
+                /* "bonsai/core/_bonsaic.pyx":187
  *                         k_prox = 0
  *                     elif k_prox > xdim[j, 3] - 1:
  *                         k_prox = xdim[j, 3] - 1             # <<<<<<<<<<<<<<
@@ -4082,7 +4090,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
                 if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_xdim.diminfo[1].shape;
                 __pyx_v_k_prox = ((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)) - 1.0);
 
-                /* "bonsai/core/_bonsaic.pyx":185
+                /* "bonsai/core/_bonsaic.pyx":186
  *                     if k_prox < 0:
  *                         k_prox = 0
  *                     elif k_prox > xdim[j, 3] - 1:             # <<<<<<<<<<<<<<
@@ -4092,7 +4100,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               }
               __pyx_L11:;
 
-              /* "bonsai/core/_bonsaic.pyx":187
+              /* "bonsai/core/_bonsaic.pyx":188
  *                     elif k_prox > xdim[j, 3] - 1:
  *                         k_prox = xdim[j, 3] - 1
  *                     k = <size_t> (k_prox + (xdim[j, 4] - xdim0)*2)             # <<<<<<<<<<<<<<
@@ -4104,7 +4112,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_xdim.diminfo[1].shape;
               __pyx_v_k = ((size_t)(__pyx_v_k_prox + (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)) - __pyx_v_xdim0) * 2.0)));
 
-              /* "bonsai/core/_bonsaic.pyx":188
+              /* "bonsai/core/_bonsaic.pyx":189
  *                         k_prox = xdim[j, 3] - 1
  *                     k = <size_t> (k_prox + (xdim[j, 4] - xdim0)*2)
  *                     cnvs[k, 3, 0] += 1             # <<<<<<<<<<<<<<
@@ -4118,7 +4126,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":189
+              /* "bonsai/core/_bonsaic.pyx":190
  *                     k = <size_t> (k_prox + (xdim[j, 4] - xdim0)*2)
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i             # <<<<<<<<<<<<<<
@@ -4132,7 +4140,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
               if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":190
+              /* "bonsai/core/_bonsaic.pyx":191
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i
  *                     cnvs[k, 5, 0] += z_i             # <<<<<<<<<<<<<<
@@ -4150,7 +4158,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           }
         }
 
-        /* "bonsai/core/_bonsaic.pyx":193
+        /* "bonsai/core/_bonsaic.pyx":194
  * 
  *         # accumulate stats
  *         for j in range(m):             # <<<<<<<<<<<<<<
@@ -4162,7 +4170,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
         for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
           __pyx_v_j = __pyx_t_5;
 
-          /* "bonsai/core/_bonsaic.pyx":194
+          /* "bonsai/core/_bonsaic.pyx":195
  *         # accumulate stats
  *         for j in range(m):
  *             n_bin = <size_t> xdim[j, 3]             # <<<<<<<<<<<<<<
@@ -4174,7 +4182,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_xdim.diminfo[1].shape;
           __pyx_v_n_bin = ((size_t)(*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_xdim.diminfo[1].strides)));
 
-          /* "bonsai/core/_bonsaic.pyx":196
+          /* "bonsai/core/_bonsaic.pyx":197
  *             n_bin = <size_t> xdim[j, 3]
  * 
  *             for k_raw in range(1, n_bin):             # <<<<<<<<<<<<<<
@@ -4186,7 +4194,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
             __pyx_v_k_raw = __pyx_t_8;
 
-            /* "bonsai/core/_bonsaic.pyx":197
+            /* "bonsai/core/_bonsaic.pyx":198
  * 
  *             for k_raw in range(1, n_bin):
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)             # <<<<<<<<<<<<<<
@@ -4198,7 +4206,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_xdim.diminfo[1].shape;
             __pyx_v_k = ((size_t)(__pyx_v_k_raw + (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_xdim.diminfo[1].strides)) - __pyx_v_xdim0) * 2.0)));
 
-            /* "bonsai/core/_bonsaic.pyx":198
+            /* "bonsai/core/_bonsaic.pyx":199
  *             for k_raw in range(1, n_bin):
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
  *                 cnvs[k, 3, 0] += cnvs[k-1, 3, 0]             # <<<<<<<<<<<<<<
@@ -4217,7 +4225,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[2].strides) += (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":199
+            /* "bonsai/core/_bonsaic.pyx":200
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
  *                 cnvs[k, 3, 0] += cnvs[k-1, 3, 0]
  *                 cnvs[k, 4, 0] += cnvs[k-1, 4, 0]             # <<<<<<<<<<<<<<
@@ -4236,7 +4244,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) += (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":200
+            /* "bonsai/core/_bonsaic.pyx":201
  *                 cnvs[k, 3, 0] += cnvs[k-1, 3, 0]
  *                 cnvs[k, 4, 0] += cnvs[k-1, 4, 0]
  *                 cnvs[k, 5, 0] += cnvs[k-1, 5, 0]             # <<<<<<<<<<<<<<
@@ -4255,7 +4263,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[2].strides) += (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":202
+            /* "bonsai/core/_bonsaic.pyx":203
  *                 cnvs[k, 5, 0] += cnvs[k-1, 5, 0]
  *                 # fill the right node at the same time
  *                 cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]             # <<<<<<<<<<<<<<
@@ -4277,7 +4285,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_n - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
 
-            /* "bonsai/core/_bonsaic.pyx":203
+            /* "bonsai/core/_bonsaic.pyx":204
  *                 # fill the right node at the same time
  *                 cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
  *                 cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]             # <<<<<<<<<<<<<<
@@ -4299,7 +4307,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_y_tot - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
 
-            /* "bonsai/core/_bonsaic.pyx":204
+            /* "bonsai/core/_bonsaic.pyx":205
  *                 cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
  *                 cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]
  *                 cnvs[k, 8, 0] = z_tot - cnvs[k, 5, 0] - cnvsn[j, 3]             # <<<<<<<<<<<<<<
@@ -4322,7 +4330,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_z_tot - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
           }
 
-          /* "bonsai/core/_bonsaic.pyx":207
+          /* "bonsai/core/_bonsaic.pyx":208
  * 
  *             # fill the right node
  *             k = <size_t> ((xdim[j, 4] - xdim0)*2)             # <<<<<<<<<<<<<<
@@ -4334,7 +4342,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_xdim.diminfo[1].shape;
           __pyx_v_k = ((size_t)(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_xdim.diminfo[1].strides)) - __pyx_v_xdim0) * 2.0));
 
-          /* "bonsai/core/_bonsaic.pyx":208
+          /* "bonsai/core/_bonsaic.pyx":209
  *             # fill the right node
  *             k = <size_t> ((xdim[j, 4] - xdim0)*2)
  *             cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]             # <<<<<<<<<<<<<<
@@ -4356,7 +4364,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
           *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_n - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
 
-          /* "bonsai/core/_bonsaic.pyx":209
+          /* "bonsai/core/_bonsaic.pyx":210
  *             k = <size_t> ((xdim[j, 4] - xdim0)*2)
  *             cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
  *             cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]             # <<<<<<<<<<<<<<
@@ -4378,7 +4386,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
           *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_y_tot - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
 
-          /* "bonsai/core/_bonsaic.pyx":210
+          /* "bonsai/core/_bonsaic.pyx":211
  *             cnvs[k, 6, 0] = n - cnvs[k, 3, 0] - cnvsn[j, 1]
  *             cnvs[k, 7, 0] = y_tot - cnvs[k, 4, 0] - cnvsn[j, 2]
  *             cnvs[k, 8, 0] = z_tot - cnvs[k, 5, 0] - cnvsn[j, 3]             # <<<<<<<<<<<<<<
@@ -4401,7 +4409,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = ((__pyx_v_z_tot - (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides)));
         }
 
-        /* "bonsai/core/_bonsaic.pyx":213
+        /* "bonsai/core/_bonsaic.pyx":214
  * 
  *         # missing values
  *         for j in range(m):             # <<<<<<<<<<<<<<
@@ -4413,7 +4421,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
         for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
           __pyx_v_j = __pyx_t_5;
 
-          /* "bonsai/core/_bonsaic.pyx":215
+          /* "bonsai/core/_bonsaic.pyx":216
  *         for j in range(m):
  * 
  *             n_bin = <size_t> xdim[j, 3]             # <<<<<<<<<<<<<<
@@ -4425,7 +4433,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_xdim.diminfo[1].shape;
           __pyx_v_n_bin = ((size_t)(*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)));
 
-          /* "bonsai/core/_bonsaic.pyx":216
+          /* "bonsai/core/_bonsaic.pyx":217
  * 
  *             n_bin = <size_t> xdim[j, 3]
  *             n_na = cnvsn[j, 1]             # <<<<<<<<<<<<<<
@@ -4437,7 +4445,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
           __pyx_v_n_na = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":217
+          /* "bonsai/core/_bonsaic.pyx":218
  *             n_bin = <size_t> xdim[j, 3]
  *             n_na = cnvsn[j, 1]
  *             y_na = cnvsn[j, 2]             # <<<<<<<<<<<<<<
@@ -4449,7 +4457,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
           __pyx_v_y_na = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":218
+          /* "bonsai/core/_bonsaic.pyx":219
  *             n_na = cnvsn[j, 1]
  *             y_na = cnvsn[j, 2]
  *             z_na = cnvsn[j, 3]             # <<<<<<<<<<<<<<
@@ -4461,7 +4469,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvsn.diminfo[1].shape;
           __pyx_v_z_na = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvsn.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_cnvsn.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvsn.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":220
+          /* "bonsai/core/_bonsaic.pyx":221
  *             z_na = cnvsn[j, 3]
  * 
  *             if n_na == 0:             # <<<<<<<<<<<<<<
@@ -4471,7 +4479,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           __pyx_t_11 = ((__pyx_v_n_na == 0.0) != 0);
           if (__pyx_t_11) {
 
-            /* "bonsai/core/_bonsaic.pyx":221
+            /* "bonsai/core/_bonsaic.pyx":222
  * 
  *             if n_na == 0:
  *                 continue             # <<<<<<<<<<<<<<
@@ -4480,7 +4488,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
             goto __pyx_L16_continue;
 
-            /* "bonsai/core/_bonsaic.pyx":220
+            /* "bonsai/core/_bonsaic.pyx":221
  *             z_na = cnvsn[j, 3]
  * 
  *             if n_na == 0:             # <<<<<<<<<<<<<<
@@ -4489,7 +4497,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
           }
 
-          /* "bonsai/core/_bonsaic.pyx":223
+          /* "bonsai/core/_bonsaic.pyx":224
  *                 continue
  * 
  *             for k_raw in range(n_bin):             # <<<<<<<<<<<<<<
@@ -4501,7 +4509,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
           for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_6; __pyx_t_8+=1) {
             __pyx_v_k_raw = __pyx_t_8;
 
-            /* "bonsai/core/_bonsaic.pyx":224
+            /* "bonsai/core/_bonsaic.pyx":225
  * 
  *             for k_raw in range(n_bin):
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)             # <<<<<<<<<<<<<<
@@ -4513,7 +4521,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_xdim.diminfo[1].shape;
             __pyx_v_k = ((size_t)(__pyx_v_k_raw + (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_xdim.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_xdim.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_xdim.diminfo[1].strides)) - __pyx_v_xdim0) * 2.0)));
 
-            /* "bonsai/core/_bonsaic.pyx":225
+            /* "bonsai/core/_bonsaic.pyx":226
  *             for k_raw in range(n_bin):
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
  *                 k_tld = k + n_bin             # <<<<<<<<<<<<<<
@@ -4522,7 +4530,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
  */
             __pyx_v_k_tld = (__pyx_v_k + __pyx_v_n_bin);
 
-            /* "bonsai/core/_bonsaic.pyx":226
+            /* "bonsai/core/_bonsaic.pyx":227
  *                 k = <size_t> (k_raw + (xdim[j, 4] - xdim0)*2)
  *                 k_tld = k + n_bin
  *                 cnvs[k_tld, 3, 0] = cnvs[k, 3, 0]             # <<<<<<<<<<<<<<
@@ -4541,7 +4549,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":227
+            /* "bonsai/core/_bonsaic.pyx":228
  *                 k_tld = k + n_bin
  *                 cnvs[k_tld, 3, 0] = cnvs[k, 3, 0]
  *                 cnvs[k_tld, 4, 0] = cnvs[k, 4, 0]             # <<<<<<<<<<<<<<
@@ -4560,7 +4568,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":228
+            /* "bonsai/core/_bonsaic.pyx":229
  *                 cnvs[k_tld, 3, 0] = cnvs[k, 3, 0]
  *                 cnvs[k_tld, 4, 0] = cnvs[k, 4, 0]
  *                 cnvs[k_tld, 5, 0] = cnvs[k, 5, 0]             # <<<<<<<<<<<<<<
@@ -4579,7 +4587,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":229
+            /* "bonsai/core/_bonsaic.pyx":230
  *                 cnvs[k_tld, 4, 0] = cnvs[k, 4, 0]
  *                 cnvs[k_tld, 5, 0] = cnvs[k, 5, 0]
  *                 cnvs[k_tld, 6, 0] = cnvs[k, 6, 0]             # <<<<<<<<<<<<<<
@@ -4598,7 +4606,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":230
+            /* "bonsai/core/_bonsaic.pyx":231
  *                 cnvs[k_tld, 5, 0] = cnvs[k, 5, 0]
  *                 cnvs[k_tld, 6, 0] = cnvs[k, 6, 0]
  *                 cnvs[k_tld, 7, 0] = cnvs[k, 7, 0]             # <<<<<<<<<<<<<<
@@ -4617,7 +4625,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":231
+            /* "bonsai/core/_bonsaic.pyx":232
  *                 cnvs[k_tld, 6, 0] = cnvs[k, 6, 0]
  *                 cnvs[k_tld, 7, 0] = cnvs[k, 7, 0]
  *                 cnvs[k_tld, 8, 0] = cnvs[k, 8, 0]             # <<<<<<<<<<<<<<
@@ -4636,7 +4644,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_15, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":232
+            /* "bonsai/core/_bonsaic.pyx":233
  *                 cnvs[k_tld, 7, 0] = cnvs[k, 7, 0]
  *                 cnvs[k_tld, 8, 0] = cnvs[k, 8, 0]
  *                 cnvs[k_tld, 9, 0] = 1             # <<<<<<<<<<<<<<
@@ -4650,7 +4658,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides) = 1.0;
 
-            /* "bonsai/core/_bonsaic.pyx":234
+            /* "bonsai/core/_bonsaic.pyx":235
  *                 cnvs[k_tld, 9, 0] = 1
  * 
  *                 cnvs[k, 3, 0] += n_na             # <<<<<<<<<<<<<<
@@ -4664,7 +4672,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_n_na;
 
-            /* "bonsai/core/_bonsaic.pyx":235
+            /* "bonsai/core/_bonsaic.pyx":236
  * 
  *                 cnvs[k, 3, 0] += n_na
  *                 cnvs[k, 4, 0] += y_na             # <<<<<<<<<<<<<<
@@ -4678,7 +4686,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_na;
 
-            /* "bonsai/core/_bonsaic.pyx":236
+            /* "bonsai/core/_bonsaic.pyx":237
  *                 cnvs[k, 3, 0] += n_na
  *                 cnvs[k, 4, 0] += y_na
  *                 cnvs[k, 5, 0] += z_na             # <<<<<<<<<<<<<<
@@ -4692,7 +4700,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_z_na;
 
-            /* "bonsai/core/_bonsaic.pyx":237
+            /* "bonsai/core/_bonsaic.pyx":238
  *                 cnvs[k, 4, 0] += y_na
  *                 cnvs[k, 5, 0] += z_na
  *                 cnvs[k_tld, 6, 0] += n_na             # <<<<<<<<<<<<<<
@@ -4706,7 +4714,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_n_na;
 
-            /* "bonsai/core/_bonsaic.pyx":238
+            /* "bonsai/core/_bonsaic.pyx":239
  *                 cnvs[k, 5, 0] += z_na
  *                 cnvs[k_tld, 6, 0] += n_na
  *                 cnvs[k_tld, 7, 0] += y_na             # <<<<<<<<<<<<<<
@@ -4720,7 +4728,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
             if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_1, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_na;
 
-            /* "bonsai/core/_bonsaic.pyx":239
+            /* "bonsai/core/_bonsaic.pyx":240
  *                 cnvs[k_tld, 6, 0] += n_na
  *                 cnvs[k_tld, 7, 0] += y_na
  *                 cnvs[k_tld, 8, 0] += z_na             # <<<<<<<<<<<<<<
@@ -4738,7 +4746,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
         }
       }
 
-      /* "bonsai/core/_bonsaic.pyx":164
+      /* "bonsai/core/_bonsaic.pyx":165
  * 
  *     # update E[y] & E[z]
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -4757,7 +4765,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":143
+  /* "bonsai/core/_bonsaic.pyx":144
  *     return 0
  * 
  * cdef void _sketch(             # <<<<<<<<<<<<<<
@@ -4792,7 +4800,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch(PyArrayObject *__pyx_v_X, Py
   __Pyx_RefNannyFinishContext();
 }
 
-/* "bonsai/core/_bonsaic.pyx":243
+/* "bonsai/core/_bonsaic.pyx":244
  *     # done _sketch
  * 
  * cdef void _sketch_diagonal(             # <<<<<<<<<<<<<<
@@ -4866,31 +4874,31 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
   __pyx_pybuffernd_cnvs.rcbuffer = &__pyx_pybuffer_cnvs;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 244, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 244, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 244, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 244, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 244, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
 
-  /* "bonsai/core/_bonsaic.pyx":251
+  /* "bonsai/core/_bonsaic.pyx":252
  * 
  *     cdef size_t i, j, k
  *     cdef size_t n = X.shape[0]             # <<<<<<<<<<<<<<
@@ -4899,7 +4907,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
   __pyx_v_n = (__pyx_v_X->dimensions[0]);
 
-  /* "bonsai/core/_bonsaic.pyx":252
+  /* "bonsai/core/_bonsaic.pyx":253
  *     cdef size_t i, j, k
  *     cdef size_t n = X.shape[0]
  *     cdef size_t n_cnvs = <size_t> cnvs.shape[0]             # <<<<<<<<<<<<<<
@@ -4908,7 +4916,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
   __pyx_v_n_cnvs = ((size_t)(__pyx_v_cnvs->dimensions[0]));
 
-  /* "bonsai/core/_bonsaic.pyx":256
+  /* "bonsai/core/_bonsaic.pyx":257
  *     cdef double x_i_0, x_i_1, x_j_0, x_j_1
  *     cdef DTYPE_t m1, m2, x2, y2, b
  *     cdef size_t idx = 0             # <<<<<<<<<<<<<<
@@ -4917,7 +4925,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
   __pyx_v_idx = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":259
+  /* "bonsai/core/_bonsaic.pyx":260
  * 
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -4932,7 +4940,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":260
+        /* "bonsai/core/_bonsaic.pyx":261
  * 
  *     with nogil:
  *         for i in range(n):             # <<<<<<<<<<<<<<
@@ -4944,7 +4952,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_i = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":261
+          /* "bonsai/core/_bonsaic.pyx":262
  *     with nogil:
  *         for i in range(n):
  *             x_i_0 = X[i,0]             # <<<<<<<<<<<<<<
@@ -4956,7 +4964,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
           if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
           __pyx_v_x_i_0 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":262
+          /* "bonsai/core/_bonsaic.pyx":263
  *         for i in range(n):
  *             x_i_0 = X[i,0]
  *             x_i_1 = X[i,1]             # <<<<<<<<<<<<<<
@@ -4968,7 +4976,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
           if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
           __pyx_v_x_i_1 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":265
+          /* "bonsai/core/_bonsaic.pyx":266
  * 
  * 
  *             for j in range(i+1, n):             # <<<<<<<<<<<<<<
@@ -4980,7 +4988,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
           for (__pyx_t_7 = (__pyx_v_i + 1); __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
             __pyx_v_j = __pyx_t_7;
 
-            /* "bonsai/core/_bonsaic.pyx":266
+            /* "bonsai/core/_bonsaic.pyx":267
  * 
  *             for j in range(i+1, n):
  *                 x_j_0 = X[j,0]             # <<<<<<<<<<<<<<
@@ -4992,7 +5000,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_x_j_0 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":267
+            /* "bonsai/core/_bonsaic.pyx":268
  *             for j in range(i+1, n):
  *                 x_j_0 = X[j,0]
  *                 x_j_1 = X[j,1]             # <<<<<<<<<<<<<<
@@ -5004,7 +5012,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_x_j_1 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":269
+            /* "bonsai/core/_bonsaic.pyx":270
  *                 x_j_1 = X[j,1]
  * 
  *                 m1 = (x_j_1-x_i_1)/(x_j_0-x_i_0)             # <<<<<<<<<<<<<<
@@ -5013,7 +5021,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_m1 = ((__pyx_v_x_j_1 - __pyx_v_x_i_1) / (__pyx_v_x_j_0 - __pyx_v_x_i_0));
 
-            /* "bonsai/core/_bonsaic.pyx":270
+            /* "bonsai/core/_bonsaic.pyx":271
  * 
  *                 m1 = (x_j_1-x_i_1)/(x_j_0-x_i_0)
  *                 m2 = -1 * pow(m1, -1)             # <<<<<<<<<<<<<<
@@ -5022,7 +5030,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_m2 = (-1.0 * pow(__pyx_v_m1, -1.0));
 
-            /* "bonsai/core/_bonsaic.pyx":271
+            /* "bonsai/core/_bonsaic.pyx":272
  *                 m1 = (x_j_1-x_i_1)/(x_j_0-x_i_0)
  *                 m2 = -1 * pow(m1, -1)
  *                 x2 = (x_i_0+x_j_0)/2             # <<<<<<<<<<<<<<
@@ -5031,7 +5039,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_x2 = ((__pyx_v_x_i_0 + __pyx_v_x_j_0) / 2.0);
 
-            /* "bonsai/core/_bonsaic.pyx":272
+            /* "bonsai/core/_bonsaic.pyx":273
  *                 m2 = -1 * pow(m1, -1)
  *                 x2 = (x_i_0+x_j_0)/2
  *                 y2 = (x_i_1+x_j_1)/2             # <<<<<<<<<<<<<<
@@ -5040,7 +5048,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_y2 = ((__pyx_v_x_i_1 + __pyx_v_x_j_1) / 2.0);
 
-            /* "bonsai/core/_bonsaic.pyx":273
+            /* "bonsai/core/_bonsaic.pyx":274
  *                 x2 = (x_i_0+x_j_0)/2
  *                 y2 = (x_i_1+x_j_1)/2
  *                 b = y2 - (m2*x2)             # <<<<<<<<<<<<<<
@@ -5049,7 +5057,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_b = (__pyx_v_y2 - (__pyx_v_m2 * __pyx_v_x2));
 
-            /* "bonsai/core/_bonsaic.pyx":275
+            /* "bonsai/core/_bonsaic.pyx":276
  *                 b = y2 - (m2*x2)
  * 
  *                 idx += 1             # <<<<<<<<<<<<<<
@@ -5058,7 +5066,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
  */
             __pyx_v_idx = (__pyx_v_idx + 1);
 
-            /* "bonsai/core/_bonsaic.pyx":277
+            /* "bonsai/core/_bonsaic.pyx":278
  *                 idx += 1
  * 
  *                 cnvs[idx, 2, 0] = b             # <<<<<<<<<<<<<<
@@ -5072,7 +5080,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[2].strides) = __pyx_v_b;
 
-            /* "bonsai/core/_bonsaic.pyx":278
+            /* "bonsai/core/_bonsaic.pyx":279
  * 
  *                 cnvs[idx, 2, 0] = b
  *                 cnvs[idx, 2, 1] = m2             # <<<<<<<<<<<<<<
@@ -5086,7 +5094,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) = __pyx_v_m2;
 
-            /* "bonsai/core/_bonsaic.pyx":279
+            /* "bonsai/core/_bonsaic.pyx":280
  *                 cnvs[idx, 2, 0] = b
  *                 cnvs[idx, 2, 1] = m2
  *                 cnvs[idx, 2, 2] = -1             # <<<<<<<<<<<<<<
@@ -5102,7 +5110,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
           }
         }
 
-        /* "bonsai/core/_bonsaic.pyx":282
+        /* "bonsai/core/_bonsaic.pyx":283
  * 
  * 
  *         for k in range(1, n_cnvs+1):             # <<<<<<<<<<<<<<
@@ -5114,7 +5122,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
         for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_k = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":284
+          /* "bonsai/core/_bonsaic.pyx":285
  *         for k in range(1, n_cnvs+1):
  * 
  *             for i in range(n):             # <<<<<<<<<<<<<<
@@ -5126,7 +5134,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
           for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
             __pyx_v_i = __pyx_t_7;
 
-            /* "bonsai/core/_bonsaic.pyx":285
+            /* "bonsai/core/_bonsaic.pyx":286
  * 
  *             for i in range(n):
  *                 y_i = y[i]             # <<<<<<<<<<<<<<
@@ -5136,7 +5144,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             __pyx_t_8 = __pyx_v_i;
             __pyx_v_y_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_y.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_y.diminfo[0].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":286
+            /* "bonsai/core/_bonsaic.pyx":287
  *             for i in range(n):
  *                 y_i = y[i]
  *                 z_i = z[i]             # <<<<<<<<<<<<<<
@@ -5146,7 +5154,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             __pyx_t_8 = __pyx_v_i;
             __pyx_v_z_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_z.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_z.diminfo[0].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":288
+            /* "bonsai/core/_bonsaic.pyx":289
  *                 z_i = z[i]
  * 
  *                 b = cnvs[k, 2, 0]             # <<<<<<<<<<<<<<
@@ -5160,7 +5168,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             __pyx_v_b = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":289
+            /* "bonsai/core/_bonsaic.pyx":290
  * 
  *                 b = cnvs[k, 2, 0]
  *                 m2 = cnvs[k, 2, 1]             # <<<<<<<<<<<<<<
@@ -5174,7 +5182,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             __pyx_v_m2 = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":291
+            /* "bonsai/core/_bonsaic.pyx":292
  *                 m2 = cnvs[k, 2, 1]
  * 
  *                 if (X[i,0] * m2) + b < X[i,1]:             # <<<<<<<<<<<<<<
@@ -5190,7 +5198,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
             __pyx_t_11 = (((((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_X.diminfo[1].strides)) * __pyx_v_m2) + __pyx_v_b) < (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
             if (__pyx_t_11) {
 
-              /* "bonsai/core/_bonsaic.pyx":293
+              /* "bonsai/core/_bonsaic.pyx":294
  *                 if (X[i,0] * m2) + b < X[i,1]:
  *                     #add to left
  *                     cnvs[k, 3, 0] += 1             # <<<<<<<<<<<<<<
@@ -5204,7 +5212,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[2].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":294
+              /* "bonsai/core/_bonsaic.pyx":295
  *                     #add to left
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i             # <<<<<<<<<<<<<<
@@ -5218,7 +5226,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":295
+              /* "bonsai/core/_bonsaic.pyx":296
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i
  *                     cnvs[k, 5, 0] += z_i             # <<<<<<<<<<<<<<
@@ -5232,7 +5240,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_z_i;
 
-              /* "bonsai/core/_bonsaic.pyx":291
+              /* "bonsai/core/_bonsaic.pyx":292
  *                 m2 = cnvs[k, 2, 1]
  * 
  *                 if (X[i,0] * m2) + b < X[i,1]:             # <<<<<<<<<<<<<<
@@ -5242,7 +5250,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               goto __pyx_L14;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":298
+            /* "bonsai/core/_bonsaic.pyx":299
  *                 else:
  *                     #add to right
  *                     cnvs[k, 6, 0] += 1             # <<<<<<<<<<<<<<
@@ -5257,7 +5265,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":299
+              /* "bonsai/core/_bonsaic.pyx":300
  *                     #add to right
  *                     cnvs[k, 6, 0] += 1
  *                     cnvs[k, 7, 0] += y_i             # <<<<<<<<<<<<<<
@@ -5271,7 +5279,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
               if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_9, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":300
+              /* "bonsai/core/_bonsaic.pyx":301
  *                     cnvs[k, 6, 0] += 1
  *                     cnvs[k, 7, 0] += y_i
  *                     cnvs[k, 8, 0] += z_i             # <<<<<<<<<<<<<<
@@ -5290,7 +5298,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
         }
       }
 
-      /* "bonsai/core/_bonsaic.pyx":259
+      /* "bonsai/core/_bonsaic.pyx":260
  * 
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -5309,7 +5317,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":243
+  /* "bonsai/core/_bonsaic.pyx":244
  *     # done _sketch
  * 
  * cdef void _sketch_diagonal(             # <<<<<<<<<<<<<<
@@ -5340,7 +5348,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_diagonal(PyArrayObject *__py
   __Pyx_RefNannyFinishContext();
 }
 
-/* "bonsai/core/_bonsaic.pyx":309
+/* "bonsai/core/_bonsaic.pyx":310
  * 
  * 
  * cdef void _sketch_gaussian(             # <<<<<<<<<<<<<<
@@ -5428,31 +5436,31 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
   __pyx_pybuffernd_cnvs.rcbuffer = &__pyx_pybuffer_cnvs;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_z.rcbuffer->pybuffer, (PyObject*)__pyx_v_z, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
   }
   __pyx_pybuffernd_z.diminfo[0].strides = __pyx_pybuffernd_z.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_z.diminfo[0].shape = __pyx_pybuffernd_z.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_xdim.rcbuffer->pybuffer, (PyObject*)__pyx_v_xdim, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
   }
   __pyx_pybuffernd_xdim.diminfo[0].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xdim.diminfo[0].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xdim.diminfo[1].strides = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xdim.diminfo[1].shape = __pyx_pybuffernd_xdim.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_cnvs.rcbuffer->pybuffer, (PyObject*)__pyx_v_cnvs, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
   }
   __pyx_pybuffernd_cnvs.diminfo[0].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_cnvs.diminfo[0].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_cnvs.diminfo[1].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_cnvs.diminfo[1].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_cnvs.diminfo[2].strides = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_cnvs.diminfo[2].shape = __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.shape[2];
 
-  /* "bonsai/core/_bonsaic.pyx":317
+  /* "bonsai/core/_bonsaic.pyx":318
  * 
  *     cdef size_t i, j, k, l
  *     cdef size_t n = X.shape[0]             # <<<<<<<<<<<<<<
@@ -5461,7 +5469,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
   __pyx_v_n = (__pyx_v_X->dimensions[0]);
 
-  /* "bonsai/core/_bonsaic.pyx":318
+  /* "bonsai/core/_bonsaic.pyx":319
  *     cdef size_t i, j, k, l
  *     cdef size_t n = X.shape[0]
  *     cdef size_t n_cnvs = <size_t> cnvs.shape[0]             # <<<<<<<<<<<<<<
@@ -5470,7 +5478,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
   __pyx_v_n_cnvs = ((size_t)(__pyx_v_cnvs->dimensions[0]));
 
-  /* "bonsai/core/_bonsaic.pyx":320
+  /* "bonsai/core/_bonsaic.pyx":321
  *     cdef size_t n_cnvs = <size_t> cnvs.shape[0]
  *     cdef double y_i, z_i
  *     cdef size_t idx = 0             # <<<<<<<<<<<<<<
@@ -5479,7 +5487,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
   __pyx_v_idx = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":328
+  /* "bonsai/core/_bonsaic.pyx":329
  *     cdef double focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -5494,7 +5502,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":329
+        /* "bonsai/core/_bonsaic.pyx":330
  * 
  *     with nogil:
  *         for i in range(n):             # <<<<<<<<<<<<<<
@@ -5506,7 +5514,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_i = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":330
+          /* "bonsai/core/_bonsaic.pyx":331
  *     with nogil:
  *         for i in range(n):
  *             x_i_0 = X[i,0]             # <<<<<<<<<<<<<<
@@ -5518,7 +5526,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
           if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
           __pyx_v_x_i_0 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":331
+          /* "bonsai/core/_bonsaic.pyx":332
  *         for i in range(n):
  *             x_i_0 = X[i,0]
  *             x_i_1 = X[i,1]             # <<<<<<<<<<<<<<
@@ -5530,7 +5538,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
           if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
           __pyx_v_x_i_1 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-          /* "bonsai/core/_bonsaic.pyx":334
+          /* "bonsai/core/_bonsaic.pyx":335
  * 
  * 
  *             for j in range(i+1, n):             # <<<<<<<<<<<<<<
@@ -5542,7 +5550,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
           for (__pyx_t_7 = (__pyx_v_i + 1); __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
             __pyx_v_j = __pyx_t_7;
 
-            /* "bonsai/core/_bonsaic.pyx":335
+            /* "bonsai/core/_bonsaic.pyx":336
  * 
  *             for j in range(i+1, n):
  *                 x_j_0 = X[j,0]             # <<<<<<<<<<<<<<
@@ -5554,7 +5562,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_x_j_0 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":336
+            /* "bonsai/core/_bonsaic.pyx":337
  *             for j in range(i+1, n):
  *                 x_j_0 = X[j,0]
  *                 x_j_1 = X[j,1]             # <<<<<<<<<<<<<<
@@ -5566,7 +5574,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_x_j_1 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":338
+            /* "bonsai/core/_bonsaic.pyx":339
  *                 x_j_1 = X[j,1]
  * 
  *                 for l in range(n):             # <<<<<<<<<<<<<<
@@ -5578,7 +5586,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
               __pyx_v_l = __pyx_t_10;
 
-              /* "bonsai/core/_bonsaic.pyx":339
+              /* "bonsai/core/_bonsaic.pyx":340
  * 
  *                 for l in range(n):
  *                     if l==i or l==j:             # <<<<<<<<<<<<<<
@@ -5596,7 +5604,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               __pyx_L13_bool_binop_done:;
               if (__pyx_t_11) {
 
-                /* "bonsai/core/_bonsaic.pyx":340
+                /* "bonsai/core/_bonsaic.pyx":341
  *                 for l in range(n):
  *                     if l==i or l==j:
  *                         continue             # <<<<<<<<<<<<<<
@@ -5605,7 +5613,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
                 goto __pyx_L10_continue;
 
-                /* "bonsai/core/_bonsaic.pyx":339
+                /* "bonsai/core/_bonsaic.pyx":340
  * 
  *                 for l in range(n):
  *                     if l==i or l==j:             # <<<<<<<<<<<<<<
@@ -5614,7 +5622,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               }
 
-              /* "bonsai/core/_bonsaic.pyx":341
+              /* "bonsai/core/_bonsaic.pyx":342
  *                     if l==i or l==j:
  *                         continue
  *                     idx +=1             # <<<<<<<<<<<<<<
@@ -5623,7 +5631,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               __pyx_v_idx = (__pyx_v_idx + 1);
 
-              /* "bonsai/core/_bonsaic.pyx":342
+              /* "bonsai/core/_bonsaic.pyx":343
  *                         continue
  *                     idx +=1
  *                     x_l_0 = X[l,0]             # <<<<<<<<<<<<<<
@@ -5635,7 +5643,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
               __pyx_v_x_l_0 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-              /* "bonsai/core/_bonsaic.pyx":343
+              /* "bonsai/core/_bonsaic.pyx":344
  *                     idx +=1
  *                     x_l_0 = X[l,0]
  *                     x_l_1 = X[l,1]             # <<<<<<<<<<<<<<
@@ -5647,7 +5655,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
               __pyx_v_x_l_1 = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-              /* "bonsai/core/_bonsaic.pyx":344
+              /* "bonsai/core/_bonsaic.pyx":345
  *                     x_l_0 = X[l,0]
  *                     x_l_1 = X[l,1]
  *                     halfpoint_0 = (x_i_0 + x_j_0) / 2.0             # <<<<<<<<<<<<<<
@@ -5656,7 +5664,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               __pyx_v_halfpoint_0 = ((__pyx_v_x_i_0 + __pyx_v_x_j_0) / 2.0);
 
-              /* "bonsai/core/_bonsaic.pyx":345
+              /* "bonsai/core/_bonsaic.pyx":346
  *                     x_l_1 = X[l,1]
  *                     halfpoint_0 = (x_i_0 + x_j_0) / 2.0
  *                     halfpoint_1 = (x_i_1 + x_j_1) / 2.0             # <<<<<<<<<<<<<<
@@ -5665,7 +5673,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               __pyx_v_halfpoint_1 = ((__pyx_v_x_i_1 + __pyx_v_x_j_1) / 2.0);
 
-              /* "bonsai/core/_bonsaic.pyx":346
+              /* "bonsai/core/_bonsaic.pyx":347
  *                     halfpoint_0 = (x_i_0 + x_j_0) / 2.0
  *                     halfpoint_1 = (x_i_1 + x_j_1) / 2.0
  *                     distance = euclidean(halfpoint_0, halfpoint_1, x_l_0, x_l_1)             # <<<<<<<<<<<<<<
@@ -5674,7 +5682,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               __pyx_v_distance = __pyx_f_6bonsai_4core_8_bonsaic_euclidean(__pyx_v_halfpoint_0, __pyx_v_halfpoint_1, __pyx_v_x_l_0, __pyx_v_x_l_1, 0);
 
-              /* "bonsai/core/_bonsaic.pyx":347
+              /* "bonsai/core/_bonsaic.pyx":348
  *                     halfpoint_1 = (x_i_1 + x_j_1) / 2.0
  *                     distance = euclidean(halfpoint_0, halfpoint_1, x_l_0, x_l_1)
  *                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)             # <<<<<<<<<<<<<<
@@ -5683,7 +5691,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               __pyx_v_distanceij = __pyx_f_6bonsai_4core_8_bonsaic_euclidean(__pyx_v_x_i_0, __pyx_v_x_i_1, __pyx_v_x_j_0, __pyx_v_x_j_1, 0);
 
-              /* "bonsai/core/_bonsaic.pyx":348
+              /* "bonsai/core/_bonsaic.pyx":349
  *                     distance = euclidean(halfpoint_0, halfpoint_1, x_l_0, x_l_1)
  *                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
  *                     if distance < distanceij:             # <<<<<<<<<<<<<<
@@ -5693,7 +5701,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               __pyx_t_11 = ((__pyx_v_distance < __pyx_v_distanceij) != 0);
               if (__pyx_t_11) {
 
-                /* "bonsai/core/_bonsaic.pyx":349
+                /* "bonsai/core/_bonsaic.pyx":350
  *                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
  *                     if distance < distanceij:
  *                         continue             # <<<<<<<<<<<<<<
@@ -5702,7 +5710,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
                 goto __pyx_L10_continue;
 
-                /* "bonsai/core/_bonsaic.pyx":348
+                /* "bonsai/core/_bonsaic.pyx":349
  *                     distance = euclidean(halfpoint_0, halfpoint_1, x_l_0, x_l_1)
  *                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
  *                     if distance < distanceij:             # <<<<<<<<<<<<<<
@@ -5711,7 +5719,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  */
               }
 
-              /* "bonsai/core/_bonsaic.pyx":350
+              /* "bonsai/core/_bonsaic.pyx":351
  *                     if distance < distanceij:
  *                         continue
  *                     cnvs[idx, 2, 0] = i             # <<<<<<<<<<<<<<
@@ -5725,7 +5733,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) = __pyx_v_i;
 
-              /* "bonsai/core/_bonsaic.pyx":351
+              /* "bonsai/core/_bonsaic.pyx":352
  *                         continue
  *                     cnvs[idx, 2, 0] = i
  *                     cnvs[idx, 2, 1] = j             # <<<<<<<<<<<<<<
@@ -5739,7 +5747,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) = __pyx_v_j;
 
-              /* "bonsai/core/_bonsaic.pyx":352
+              /* "bonsai/core/_bonsaic.pyx":353
  *                     cnvs[idx, 2, 0] = i
  *                     cnvs[idx, 2, 1] = j
  *                     cnvs[idx, 2, 2] = distance             # <<<<<<<<<<<<<<
@@ -5757,7 +5765,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
           }
         }
 
-        /* "bonsai/core/_bonsaic.pyx":355
+        /* "bonsai/core/_bonsaic.pyx":356
  * 
  * 
  *         for k in range(1, n_cnvs+1):             # <<<<<<<<<<<<<<
@@ -5769,7 +5777,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
         for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_k = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":357
+          /* "bonsai/core/_bonsaic.pyx":358
  *         for k in range(1, n_cnvs+1):
  * 
  *             for i in range(n):             # <<<<<<<<<<<<<<
@@ -5781,7 +5789,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
           for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
             __pyx_v_i = __pyx_t_7;
 
-            /* "bonsai/core/_bonsaic.pyx":358
+            /* "bonsai/core/_bonsaic.pyx":359
  * 
  *             for i in range(n):
  *                 y_i = y[i]             # <<<<<<<<<<<<<<
@@ -5791,7 +5799,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             __pyx_t_8 = __pyx_v_i;
             __pyx_v_y_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_y.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_y.diminfo[0].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":359
+            /* "bonsai/core/_bonsaic.pyx":360
  *             for i in range(n):
  *                 y_i = y[i]
  *                 z_i = z[i]             # <<<<<<<<<<<<<<
@@ -5801,7 +5809,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             __pyx_t_8 = __pyx_v_i;
             __pyx_v_z_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_z.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_z.diminfo[0].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":361
+            /* "bonsai/core/_bonsaic.pyx":362
  *                 z_i = z[i]
  * 
  *                 id1 = <size_t>cnvs[k, 2, 0]             # <<<<<<<<<<<<<<
@@ -5815,7 +5823,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             __pyx_v_id1 = ((size_t)(*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides)));
 
-            /* "bonsai/core/_bonsaic.pyx":362
+            /* "bonsai/core/_bonsaic.pyx":363
  * 
  *                 id1 = <size_t>cnvs[k, 2, 0]
  *                 id2 = <size_t>cnvs[k, 2, 1]             # <<<<<<<<<<<<<<
@@ -5829,7 +5837,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             __pyx_v_id2 = ((size_t)(*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides)));
 
-            /* "bonsai/core/_bonsaic.pyx":363
+            /* "bonsai/core/_bonsaic.pyx":364
  *                 id1 = <size_t>cnvs[k, 2, 0]
  *                 id2 = <size_t>cnvs[k, 2, 1]
  *                 dist = cnvs[k, 2, 2]             # <<<<<<<<<<<<<<
@@ -5843,7 +5851,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
             __pyx_v_dist = (*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":365
+            /* "bonsai/core/_bonsaic.pyx":366
  *                 dist = cnvs[k, 2, 2]
  * 
  *                 focal1_x = X[id1,0]             # <<<<<<<<<<<<<<
@@ -5855,7 +5863,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_focal1_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":366
+            /* "bonsai/core/_bonsaic.pyx":367
  * 
  *                 focal1_x = X[id1,0]
  *                 focal1_y = X[id1,1]             # <<<<<<<<<<<<<<
@@ -5867,7 +5875,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_focal1_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":367
+            /* "bonsai/core/_bonsaic.pyx":368
  *                 focal1_x = X[id1,0]
  *                 focal1_y = X[id1,1]
  *                 focal2_x = X[id2,0]             # <<<<<<<<<<<<<<
@@ -5879,7 +5887,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_focal2_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":368
+            /* "bonsai/core/_bonsaic.pyx":369
  *                 focal1_y = X[id1,1]
  *                 focal2_x = X[id2,0]
  *                 focal2_y = X[id2,1]             # <<<<<<<<<<<<<<
@@ -5891,7 +5899,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_focal2_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides));
 
-            /* "bonsai/core/_bonsaic.pyx":369
+            /* "bonsai/core/_bonsaic.pyx":370
  *                 focal2_x = X[id2,0]
  *                 focal2_y = X[id2,1]
  *                 dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))             # <<<<<<<<<<<<<<
@@ -5906,7 +5914,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_dist_1 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_y), 0)));
 
-            /* "bonsai/core/_bonsaic.pyx":370
+            /* "bonsai/core/_bonsaic.pyx":371
  *                 focal2_y = X[id2,1]
  *                 dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))
  *                 dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))             # <<<<<<<<<<<<<<
@@ -5921,7 +5929,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_X.diminfo[1].shape;
             __pyx_v_dist_2 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_y), 0)));
 
-            /* "bonsai/core/_bonsaic.pyx":371
+            /* "bonsai/core/_bonsaic.pyx":372
  *                 dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))
  *                 dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))
  *                 if (dist_1 + dist_2) < dist:             # <<<<<<<<<<<<<<
@@ -5931,7 +5939,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             __pyx_t_11 = (((__pyx_v_dist_1 + __pyx_v_dist_2) < __pyx_v_dist) != 0);
             if (__pyx_t_11) {
 
-              /* "bonsai/core/_bonsaic.pyx":372
+              /* "bonsai/core/_bonsaic.pyx":373
  *                 dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))
  *                 if (dist_1 + dist_2) < dist:
  *                     cnvs[k, 3, 0] += 1             # <<<<<<<<<<<<<<
@@ -5945,7 +5953,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":373
+              /* "bonsai/core/_bonsaic.pyx":374
  *                 if (dist_1 + dist_2) < dist:
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i             # <<<<<<<<<<<<<<
@@ -5959,7 +5967,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":374
+              /* "bonsai/core/_bonsaic.pyx":375
  *                     cnvs[k, 3, 0] += 1
  *                     cnvs[k, 4, 0] += y_i
  *                     cnvs[k, 5, 0] += z_i             # <<<<<<<<<<<<<<
@@ -5973,7 +5981,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_z_i;
 
-              /* "bonsai/core/_bonsaic.pyx":371
+              /* "bonsai/core/_bonsaic.pyx":372
  *                 dist_1 = sqrt(square(X[i,0] - focal1_x) + square(X[i,1] - focal1_y))
  *                 dist_2 = sqrt(square(X[i,0] - focal2_x) + square(X[i,1] - focal2_y))
  *                 if (dist_1 + dist_2) < dist:             # <<<<<<<<<<<<<<
@@ -5983,7 +5991,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               goto __pyx_L20;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":377
+            /* "bonsai/core/_bonsaic.pyx":378
  *                 else:
  *                     #add to right
  *                     cnvs[k, 6, 0] += 1             # <<<<<<<<<<<<<<
@@ -5998,7 +6006,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[2].strides) += 1.0;
 
-              /* "bonsai/core/_bonsaic.pyx":378
+              /* "bonsai/core/_bonsaic.pyx":379
  *                     #add to right
  *                     cnvs[k, 6, 0] += 1
  *                     cnvs[k, 7, 0] += y_i             # <<<<<<<<<<<<<<
@@ -6012,7 +6020,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_cnvs.diminfo[2].shape;
               *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_14, __pyx_pybuffernd_cnvs.diminfo[2].strides) += __pyx_v_y_i;
 
-              /* "bonsai/core/_bonsaic.pyx":379
+              /* "bonsai/core/_bonsaic.pyx":380
  *                     cnvs[k, 6, 0] += 1
  *                     cnvs[k, 7, 0] += y_i
  *                     cnvs[k, 8, 0] += z_i             # <<<<<<<<<<<<<<
@@ -6031,7 +6039,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
         }
       }
 
-      /* "bonsai/core/_bonsaic.pyx":328
+      /* "bonsai/core/_bonsaic.pyx":329
  *     cdef double focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -6050,7 +6058,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":309
+  /* "bonsai/core/_bonsaic.pyx":310
  * 
  * 
  * cdef void _sketch_gaussian(             # <<<<<<<<<<<<<<
@@ -6081,7 +6089,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
   __Pyx_RefNannyFinishContext();
 }
 
-/* "bonsai/core/_bonsaic.pyx":384
+/* "bonsai/core/_bonsaic.pyx":385
  * 
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):             # <<<<<<<<<<<<<<
@@ -6133,29 +6141,29 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_13apply_tree(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tree_val)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 1); __PYX_ERR(0, 384, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 1); __PYX_ERR(0, 385, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_X)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 2); __PYX_ERR(0, 384, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 2); __PYX_ERR(0, 385, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 3); __PYX_ERR(0, 384, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 3); __PYX_ERR(0, 385, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_output_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 4); __PYX_ERR(0, 384, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, 4); __PYX_ERR(0, 385, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply_tree") < 0)) __PYX_ERR(0, 384, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply_tree") < 0)) __PYX_ERR(0, 385, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -6174,7 +6182,7 @@ static PyObject *__pyx_pw_6bonsai_4core_8_bonsaic_13apply_tree(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 384, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("apply_tree", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 385, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bonsai.core._bonsaic.apply_tree", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6197,17 +6205,17 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_12apply_tree(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("apply_tree", 0);
 
-  /* "bonsai/core/_bonsaic.pyx":385
+  /* "bonsai/core/_bonsaic.pyx":386
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):
  *     if output_type == "index":             # <<<<<<<<<<<<<<
  *         return _apply_tree0(tree_ind, tree_val, X, y)
  *     else:
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_output_type, __pyx_n_s_index, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_output_type, __pyx_n_s_index, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 386, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "bonsai/core/_bonsaic.pyx":386
+    /* "bonsai/core/_bonsaic.pyx":387
  * def apply_tree(tree_ind, tree_val, X, y, output_type):
  *     if output_type == "index":
  *         return _apply_tree0(tree_ind, tree_val, X, y)             # <<<<<<<<<<<<<<
@@ -6215,17 +6223,17 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_12apply_tree(CYTHON_UNUSED PyO
  *         return _apply_tree1(tree_ind, tree_val, X, y)
  */
     __Pyx_XDECREF(__pyx_r);
-    if (!(likely(((__pyx_v_tree_ind) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_ind, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 386, __pyx_L1_error)
-    if (!(likely(((__pyx_v_tree_val) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_val, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 386, __pyx_L1_error)
-    if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 386, __pyx_L1_error)
-    if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 386, __pyx_L1_error)
-    __pyx_t_2 = ((PyObject *)__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(((PyArrayObject *)__pyx_v_tree_ind), ((PyArrayObject *)__pyx_v_tree_val), ((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
+    if (!(likely(((__pyx_v_tree_ind) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_ind, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 387, __pyx_L1_error)
+    if (!(likely(((__pyx_v_tree_val) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_val, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 387, __pyx_L1_error)
+    if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 387, __pyx_L1_error)
+    if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 387, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(((PyArrayObject *)__pyx_v_tree_ind), ((PyArrayObject *)__pyx_v_tree_val), ((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 387, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "bonsai/core/_bonsaic.pyx":385
+    /* "bonsai/core/_bonsaic.pyx":386
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):
  *     if output_type == "index":             # <<<<<<<<<<<<<<
@@ -6234,7 +6242,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_12apply_tree(CYTHON_UNUSED PyO
  */
   }
 
-  /* "bonsai/core/_bonsaic.pyx":388
+  /* "bonsai/core/_bonsaic.pyx":389
  *         return _apply_tree0(tree_ind, tree_val, X, y)
  *     else:
  *         return _apply_tree1(tree_ind, tree_val, X, y)             # <<<<<<<<<<<<<<
@@ -6243,18 +6251,18 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_12apply_tree(CYTHON_UNUSED PyO
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    if (!(likely(((__pyx_v_tree_ind) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_ind, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 388, __pyx_L1_error)
-    if (!(likely(((__pyx_v_tree_val) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_val, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 388, __pyx_L1_error)
-    if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 388, __pyx_L1_error)
-    if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 388, __pyx_L1_error)
-    __pyx_t_2 = ((PyObject *)__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(((PyArrayObject *)__pyx_v_tree_ind), ((PyArrayObject *)__pyx_v_tree_val), ((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 388, __pyx_L1_error)
+    if (!(likely(((__pyx_v_tree_ind) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_ind, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 389, __pyx_L1_error)
+    if (!(likely(((__pyx_v_tree_val) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_tree_val, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 389, __pyx_L1_error)
+    if (!(likely(((__pyx_v_X) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_X, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 389, __pyx_L1_error)
+    if (!(likely(((__pyx_v_y) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_y, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 389, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(((PyArrayObject *)__pyx_v_tree_ind), ((PyArrayObject *)__pyx_v_tree_val), ((PyArrayObject *)__pyx_v_X), ((PyArrayObject *)__pyx_v_y))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 389, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
   }
 
-  /* "bonsai/core/_bonsaic.pyx":384
+  /* "bonsai/core/_bonsaic.pyx":385
  * 
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):             # <<<<<<<<<<<<<<
@@ -6273,7 +6281,7 @@ static PyObject *__pyx_pf_6bonsai_4core_8_bonsaic_12apply_tree(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":391
+/* "bonsai/core/_bonsaic.pyx":392
  * 
  * # output index
  * cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree0(             # <<<<<<<<<<<<<<
@@ -6327,26 +6335,26 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
   __pyx_pybuffernd_y.rcbuffer = &__pyx_pybuffer_y;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_ind.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_ind, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_ind.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_ind, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 392, __pyx_L1_error)
   }
   __pyx_pybuffernd_tree_ind.diminfo[0].strides = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_tree_ind.diminfo[0].shape = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_tree_ind.diminfo[1].strides = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_tree_ind.diminfo[1].shape = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_val.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_val, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_val.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_val, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 392, __pyx_L1_error)
   }
   __pyx_pybuffernd_tree_val.diminfo[0].strides = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_tree_val.diminfo[0].shape = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_tree_val.diminfo[1].strides = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_tree_val.diminfo[1].shape = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 392, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 392, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
 
-  /* "bonsai/core/_bonsaic.pyx":398
+  /* "bonsai/core/_bonsaic.pyx":399
  *     # Initialize node/row indicies
  *     cdef size_t i, t
  *     cdef size_t n_samples = X.shape[0]             # <<<<<<<<<<<<<<
@@ -6355,7 +6363,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
  */
   __pyx_v_n_samples = (__pyx_v_X->dimensions[0]);
 
-  /* "bonsai/core/_bonsaic.pyx":400
+  /* "bonsai/core/_bonsaic.pyx":401
  *     cdef size_t n_samples = X.shape[0]
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -6370,7 +6378,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":401
+        /* "bonsai/core/_bonsaic.pyx":402
  * 
  *     with nogil:
  *         for i in range(n_samples):             # <<<<<<<<<<<<<<
@@ -6382,7 +6390,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_i = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":402
+          /* "bonsai/core/_bonsaic.pyx":403
  *     with nogil:
  *         for i in range(n_samples):
  *             t = 0             # <<<<<<<<<<<<<<
@@ -6391,7 +6399,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
  */
           __pyx_v_t = 0;
 
-          /* "bonsai/core/_bonsaic.pyx":403
+          /* "bonsai/core/_bonsaic.pyx":404
  *         for i in range(n_samples):
  *             t = 0
  *             while tree_ind[t,0] < 0:             # <<<<<<<<<<<<<<
@@ -6405,7 +6413,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
             __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_ind.diminfo[1].strides)) < 0) != 0);
             if (!__pyx_t_6) break;
 
-            /* "bonsai/core/_bonsaic.pyx":404
+            /* "bonsai/core/_bonsaic.pyx":405
  *             t = 0
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]):             # <<<<<<<<<<<<<<
@@ -6421,7 +6429,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
             __pyx_t_6 = (isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
             if (__pyx_t_6) {
 
-              /* "bonsai/core/_bonsaic.pyx":405
+              /* "bonsai/core/_bonsaic.pyx":406
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]):
  *                     if tree_ind[t,2]==0:             # <<<<<<<<<<<<<<
@@ -6434,7 +6442,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
               __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_ind.diminfo[1].strides)) == 0) != 0);
               if (__pyx_t_6) {
 
-                /* "bonsai/core/_bonsaic.pyx":406
+                /* "bonsai/core/_bonsaic.pyx":407
  *                 if isnan(X[i, tree_ind[t,1]]):
  *                     if tree_ind[t,2]==0:
  *                         t = tree_ind[t,3]             # <<<<<<<<<<<<<<
@@ -6446,7 +6454,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
                 if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                 __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":405
+                /* "bonsai/core/_bonsaic.pyx":406
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]):
  *                     if tree_ind[t,2]==0:             # <<<<<<<<<<<<<<
@@ -6456,7 +6464,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
                 goto __pyx_L11;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":408
+              /* "bonsai/core/_bonsaic.pyx":409
  *                         t = tree_ind[t,3]
  *                     else:
  *                         t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -6471,7 +6479,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
               }
               __pyx_L11:;
 
-              /* "bonsai/core/_bonsaic.pyx":404
+              /* "bonsai/core/_bonsaic.pyx":405
  *             t = 0
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]):             # <<<<<<<<<<<<<<
@@ -6481,7 +6489,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
               goto __pyx_L10;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":410
+            /* "bonsai/core/_bonsaic.pyx":411
  *                         t = tree_ind[t,4]
  *                 else:
  *                     if X[i,tree_ind[t,1]] < tree_val[t,0]:             # <<<<<<<<<<<<<<
@@ -6501,7 +6509,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
               __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_X.diminfo[1].strides)) < (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_tree_val.diminfo[1].strides))) != 0);
               if (__pyx_t_6) {
 
-                /* "bonsai/core/_bonsaic.pyx":411
+                /* "bonsai/core/_bonsaic.pyx":412
  *                 else:
  *                     if X[i,tree_ind[t,1]] < tree_val[t,0]:
  *                         t = tree_ind[t,3]             # <<<<<<<<<<<<<<
@@ -6513,7 +6521,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
                 if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                 __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":410
+                /* "bonsai/core/_bonsaic.pyx":411
  *                         t = tree_ind[t,4]
  *                 else:
  *                     if X[i,tree_ind[t,1]] < tree_val[t,0]:             # <<<<<<<<<<<<<<
@@ -6523,7 +6531,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
                 goto __pyx_L12;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":413
+              /* "bonsai/core/_bonsaic.pyx":414
  *                         t = tree_ind[t,3]
  *                     else:
  *                         t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -6541,7 +6549,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
             __pyx_L10:;
           }
 
-          /* "bonsai/core/_bonsaic.pyx":414
+          /* "bonsai/core/_bonsaic.pyx":415
  *                     else:
  *                         t = tree_ind[t,4]
  *             y[i] = tree_ind[t,5]             # <<<<<<<<<<<<<<
@@ -6556,7 +6564,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
         }
       }
 
-      /* "bonsai/core/_bonsaic.pyx":400
+      /* "bonsai/core/_bonsaic.pyx":401
  *     cdef size_t n_samples = X.shape[0]
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -6575,7 +6583,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":415
+  /* "bonsai/core/_bonsaic.pyx":416
  *                         t = tree_ind[t,4]
  *             y[i] = tree_ind[t,5]
  *     return y             # <<<<<<<<<<<<<<
@@ -6587,7 +6595,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
   __pyx_r = ((PyArrayObject *)__pyx_v_y);
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":391
+  /* "bonsai/core/_bonsaic.pyx":392
  * 
  * # output index
  * cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree0(             # <<<<<<<<<<<<<<
@@ -6620,7 +6628,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree0(PyArrayObject
   return __pyx_r;
 }
 
-/* "bonsai/core/_bonsaic.pyx":418
+/* "bonsai/core/_bonsaic.pyx":419
  * 
  * # output y values
  * cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(             # <<<<<<<<<<<<<<
@@ -6687,26 +6695,26 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
   __pyx_pybuffernd_y.rcbuffer = &__pyx_pybuffer_y;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_ind.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_ind, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 418, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_ind.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_ind, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 419, __pyx_L1_error)
   }
   __pyx_pybuffernd_tree_ind.diminfo[0].strides = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_tree_ind.diminfo[0].shape = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_tree_ind.diminfo[1].strides = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_tree_ind.diminfo[1].shape = __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_val.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_val, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 418, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_tree_val.rcbuffer->pybuffer, (PyObject*)__pyx_v_tree_val, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 419, __pyx_L1_error)
   }
   __pyx_pybuffernd_tree_val.diminfo[0].strides = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_tree_val.diminfo[0].shape = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_tree_val.diminfo[1].strides = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_tree_val.diminfo[1].shape = __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 418, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 419, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 418, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_y.rcbuffer->pybuffer, (PyObject*)__pyx_v_y, &__Pyx_TypeInfo_nn___pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 419, __pyx_L1_error)
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0];
 
-  /* "bonsai/core/_bonsaic.pyx":427
+  /* "bonsai/core/_bonsaic.pyx":428
  *     # Initialize node/row indicies
  *     cdef size_t i, t
  *     cdef size_t n_samples = X.shape[0]             # <<<<<<<<<<<<<<
@@ -6715,7 +6723,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
  */
   __pyx_v_n_samples = (__pyx_v_X->dimensions[0]);
 
-  /* "bonsai/core/_bonsaic.pyx":431
+  /* "bonsai/core/_bonsaic.pyx":432
  *     cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -6730,7 +6738,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
       #endif
       /*try:*/ {
 
-        /* "bonsai/core/_bonsaic.pyx":432
+        /* "bonsai/core/_bonsaic.pyx":433
  * 
  *     with nogil:
  *         for i in range(n_samples):             # <<<<<<<<<<<<<<
@@ -6742,7 +6750,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_i = __pyx_t_3;
 
-          /* "bonsai/core/_bonsaic.pyx":433
+          /* "bonsai/core/_bonsaic.pyx":434
  *     with nogil:
  *         for i in range(n_samples):
  *             t = 0             # <<<<<<<<<<<<<<
@@ -6751,7 +6759,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
  */
           __pyx_v_t = 0;
 
-          /* "bonsai/core/_bonsaic.pyx":434
+          /* "bonsai/core/_bonsaic.pyx":435
  *         for i in range(n_samples):
  *             t = 0
  *             while tree_ind[t,0] < 0:             # <<<<<<<<<<<<<<
@@ -6765,7 +6773,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
             __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_ind.diminfo[1].strides)) < 0) != 0);
             if (!__pyx_t_6) break;
 
-            /* "bonsai/core/_bonsaic.pyx":435
+            /* "bonsai/core/_bonsaic.pyx":436
  *             t = 0
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]) | isnan(X[i, tree_ind[t,2]]):             # <<<<<<<<<<<<<<
@@ -6787,7 +6795,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
             __pyx_t_6 = ((isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_X.diminfo[1].strides))) | isnan((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_X.diminfo[1].strides)))) != 0);
             if (__pyx_t_6) {
 
-              /* "bonsai/core/_bonsaic.pyx":436
+              /* "bonsai/core/_bonsaic.pyx":437
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]) | isnan(X[i, tree_ind[t,2]]):
  *                     if tree_ind[t,3]==0:             # <<<<<<<<<<<<<<
@@ -6800,7 +6808,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
               __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_tree_ind.diminfo[1].strides)) == 0) != 0);
               if (__pyx_t_6) {
 
-                /* "bonsai/core/_bonsaic.pyx":437
+                /* "bonsai/core/_bonsaic.pyx":438
  *                 if isnan(X[i, tree_ind[t,1]]) | isnan(X[i, tree_ind[t,2]]):
  *                     if tree_ind[t,3]==0:
  *                         t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -6812,7 +6820,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                 __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":436
+                /* "bonsai/core/_bonsaic.pyx":437
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]) | isnan(X[i, tree_ind[t,2]]):
  *                     if tree_ind[t,3]==0:             # <<<<<<<<<<<<<<
@@ -6822,7 +6830,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 goto __pyx_L11;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":439
+              /* "bonsai/core/_bonsaic.pyx":440
  *                         t = tree_ind[t,4]
  *                     else:
  *                         t = tree_ind[t,5]             # <<<<<<<<<<<<<<
@@ -6837,7 +6845,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
               }
               __pyx_L11:;
 
-              /* "bonsai/core/_bonsaic.pyx":435
+              /* "bonsai/core/_bonsaic.pyx":436
  *             t = 0
  *             while tree_ind[t,0] < 0:
  *                 if isnan(X[i, tree_ind[t,1]]) | isnan(X[i, tree_ind[t,2]]):             # <<<<<<<<<<<<<<
@@ -6847,7 +6855,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
               goto __pyx_L10;
             }
 
-            /* "bonsai/core/_bonsaic.pyx":441
+            /* "bonsai/core/_bonsaic.pyx":442
  *                         t = tree_ind[t,5]
  *                 else:
  *                     if tree_ind[t, 2] == -1:             # <<<<<<<<<<<<<<
@@ -6861,7 +6869,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
               __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_tree_ind.diminfo[1].strides)) == -1L) != 0);
               if (__pyx_t_6) {
 
-                /* "bonsai/core/_bonsaic.pyx":442
+                /* "bonsai/core/_bonsaic.pyx":443
  *                 else:
  *                     if tree_ind[t, 2] == -1:
  *                         if X[i,tree_ind[t,1]] < tree_val[t,0]:             # <<<<<<<<<<<<<<
@@ -6880,7 +6888,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_X.diminfo[1].strides)) < (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_val.diminfo[1].strides))) != 0);
                 if (__pyx_t_6) {
 
-                  /* "bonsai/core/_bonsaic.pyx":443
+                  /* "bonsai/core/_bonsaic.pyx":444
  *                     if tree_ind[t, 2] == -1:
  *                         if X[i,tree_ind[t,1]] < tree_val[t,0]:
  *                             t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -6892,7 +6900,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                   __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                  /* "bonsai/core/_bonsaic.pyx":442
+                  /* "bonsai/core/_bonsaic.pyx":443
  *                 else:
  *                     if tree_ind[t, 2] == -1:
  *                         if X[i,tree_ind[t,1]] < tree_val[t,0]:             # <<<<<<<<<<<<<<
@@ -6902,7 +6910,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   goto __pyx_L13;
                 }
 
-                /* "bonsai/core/_bonsaic.pyx":445
+                /* "bonsai/core/_bonsaic.pyx":446
  *                             t = tree_ind[t,4]
  *                         else:
  *                             t = tree_ind[t,5]             # <<<<<<<<<<<<<<
@@ -6917,7 +6925,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 }
                 __pyx_L13:;
 
-                /* "bonsai/core/_bonsaic.pyx":441
+                /* "bonsai/core/_bonsaic.pyx":442
  *                         t = tree_ind[t,5]
  *                 else:
  *                     if tree_ind[t, 2] == -1:             # <<<<<<<<<<<<<<
@@ -6927,7 +6935,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 goto __pyx_L12;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":446
+              /* "bonsai/core/_bonsaic.pyx":447
  *                         else:
  *                             t = tree_ind[t,5]
  *                     elif tree_val[t, 2] == -1:             # <<<<<<<<<<<<<<
@@ -6940,7 +6948,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
               __pyx_t_6 = (((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_val.diminfo[1].strides)) == -1.0) != 0);
               if (__pyx_t_6) {
 
-                /* "bonsai/core/_bonsaic.pyx":447
+                /* "bonsai/core/_bonsaic.pyx":448
  *                             t = tree_ind[t,5]
  *                     elif tree_val[t, 2] == -1:
  *                         if tree_val[t,1] * X[i,tree_ind[t,1]] + tree_val[t,0] < X[i,tree_ind[t,2]]:             # <<<<<<<<<<<<<<
@@ -6968,7 +6976,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 __pyx_t_6 = (((((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_tree_val.diminfo[1].strides)) * (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_X.diminfo[1].strides))) + (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_7, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_tree_val.diminfo[1].strides))) < (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides))) != 0);
                 if (__pyx_t_6) {
 
-                  /* "bonsai/core/_bonsaic.pyx":448
+                  /* "bonsai/core/_bonsaic.pyx":449
  *                     elif tree_val[t, 2] == -1:
  *                         if tree_val[t,1] * X[i,tree_ind[t,1]] + tree_val[t,0] < X[i,tree_ind[t,2]]:
  *                             t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -6980,7 +6988,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                   __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                  /* "bonsai/core/_bonsaic.pyx":447
+                  /* "bonsai/core/_bonsaic.pyx":448
  *                             t = tree_ind[t,5]
  *                     elif tree_val[t, 2] == -1:
  *                         if tree_val[t,1] * X[i,tree_ind[t,1]] + tree_val[t,0] < X[i,tree_ind[t,2]]:             # <<<<<<<<<<<<<<
@@ -6990,7 +6998,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   goto __pyx_L14;
                 }
 
-                /* "bonsai/core/_bonsaic.pyx":450
+                /* "bonsai/core/_bonsaic.pyx":451
  *                             t = tree_ind[t,4]
  *                         else:
  *                             t = tree_ind[t,5]             # <<<<<<<<<<<<<<
@@ -7005,7 +7013,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 }
                 __pyx_L14:;
 
-                /* "bonsai/core/_bonsaic.pyx":446
+                /* "bonsai/core/_bonsaic.pyx":447
  *                         else:
  *                             t = tree_ind[t,5]
  *                     elif tree_val[t, 2] == -1:             # <<<<<<<<<<<<<<
@@ -7015,7 +7023,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 goto __pyx_L12;
               }
 
-              /* "bonsai/core/_bonsaic.pyx":452
+              /* "bonsai/core/_bonsaic.pyx":453
  *                             t = tree_ind[t,5]
  *                     else:
  *                         focal1_x = X[<size_t>tree_val[t,0],0]             # <<<<<<<<<<<<<<
@@ -7031,7 +7039,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal1_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":453
+                /* "bonsai/core/_bonsaic.pyx":454
  *                     else:
  *                         focal1_x = X[<size_t>tree_val[t,0],0]
  *                         focal1_y = X[<size_t>tree_val[t,0],1]             # <<<<<<<<<<<<<<
@@ -7046,7 +7054,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal1_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":454
+                /* "bonsai/core/_bonsaic.pyx":455
  *                         focal1_x = X[<size_t>tree_val[t,0],0]
  *                         focal1_y = X[<size_t>tree_val[t,0],1]
  *                         focal2_x = X[<size_t>tree_val[t,1],0]             # <<<<<<<<<<<<<<
@@ -7061,7 +7069,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal2_x = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":455
+                /* "bonsai/core/_bonsaic.pyx":456
  *                         focal1_y = X[<size_t>tree_val[t,0],1]
  *                         focal2_x = X[<size_t>tree_val[t,1],0]
  *                         focal2_y = X[<size_t>tree_val[t,1],1]             # <<<<<<<<<<<<<<
@@ -7076,7 +7084,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_focal2_y = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":456
+                /* "bonsai/core/_bonsaic.pyx":457
  *                         focal2_x = X[<size_t>tree_val[t,1],0]
  *                         focal2_y = X[<size_t>tree_val[t,1],1]
  *                         dist = tree_val[t,2]             # <<<<<<<<<<<<<<
@@ -7088,7 +7096,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_tree_val.diminfo[1].shape;
                 __pyx_v_dist = (*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_tree_val.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_tree_val.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_tree_val.diminfo[1].strides));
 
-                /* "bonsai/core/_bonsaic.pyx":457
+                /* "bonsai/core/_bonsaic.pyx":458
  *                         focal2_y = X[<size_t>tree_val[t,1],1]
  *                         dist = tree_val[t,2]
  *                         dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))             # <<<<<<<<<<<<<<
@@ -7109,7 +7117,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_dist_1 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal1_y), 0)));
 
-                /* "bonsai/core/_bonsaic.pyx":458
+                /* "bonsai/core/_bonsaic.pyx":459
  *                         dist = tree_val[t,2]
  *                         dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))             # <<<<<<<<<<<<<<
@@ -7130,7 +7138,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_pybuffernd_X.diminfo[1].shape;
                 __pyx_v_dist_2 = sqrt((__pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_x), 0) + __pyx_f_6bonsai_4core_8_bonsaic_square(((*__Pyx_BufPtrStrided2d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_X.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_X.diminfo[1].strides)) - __pyx_v_focal2_y), 0)));
 
-                /* "bonsai/core/_bonsaic.pyx":459
+                /* "bonsai/core/_bonsaic.pyx":460
  *                         dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:             # <<<<<<<<<<<<<<
@@ -7140,7 +7148,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                 __pyx_t_6 = (((__pyx_v_dist_1 + __pyx_v_dist_2) >= __pyx_v_dist) != 0);
                 if (__pyx_t_6) {
 
-                  /* "bonsai/core/_bonsaic.pyx":460
+                  /* "bonsai/core/_bonsaic.pyx":461
  *                         dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:
  *                             t = tree_ind[t,5]             # <<<<<<<<<<<<<<
@@ -7152,7 +7160,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_pybuffernd_tree_ind.diminfo[1].shape;
                   __pyx_v_t = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int_t *, __pyx_pybuffernd_tree_ind.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_tree_ind.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_tree_ind.diminfo[1].strides));
 
-                  /* "bonsai/core/_bonsaic.pyx":459
+                  /* "bonsai/core/_bonsaic.pyx":460
  *                         dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
  *                         dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
  *                         if (dist_1 + dist_2) >= dist:             # <<<<<<<<<<<<<<
@@ -7162,7 +7170,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
                   goto __pyx_L15;
                 }
 
-                /* "bonsai/core/_bonsaic.pyx":462
+                /* "bonsai/core/_bonsaic.pyx":463
  *                             t = tree_ind[t,5]
  *                         else:
  *                             t = tree_ind[t,4]             # <<<<<<<<<<<<<<
@@ -7182,7 +7190,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
             __pyx_L10:;
           }
 
-          /* "bonsai/core/_bonsaic.pyx":463
+          /* "bonsai/core/_bonsaic.pyx":464
  *                         else:
  *                             t = tree_ind[t,4]
  *             y[i] = tree_val[t,3]             # <<<<<<<<<<<<<<
@@ -7197,7 +7205,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
         }
       }
 
-      /* "bonsai/core/_bonsaic.pyx":431
+      /* "bonsai/core/_bonsaic.pyx":432
  *     cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -7216,7 +7224,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
       }
   }
 
-  /* "bonsai/core/_bonsaic.pyx":464
+  /* "bonsai/core/_bonsaic.pyx":465
  *                             t = tree_ind[t,4]
  *             y[i] = tree_val[t,3]
  *     return y             # <<<<<<<<<<<<<<
@@ -7228,7 +7236,7 @@ static PyArrayObject *__pyx_f_6bonsai_4core_8_bonsaic__apply_tree1(PyArrayObject
   __pyx_r = ((PyArrayObject *)__pyx_v_y);
   goto __pyx_L0;
 
-  /* "bonsai/core/_bonsaic.pyx":418
+  /* "bonsai/core/_bonsaic.pyx":419
  * 
  * # output y values
  * cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(             # <<<<<<<<<<<<<<
@@ -8368,7 +8376,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 96, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 947, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -8401,65 +8409,65 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "bonsai/core/_bonsaic.pyx":25
+  /* "bonsai/core/_bonsaic.pyx":26
  *     return sqrt(square(x10 - x20) + square(x11 - x21))
  * 
  * def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):             # <<<<<<<<<<<<<<
  *     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)
  * 
  */
-  __pyx_tuple__3 = PyTuple_Pack(8, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_i_start, __pyx_n_s_i_end, __pyx_n_s_j_split, __pyx_n_s_split_value, __pyx_n_s_missing); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(8, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_i_start, __pyx_n_s_i_end, __pyx_n_s_j_split, __pyx_n_s_split_value, __pyx_n_s_missing); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(8, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_reorder, 25, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(8, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_reorder, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "bonsai/core/_bonsaic.pyx":109
+  /* "bonsai/core/_bonsaic.pyx":110
  * 
  * 
  * def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_tuple__5 = PyTuple_Pack(6, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs, __pyx_n_s_cnvsn); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(6, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs, __pyx_n_s_cnvsn); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(6, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch, 109, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(6, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 110, __pyx_L1_error)
 
-  /* "bonsai/core/_bonsaic.pyx":121
+  /* "bonsai/core/_bonsaic.pyx":122
  *     return 0
  * 
  * def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch_diagonal, 121, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch_diagonal, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 122, __pyx_L1_error)
 
-  /* "bonsai/core/_bonsaic.pyx":132
+  /* "bonsai/core/_bonsaic.pyx":133
  *     return 0
  * 
  * def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_tuple__9 = PyTuple_Pack(5, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(5, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_xdim, __pyx_n_s_cnvs); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch_gaussian, 132, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_sketch_gaussian, 133, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 133, __pyx_L1_error)
 
-  /* "bonsai/core/_bonsaic.pyx":384
+  /* "bonsai/core/_bonsaic.pyx":385
  * 
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):             # <<<<<<<<<<<<<<
  *     if output_type == "index":
  *         return _apply_tree0(tree_ind, tree_val, X, y)
  */
-  __pyx_tuple__11 = PyTuple_Pack(5, __pyx_n_s_tree_ind, __pyx_n_s_tree_val, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_output_type); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(5, __pyx_n_s_tree_ind, __pyx_n_s_tree_val, __pyx_n_s_X, __pyx_n_s_y, __pyx_n_s_output_type); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_apply_tree, 384, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bonsai_core__bonsaic_pyx, __pyx_n_s_apply_tree, 385, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8811,7 +8819,7 @@ if (!__Pyx_RefNanny) {
  * 
  * DTYPE = np.float64             # <<<<<<<<<<<<<<
  * ctypedef np.float64_t DTYPE_t
- * 
+ * ctypedef unsigned long ULong
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -8821,64 +8829,64 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DTYPE, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":25
+  /* "bonsai/core/_bonsaic.pyx":26
  *     return sqrt(square(x10 - x20) + square(x11 - x21))
  * 
  * def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):             # <<<<<<<<<<<<<<
  *     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)
  * 
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_5reorder, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_5reorder, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reorder, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reorder, __pyx_t_2) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":109
+  /* "bonsai/core/_bonsaic.pyx":110
  * 
  * 
  * def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_7sketch, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_7sketch, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch, __pyx_t_2) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch, __pyx_t_2) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":121
+  /* "bonsai/core/_bonsaic.pyx":122
  *     return 0
  * 
  * def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_9sketch_diagonal, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_9sketch_diagonal, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch_diagonal, __pyx_t_2) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch_diagonal, __pyx_t_2) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":132
+  /* "bonsai/core/_bonsaic.pyx":133
  *     return 0
  * 
  * def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,             # <<<<<<<<<<<<<<
  *         np.ndarray[DTYPE_t, ndim=1] y not None,
  *         np.ndarray[DTYPE_t, ndim=1] z not None,
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_11sketch_gaussian, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_11sketch_gaussian, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch_gaussian, __pyx_t_2) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sketch_gaussian, __pyx_t_2) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bonsai/core/_bonsaic.pyx":384
+  /* "bonsai/core/_bonsaic.pyx":385
  * 
  * 
  * def apply_tree(tree_ind, tree_val, X, y, output_type):             # <<<<<<<<<<<<<<
  *     if output_type == "index":
  *         return _apply_tree0(tree_ind, tree_val, X, y)
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_13apply_tree, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6bonsai_4core_8_bonsaic_13apply_tree, NULL, __pyx_n_s_bonsai_core__bonsaic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_apply_tree, __pyx_t_2) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_apply_tree, __pyx_t_2) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "bonsai/core/_bonsaic.pyx":1

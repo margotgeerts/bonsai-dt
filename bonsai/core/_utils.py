@@ -18,10 +18,10 @@ def get_child_branch(ss, parent_branch, i_split, side):
     child_branch = {"eqs": list(parent_branch["eqs"])}
     ss_key = [key for key in ss.keys() if key[-2:] == side]
     ss_key += [key for key in ss.keys() if key[-2:] == "@m"]
-    sidx = int(ss["selected"][0])
+    sidx = int(ss["selected"][0][0])
     svar = ss["selected"][1]
     sval = ss["selected"][2]
-    missing = ss["selected"][9]
+    missing = ss["selected"][9][0]
     parent_id = parent_branch["_id"]
     offset = 0
 
@@ -45,8 +45,8 @@ def get_child_branch(ss, parent_branch, i_split, side):
                                     "missing": int(missing>0.5)})
         offset = 3
    
-    n_samples = ss["selected"][offset+3]
-    sum_y = ss["selected"][offset+4]
+    n_samples = ss["selected"][offset+3][0]
+    sum_y = ss["selected"][offset+4][0]
     child_branch["n_samples"] = n_samples
     child_branch["y"] = sum_y / n_samples # mean(y)
     child_branch["depth"] = parent_branch["depth"] + 1
@@ -168,13 +168,13 @@ def reconstruct_tree(leaves):
             child_index = int(">="==eq["op"])
             if isinstance(eq["svar"], list):
                 svar = [int(eq["svar"][0]), int(eq["svar"][1])]
-                if len(eq["sval"]) == 2:
+                if eq["sval"][2] == -1:
                     sval = [float(eq["sval"][0]), float(eq["sval"][1]), -1]
                 else:
                     sval = [float(eq["sval"][0]), float(eq["sval"][1]), float(eq["sval"][2])]
             else:
-                svar = [int(eq["svar"]), -1]
-                sval = [float(eq["sval"]), -1]
+                svar = [int(eq["svar"][0]), -1, -1]
+                sval = [float(eq["sval"][0]), -1, -1]
             #sidx = eq["sidx"]
             if child_index == 0:
                 missing = int(eq["missing"]==0)

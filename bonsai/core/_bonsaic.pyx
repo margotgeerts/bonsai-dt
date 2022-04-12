@@ -14,6 +14,7 @@ from libc.math cimport sqrt, pow
 
 DTYPE = np.float64
 ctypedef np.float64_t DTYPE_t
+ctypedef unsigned long ULong
 
 
 cpdef DTYPE_t square(DTYPE_t x) nogil: 
@@ -34,7 +35,7 @@ cdef size_t _reorder(
         size_t i_end, 
         np.ndarray[np.int32_t, ndim=1] j_split, 
         np.ndarray[DTYPE_t, ndim=1] split_value, 
-        np.ndarray[size_t, ndim=1] missing):
+        np.ndarray[np.int32_t, ndim=1] missing):
     """
     - X: 2-d numpy array (n x m)
     - y: 1-d numpy array (n)

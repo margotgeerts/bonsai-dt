@@ -79,6 +79,7 @@ class Bonsai:
             jj_start = int(self.xdim[j_start,4]*2)
             jj_end = int(self.xdim[j_end-1,4]*2 + 
                         self.xdim[j_end-1,3]*2)
+            print(jj_end)
             X_ij = X[i_start:i_end,j_start:j_end]
             xdim_j = self.xdim[j_start:j_end,:]
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
@@ -90,23 +91,26 @@ class Bonsai:
         parallel(delayed(psketch)(i) for i in range(self.n_jobs))
         #t1 = time.time() - t0
         #print(i_end-i_start, t1)
-        
         #get avc for diagonal & gaussian splits
-        jj_start = int(self.xdim[m-1,4] + 
+        jj_start = int(self.xdim[m-1,4]*2 + 
                         self.xdim[m-1,3]*2)
+        print(jj_start)
             # start after offset + n_bin*2 of last feature
-        jj_end = 0
-        if self.diagonal:
-            jj_end += n*(n-1)
-        if self.gaussian:
-            jj_end += n*(n-1)*(n-2)
+        jj_end = jj_start
         X_ij = X[i_start:i_end,:2]
         xdim_j = self.xdim[:2,:]
-        cnvs_j = self.cnvs[jj_start:jj_end,:,:]
         if self.diagonal:
+            jj_end += n*(n-1)
+            cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
+            print(jj_end)
         if self.gaussian:
+            jj_start = jj_end
+            jj_end += n*(n-1)*(n-2)
             sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
+            cnvs_j = self.cnvs[jj_start:jj_end,:,:]
+            print(jj_end)
+            
         
         return self.cnvs
 
@@ -120,6 +124,10 @@ class Bonsai:
    
         # Get AVC-GROUP
         avc = self.get_avc(X, y, z, i_start, i_end, parallel)
+        print(avc.shape)
+        print(avc[387,:,:])
+        print(avc[388,:,:])
+        print(avc[389,:,:])
         if avc.shape[0] < 2:
             branch["is_leaf"] = True
             return [branch]
@@ -131,7 +139,7 @@ class Bonsai:
             branch["is_leaf"] = True
             return [branch]
 
-        svar = ss["selected"][1]
+        svar = np.array(ss["selected"][1], dtype=np.int32)
         sval = ss["selected"][2]
         missing = ss["selected"][9]
         
@@ -141,7 +149,7 @@ class Bonsai:
             print(svar, sval)
         
         i_split = reorder(X, y, z, i_start, i_end, 
-                            svar, sval, missing)
+                            svar, sval, np.array(missing, dtype=np.int32))
 
         if i_split==i_start or i_split==i_end:
             # NOTE: this condition may rarely happen
