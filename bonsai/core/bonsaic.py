@@ -62,6 +62,7 @@ class Bonsai:
             self.n_jobs = cpu_count()
         self.diagonal = diagonal
         self.gaussian = gaussian
+        self.focalpoints = np.zeros((1,3), dtype=np.float)
 
     def get_avc(self, X, y, z, i_start, i_end, parallel):
         n, m = X.shape
@@ -161,14 +162,21 @@ class Bonsai:
             # NOTE: this condition may rarely happen
             #       We just ignore this case, and stop the tree growth
             branch["is_leaf"] = True
+            print(i_split)
             return [branch]
 
+        if (svar[1]!=-1) & (sval[2] != -1):
+            np.vstack((self.focalpoints,[sval[0], X[int(sval[0]), 0], X[int(sval[0]), 1]]))
+            np.vstack((self.focalpoints,[sval[1], X[int(sval[1]), 0], X[int(sval[1]), 1]]))
+            
+        
         left_branch = get_child_branch(ss, branch, i_split, "@l")
         left_branch["is_leaf"] = self.is_leaf(left_branch, branch)
 
         right_branch = get_child_branch(ss, branch, i_split, "@r")
         right_branch["is_leaf"] = self.is_leaf(right_branch, branch) 
-
+        print("left branch: " +str(left_branch))
+        print("right branch: " +str(right_branch))
         return [left_branch, right_branch]
 
     def grow_tree(self, X, y, z, branches, parallel):
@@ -240,22 +248,23 @@ class Bonsai:
                 branches, leaves_new = self.grow_tree(X, y, z, 
                                             branches, parallel)
                 self.leaves += leaves_new
-
+        print("fitted leaves: ")
+        print(self.leaves)
         # integer index for leaves (from 0 to len(leaves))
         for i, leaf in enumerate(self.leaves): 
             leaf["index"] = i 
         #self.update_feature_importances()
-        self.tree_ind, self.tree_val = reconstruct_tree(self.leaves)
+        self.tree_ind, self.tree_val = reconstruct_tree(self.leaves, self.focalpoints)
         return 0
 
-    def predict(self, X, output_type="response"):
+    def predict(self, X_new, output_type="response"):
         """Predict y by applying the trained tree to X."""
-        X = X.astype(np.float)
-        n, m = X.shape
+        X_new = X_new.astype(np.float)
+        n, m = X_new.shape
         y = np.zeros(n, dtype=np.float)
         print('predict') 
         print(self.tree_ind, self.tree_val)
-        out = apply_tree(self.tree_ind, self.tree_val, X, y, output_type)
+        out = apply_tree(self.tree_ind, self.tree_val, X_new, y, output_type)
         return out 
 
     def init_cnvs(self, X):
@@ -323,7 +332,7 @@ class Bonsai:
     def load(self, leaves, columns=None):
         """Loads a new tree in the form of array of leaves"""
         self.leaves = leaves
-        self.tree_ind, self.tree_val = reconstruct_tree(self.leaves)
+        self.tree_ind, self.tree_val = reconstruct_tree(self.leaves, self.focalpoints)
         return None
 
     def get_sibling_id(self, leaf_id):

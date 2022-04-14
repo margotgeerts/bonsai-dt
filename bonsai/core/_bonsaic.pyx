@@ -382,11 +382,11 @@ cdef void _sketch_gaussian(
     
     
 
-def apply_tree(tree_ind, tree_val, X, y, output_type):
+def apply_tree(tree_ind, tree_val, X, y, output_type, X_train):
     if output_type == "index":
         return _apply_tree0(tree_ind, tree_val, X, y)
     else:
-        return _apply_tree1(tree_ind, tree_val, X, y)
+        return _apply_tree1(tree_ind, tree_val, X, y, X_train)
 
 # output index
 cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree0(
@@ -420,9 +420,10 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
                             np.ndarray[np.int_t, ndim=2] tree_ind, 
                             np.ndarray[DTYPE_t, ndim=2] tree_val, 
                             np.ndarray[DTYPE_t, ndim=2] X, 
-                            np.ndarray[DTYPE_t, ndim=1] y):
+                            np.ndarray[DTYPE_t, ndim=1] y,
+                            np.ndarray[DTYPE_t, ndim=2] X_train):
     #tree_ind: [isleaf, svar1, svar2, missing, left, right, index]
-    #tree_val:  [sval1, sval2, sval3, out]
+    #tree_val:  [sval1, sval2, sval3, sval4, sval5, out]
     # Initialize node/row indicies
     cdef size_t i, t
     cdef size_t n_samples = X.shape[0]
@@ -450,18 +451,18 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
                         else:
                             t = tree_ind[t,5]
                     else:
-                        focal1_x = X[<size_t>tree_val[t,0],0]
-                        focal1_y = X[<size_t>tree_val[t,0],1]
-                        focal2_x = X[<size_t>tree_val[t,1],0]
-                        focal2_y = X[<size_t>tree_val[t,1],1]
-                        dist = tree_val[t,2]
+                        focal1_x = tree_val[t,0]
+                        focal1_y = tree_val[t,1]
+                        focal2_x = tree_val[t,2]
+                        focal2_y = tree_val[t,3]
+                        dist = tree_val[t,4]
                         dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
                         dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
                         if (dist_1 + dist_2) >= dist:
                             t = tree_ind[t,5]
                         else:
                             t = tree_ind[t,4]
-            y[i] = tree_val[t,3]
+            y[i] = tree_val[t,5]
     return y
 
 

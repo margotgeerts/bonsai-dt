@@ -161,17 +161,17 @@ def get_cnvs(xdim, diagonal, gaussian):
         print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
     return cnvs
 
-def reconstruct_tree(leaves):
+def reconstruct_tree(leaves, focalpoints):
 
     t_max = 0
 
     # binary search tree
     bst = {}     
 
-    # output tree raw: [isleaf, svar1, svar2, left, right, sval1, sval2, sval3, out, index]
+    # output tree raw: [isleaf, svar1, svar2, left, right, sval1, sval2, sval3, sval4, sval5, out, index]
     # output tree row - 8 columns:
     #       integer section: [isleaf, svar1, svar2, missing, left, right, index,
-    #       float section:      sval1, sval2, sval3, out]
+    #       float section:      sval1, sval2, sval3, sval4, sval5, out]
 
     tree_raw = {} 
     for leaf in leaves:
@@ -183,12 +183,22 @@ def reconstruct_tree(leaves):
             if eq["sval"][1]!=-1:
                 svar = [int(eq["svar"][0]), int(eq["svar"][1])]
                 if eq["sval"][2] == -1:
-                    sval = [float(eq["sval"][0]), float(eq["sval"][1]), -1]
+                    sval = [float(eq["sval"][0]), float(eq["sval"][1]), -1, -1, -1]
                 else:
-                    sval = [float(eq["sval"][0]), float(eq["sval"][1]), float(eq["sval"][2])]
+                    i = int(eq["sval"][0])
+                    j = int(eq["sval"][1])
+                    for x in focalpoints:
+                        if x[0] == i:
+                            fi0 = x[1]
+                            fi1 = x[2]
+                     
+                        elif x[0] == j:
+                            fj0 = x[1]
+                            fj1 = x[2]
+                    sval = [fi0, fi1, fj0, fj1, float(eq["sval"][2])]
             else:
                 svar = [int(eq["svar"][0]), -1, -1]
-                sval = [float(eq["sval"][0]), -1, -1]
+                sval = [float(eq["sval"][0]), -1, -1, -1, -1]
             #sidx = eq["sidx"]
             if child_index == 0:
                 missing = int(eq["missing"]==0)
@@ -197,14 +207,14 @@ def reconstruct_tree(leaves):
             if "children" not in node_ptr:
                 node_ptr["children"] = [{"t": t_max+1}, {"t": t_max+2}]
                 tree_raw[t] = [-1, svar[0], svar[1], missing, t_max+1, t_max+2, -1, 
-                                sval[0], sval[1], sval[2], -1]
+                                sval[0], sval[1], sval[2], sval[3], sval[4], -1]
                 t_max += 2
             node_ptr = node_ptr["children"][child_index]
             t = node_ptr["t"]
-        tree_raw[t] = [1, -1, -1, -1, -1, -1, leaf["index"], -1, -1, -1, leaf["y"]]
+        tree_raw[t] = [1, -1, -1, -1, -1, -1, leaf["index"], -1, -1, -1, -1, -1, leaf["y"]]
 
     tree_ind = np.zeros((t_max+1, 7), dtype=np.int, order="C")
-    tree_val = np.zeros((t_max+1, 4), dtype=np.float, order="C")
+    tree_val = np.zeros((t_max+1, 6), dtype=np.float, order="C")
     for t, node in tree_raw.items():
         tree_ind[t,:] = np.array(node[:7], dtype=np.int)
         tree_val[t,:] = np.array(node[7:], dtype=np.float)
