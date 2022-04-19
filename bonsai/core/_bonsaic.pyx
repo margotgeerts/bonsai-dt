@@ -382,11 +382,11 @@ cdef void _sketch_gaussian(
     
     
 
-def apply_tree(tree_ind, tree_val, X, y, output_type, X_train):
+def apply_tree(tree_ind, tree_val, X, y, output_type):
     if output_type == "index":
         return _apply_tree0(tree_ind, tree_val, X, y)
     else:
-        return _apply_tree1(tree_ind, tree_val, X, y, X_train)
+        return _apply_tree1(tree_ind, tree_val, X, y)
 
 # output index
 cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree0(
@@ -420,8 +420,7 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
                             np.ndarray[np.int_t, ndim=2] tree_ind, 
                             np.ndarray[DTYPE_t, ndim=2] tree_val, 
                             np.ndarray[DTYPE_t, ndim=2] X, 
-                            np.ndarray[DTYPE_t, ndim=1] y,
-                            np.ndarray[DTYPE_t, ndim=2] X_train):
+                            np.ndarray[DTYPE_t, ndim=1] y):
     #tree_ind: [isleaf, svar1, svar2, missing, left, right, index]
     #tree_val:  [sval1, sval2, sval3, sval4, sval5, out]
     # Initialize node/row indicies
@@ -456,8 +455,8 @@ cdef np.ndarray[DTYPE_t, ndim=1] _apply_tree1(
                         focal2_x = tree_val[t,2]
                         focal2_y = tree_val[t,3]
                         dist = tree_val[t,4]
-                        dist_1 = sqrt(square(X[i,tree_ind[t,0]] - focal1_x) + square(X[i,tree_ind[t,1]] - focal1_y))
-                        dist_2 = sqrt(square(X[i,tree_ind[t,0]] - focal2_x) + square(X[i,tree_ind[t,1]] - focal2_y))
+                        dist_1 = sqrt(square(X[i,tree_ind[t,1]] - focal1_x) + square(X[i,tree_ind[t,2]] - focal1_y))
+                        dist_2 = sqrt(square(X[i,tree_ind[t,1]] - focal2_x) + square(X[i,tree_ind[t,2]] - focal2_y))
                         if (dist_1 + dist_2) >= dist:
                             t = tree_ind[t,5]
                         else:

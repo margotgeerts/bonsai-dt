@@ -187,12 +187,20 @@ def reconstruct_tree(leaves, focalpoints):
                 else:
                     i = int(eq["sval"][0])
                     j = int(eq["sval"][1])
+                    fi0 = -1
+                    fi1= -1
+                    fj0 = -1
+                    fj1 = -1
                     for x in focalpoints:
                         if x[0] == i:
+                            print(str(i) + " found: ")
+                            print(x)
                             fi0 = x[1]
                             fi1 = x[2]
                      
-                        elif x[0] == j:
+                        if x[0] == j:
+                            print(str(j) + " found: ")
+                            print(x)
                             fj0 = x[1]
                             fj1 = x[2]
                     sval = [fi0, fi1, fj0, fj1, float(eq["sval"][2])]

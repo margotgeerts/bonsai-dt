@@ -62,13 +62,13 @@ class Bonsai:
             self.n_jobs = cpu_count()
         self.diagonal = diagonal
         self.gaussian = gaussian
-        self.focalpoints = np.zeros((1,3), dtype=np.float)
+        self.focalpoints = np.array([-1, -1, -1], dtype=np.float)
 
     def get_avc(self, X, y, z, i_start, i_end, parallel):
-        n, m = X.shape
+        n, m = X[i_start:i_end,:].shape
         y_i = y[i_start:i_end]
         z_i = z[i_start:i_end]
-        #self.cnvs[:,3:,:] = 0  # initialize canvas
+        self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
         
         print("fill canvas")
@@ -104,6 +104,7 @@ class Bonsai:
             # start after offset + n_bin*2 of last feature
         jj_end = jj_start
         X_ij = X[i_start:i_end,:2]
+        print(X_ij.shape[0])
         xdim_j = self.xdim[:2,:]
         if self.diagonal:
             jj_end += n*(n-1)
@@ -154,20 +155,26 @@ class Bonsai:
         print(sval)
         if (svar.shape == 0) | (sval.shape ==0):
             print(svar, sval)
+            
+        print("X before reorder: ")
+        print(X)
+        if (svar[1]!=-1) & (sval[2] != -1):
+            self.focalpoints = np.vstack((self.focalpoints,[int(sval[0]), X[int(sval[0]), 0], X[int(sval[0]), 1]]))
+            self.focalpoints = np.vstack((self.focalpoints,[int(sval[1]), X[int(sval[1]), 0], X[int(sval[1]), 1]]))
+            print("finding focal points:")
+            print(self.focalpoints)
         
         i_split = reorder(X, y, z, i_start, i_end, 
                             svar, sval, np.array(missing, dtype=np.int32))
 
+        print("X after reorder: ")
+        print(X)
         if i_split==i_start or i_split==i_end:
             # NOTE: this condition may rarely happen
             #       We just ignore this case, and stop the tree growth
             branch["is_leaf"] = True
-            print(i_split)
+            print("reorder gave i_split: " + str(i_split))
             return [branch]
-
-        if (svar[1]!=-1) & (sval[2] != -1):
-            np.vstack((self.focalpoints,[sval[0], X[int(sval[0]), 0], X[int(sval[0]), 1]]))
-            np.vstack((self.focalpoints,[sval[1], X[int(sval[1]), 0], X[int(sval[1]), 1]]))
             
         
         left_branch = get_child_branch(ss, branch, i_split, "@l")
@@ -183,7 +190,8 @@ class Bonsai:
         """Grows a tree by recursively partitioning the data (X, y)."""
         branches_new = []
         leaves_new = []
-
+        print('.. grow tree...')
+        print(X)
         for branch in branches:
             for child in self.split_branch(X, y, z, branch, parallel):
                 if child["is_leaf"]:
@@ -194,10 +202,11 @@ class Bonsai:
 
     def fit(self, X, y, init_cnvs=True, parallel=None): 
         """Fit a tree to the data (X, y)."""
-
+        print("Fitting...")
         n, m = X.shape
         X = X.astype(np.float, order="C", copy=True)
         y = y.astype(np.float, order="C", copy=True)
+        print(X)
         if self.z_type=="M2":
             z = np.square(y)
         elif self.z_type=="Hessian": # bernoulli hessian
@@ -209,6 +218,8 @@ class Bonsai:
         if self.subsample < 1.0:
             np.random.seed(self.random_state)
             self.mask = (np.random.rand(n) < self.subsample)
+            print('mask: ')
+            print(self.mask)
             X = X[self.mask,:]
             y = y[self.mask]
             z = z[self.mask]
