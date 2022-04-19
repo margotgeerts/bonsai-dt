@@ -10,6 +10,7 @@ cimport numpy as np
 cimport cython
 from libc.math cimport isnan
 from libc.math cimport sqrt, pow
+from libc.stdio cimport printf
 
 
 DTYPE = np.float64
@@ -54,6 +55,11 @@ cdef size_t _reorder(
     cdef DTYPE_t focal1_x, focal1_y, focal2_x, focal2_y
 
     with nogil:
+        if split_value[2] != -1:
+            focal1_x = X[<size_t>split_value[0], 0]
+            focal1_y = X[<size_t>split_value[0], 1]
+            focal2_x = X[<size_t>split_value[1], 0]
+            focal2_y = X[<size_t>split_value[1], 1]
         while i_head <= i_tail:
 
             if i_tail == 0: 
@@ -80,16 +86,12 @@ cdef size_t _reorder(
                         if slope * X[i_head, 0] + intercept >= X[i_head, 1]:
                             do_swap = 1
                     else:
-                        focal1_x = X[<size_t>split_value[0], 0]
-                        focal1_y = X[<size_t>split_value[0], 1]
-                        focal2_x = X[<size_t>split_value[1], 0]
-                        focal2_y = X[<size_t>split_value[1], 1]
                         dist = split_value[2]
                         dist_1 = sqrt(square(X[i_head, j_split[0]] - focal1_x) + square(X[i_head, j_split[1]] - focal1_y))
                         dist_2 = sqrt(square(X[i_head, j_split[0]] - focal2_x) + square(X[i_head, j_split[1]] - focal2_y))
                         if (dist_1 + dist_2) >= dist:
                             do_swap = 1
-
+            
 
             if do_swap == 1:
                 # swap X rows
@@ -103,7 +105,12 @@ cdef size_t _reorder(
             else:
                 # increase the head index
                 i_head += 1
-
+            
+            if split_value[2] != -1:
+                with gil:
+                    print(focal1_x, focal1_y, focal2_x, focal2_y)
+        
+        
     return i_head
 
 
@@ -134,11 +141,13 @@ def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=1] y not None, 
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
-        np.ndarray[DTYPE_t, ndim=3] cnvs not None):
+        np.ndarray[DTYPE_t, ndim=3] cnvs not None,
+        size_t i_start,
+        size_t i_end):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
-    _sketch_gaussian(X, y, z, xdim, cnvs)
+    _sketch_gaussian(X, y, z, xdim, cnvs, i_start, i_end)
     return 0
 
 cdef void _sketch(
@@ -312,7 +321,9 @@ cdef void _sketch_gaussian(
         np.ndarray[DTYPE_t, ndim=1] y, 
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
-        np.ndarray[DTYPE_t, ndim=3] cnvs):
+        np.ndarray[DTYPE_t, ndim=3] cnvs,
+        size_t i_start,
+        size_t i_end):
 
     cdef size_t i, j, k, l
     cdef size_t n = X.shape[0]
@@ -326,6 +337,7 @@ cdef void _sketch_gaussian(
     cdef double dist, dist1, dist2
     cdef double focal1_x, focal1_y, focal2_x, focal2_y
     
+    print(i_start, i_end)
     with nogil:
         for i in range(n):
             x_i_0 = X[i,0]
@@ -348,9 +360,10 @@ cdef void _sketch_gaussian(
                     distanceij = euclidean(x_i_0, x_i_1, x_j_0, x_j_1)
                     if distance < distanceij:
                         continue
-                    cnvs[idx, 2, 0] = i
-                    cnvs[idx, 2, 1] = j
-                    cnvs[idx, 2, 2] = distance
+                    else:
+                        cnvs[idx, 2, 0] = i + i_start
+                        cnvs[idx, 2, 1] = j + i_start
+                        cnvs[idx, 2, 2] = distance
         
         
         for k in range(1, n_cnvs+1):    
@@ -359,8 +372,8 @@ cdef void _sketch_gaussian(
                 y_i = y[i]
                 z_i = z[i]
                 
-                id1 = <size_t>cnvs[k, 2, 0]
-                id2 = <size_t>cnvs[k, 2, 1]
+                id1 = <size_t>cnvs[k, 2, 0] - i_start
+                id2 = <size_t>cnvs[k, 2, 1] - i_start
                 dist = cnvs[k, 2, 2]
                 
                 focal1_x = X[id1,0]

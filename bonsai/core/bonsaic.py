@@ -71,7 +71,7 @@ class Bonsai:
         self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
         
-        print("fill canvas")
+        print("fill canvas from "+str(i_start) +" to "+str(i_end))
         
         # TODO: smart guidance on "n_jobs"
         k = int(np.ceil(m/self.n_jobs))
@@ -117,7 +117,8 @@ class Bonsai:
             jj_start = jj_end
             jj_end += n*(n-1)*(n-2)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
-            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j)
+            print("sketch gaussian from "+str(i_start) + " to "+str(i_end))
+            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j, i_start, i_end)
             #print(jj_end)
             #print(self.cnvs[jj_start:(jj_start+4),:,:])
             #print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
