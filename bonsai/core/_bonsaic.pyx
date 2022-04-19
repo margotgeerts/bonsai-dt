@@ -361,8 +361,8 @@ cdef void _sketch_gaussian(
                     if distance < distanceij:
                         continue
                     else:
-                        cnvs[idx, 2, 0] = i + i_start
-                        cnvs[idx, 2, 1] = j + i_start
+                        cnvs[idx, 2, 0] = (i + i_start)
+                        cnvs[idx, 2, 1] = (j + i_start)
                         cnvs[idx, 2, 2] = distance
         
         
@@ -372,8 +372,8 @@ cdef void _sketch_gaussian(
                 y_i = y[i]
                 z_i = z[i]
                 
-                id1 = <size_t>cnvs[k, 2, 0] - i_start
-                id2 = <size_t>cnvs[k, 2, 1] - i_start
+                id1 = (<size_t>cnvs[k, 2, 0] - i_start)
+                id2 = (<size_t>cnvs[k, 2, 1] - i_start)
                 dist = cnvs[k, 2, 2]
                 
                 focal1_x = X[id1,0]

@@ -5898,7 +5898,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  *                     if distance < distanceij:
  *                         continue             # <<<<<<<<<<<<<<
  *                     else:
- *                         cnvs[idx, 2, 0] = i + i_start
+ *                         cnvs[idx, 2, 0] = (i + i_start)
  */
                 goto __pyx_L10_continue;
 
@@ -5914,8 +5914,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
               /* "bonsai/core/_bonsaic.pyx":364
  *                         continue
  *                     else:
- *                         cnvs[idx, 2, 0] = i + i_start             # <<<<<<<<<<<<<<
- *                         cnvs[idx, 2, 1] = j + i_start
+ *                         cnvs[idx, 2, 0] = (i + i_start)             # <<<<<<<<<<<<<<
+ *                         cnvs[idx, 2, 1] = (j + i_start)
  *                         cnvs[idx, 2, 2] = distance
  */
               /*else*/ {
@@ -5928,8 +5928,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
 
                 /* "bonsai/core/_bonsaic.pyx":365
  *                     else:
- *                         cnvs[idx, 2, 0] = i + i_start
- *                         cnvs[idx, 2, 1] = j + i_start             # <<<<<<<<<<<<<<
+ *                         cnvs[idx, 2, 0] = (i + i_start)
+ *                         cnvs[idx, 2, 1] = (j + i_start)             # <<<<<<<<<<<<<<
  *                         cnvs[idx, 2, 2] = distance
  * 
  */
@@ -5941,8 +5941,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
                 *__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_17, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[2].strides) = (__pyx_v_j + __pyx_v_i_start);
 
                 /* "bonsai/core/_bonsaic.pyx":366
- *                         cnvs[idx, 2, 0] = i + i_start
- *                         cnvs[idx, 2, 1] = j + i_start
+ *                         cnvs[idx, 2, 0] = (i + i_start)
+ *                         cnvs[idx, 2, 1] = (j + i_start)
  *                         cnvs[idx, 2, 2] = distance             # <<<<<<<<<<<<<<
  * 
  * 
@@ -5998,7 +5998,7 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
  *                 y_i = y[i]
  *                 z_i = z[i]             # <<<<<<<<<<<<<<
  * 
- *                 id1 = <size_t>cnvs[k, 2, 0] - i_start
+ *                 id1 = (<size_t>cnvs[k, 2, 0] - i_start)
  */
             __pyx_t_11 = __pyx_v_i;
             __pyx_v_z_i = (*__Pyx_BufPtrStrided1d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_z.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_z.diminfo[0].strides));
@@ -6006,8 +6006,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             /* "bonsai/core/_bonsaic.pyx":375
  *                 z_i = z[i]
  * 
- *                 id1 = <size_t>cnvs[k, 2, 0] - i_start             # <<<<<<<<<<<<<<
- *                 id2 = <size_t>cnvs[k, 2, 1] - i_start
+ *                 id1 = (<size_t>cnvs[k, 2, 0] - i_start)             # <<<<<<<<<<<<<<
+ *                 id2 = (<size_t>cnvs[k, 2, 1] - i_start)
  *                 dist = cnvs[k, 2, 2]
  */
             __pyx_t_11 = __pyx_v_k;
@@ -6019,8 +6019,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
 
             /* "bonsai/core/_bonsaic.pyx":376
  * 
- *                 id1 = <size_t>cnvs[k, 2, 0] - i_start
- *                 id2 = <size_t>cnvs[k, 2, 1] - i_start             # <<<<<<<<<<<<<<
+ *                 id1 = (<size_t>cnvs[k, 2, 0] - i_start)
+ *                 id2 = (<size_t>cnvs[k, 2, 1] - i_start)             # <<<<<<<<<<<<<<
  *                 dist = cnvs[k, 2, 2]
  * 
  */
@@ -6032,8 +6032,8 @@ static void __pyx_f_6bonsai_4core_8_bonsaic__sketch_gaussian(PyArrayObject *__py
             __pyx_v_id2 = (((size_t)(*__Pyx_BufPtrStrided3d(__pyx_t_6bonsai_4core_8_bonsaic_DTYPE_t *, __pyx_pybuffernd_cnvs.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_cnvs.diminfo[0].strides, __pyx_t_8, __pyx_pybuffernd_cnvs.diminfo[1].strides, __pyx_t_17, __pyx_pybuffernd_cnvs.diminfo[2].strides))) - __pyx_v_i_start);
 
             /* "bonsai/core/_bonsaic.pyx":377
- *                 id1 = <size_t>cnvs[k, 2, 0] - i_start
- *                 id2 = <size_t>cnvs[k, 2, 1] - i_start
+ *                 id1 = (<size_t>cnvs[k, 2, 0] - i_start)
+ *                 id2 = (<size_t>cnvs[k, 2, 1] - i_start)
  *                 dist = cnvs[k, 2, 2]             # <<<<<<<<<<<<<<
  * 
  *                 focal1_x = X[id1,0]
