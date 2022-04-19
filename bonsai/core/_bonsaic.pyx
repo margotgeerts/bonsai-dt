@@ -105,10 +105,7 @@ cdef size_t _reorder(
             else:
                 # increase the head index
                 i_head += 1
-            
-            if split_value[2] != -1:
-                with gil:
-                    print(focal1_x, focal1_y, focal2_x, focal2_y)
+        
         
         
     return i_head
@@ -336,8 +333,7 @@ cdef void _sketch_gaussian(
     cdef size_t id1, id2
     cdef double dist, dist1, dist2
     cdef double focal1_x, focal1_y, focal2_x, focal2_y
-    
-    print(i_start, i_end)
+
     with nogil:
         for i in range(n):
             x_i_0 = X[i,0]

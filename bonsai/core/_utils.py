@@ -141,7 +141,7 @@ def get_cnvs(xdim, diagonal, gaussian):
             cnvs[(n_bin + i), 2, 1] = -1
             cnvs[(n_bin + i), 2, 2] = -1
         last_i = (n_bin*2)+offset
-    print("orthogonal ends at: "+str(last_i))
+    #print("orthogonal ends at: "+str(last_i))
     if diagonal:
         for i2 in range(n_samples*(n_samples-1)):
             cnvs[(last_i+i2), 1, 0] = 0
@@ -150,7 +150,7 @@ def get_cnvs(xdim, diagonal, gaussian):
             cnvs[(last_i+i2), 2, 1] = 0.0
             cnvs[(last_i+i2), 2, 1] = -1
         last_i += (n_samples*(n_samples-1))
-        print("diagonal ends at: "+str(last_i))
+        #print("diagonal ends at: "+str(last_i))
     if gaussian:
         for i3 in range(n_samples*(n_samples-1)*(n_samples-2)):
             cnvs[(last_i+i3), 1, 0] = 0
@@ -158,7 +158,7 @@ def get_cnvs(xdim, diagonal, gaussian):
             cnvs[(last_i+i3), 2, 0] = 0.0
             cnvs[(last_i+i3), 2, 1] = 0.0
             cnvs[(last_i+i3), 2, 2] = 0.0
-        print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
+        #print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
     return cnvs
 
 def reconstruct_tree(leaves, focalpoints):
@@ -193,14 +193,10 @@ def reconstruct_tree(leaves, focalpoints):
                     fj1 = -1
                     for x in focalpoints:
                         if x[0] == i:
-                            print(str(i) + " found: ")
-                            print(x)
                             fi0 = x[1]
                             fi1 = x[2]
                      
                         if x[0] == j:
-                            print(str(j) + " found: ")
-                            print(x)
                             fj0 = x[1]
                             fj1 = x[2]
                     sval = [fi0, fi1, fj0, fj1, float(eq["sval"][2])]

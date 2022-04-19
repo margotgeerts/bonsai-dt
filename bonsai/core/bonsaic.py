@@ -71,7 +71,7 @@ class Bonsai:
         self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
         
-        print("fill canvas from "+str(i_start) +" to "+str(i_end))
+        #print("fill canvas from "+str(i_start) +" to "+str(i_end))
         
         # TODO: smart guidance on "n_jobs"
         k = int(np.ceil(m/self.n_jobs))
@@ -104,7 +104,7 @@ class Bonsai:
             # start after offset + n_bin*2 of last feature
         jj_end = jj_start
         X_ij = X[i_start:i_end,:2]
-        print(X_ij.shape[0])
+        #print(X_ij.shape[0])
         xdim_j = self.xdim[:2,:]
         if self.diagonal:
             jj_end += n*(n-1)
@@ -117,7 +117,7 @@ class Bonsai:
             jj_start = jj_end
             jj_end += n*(n-1)*(n-2)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
-            print("sketch gaussian from "+str(i_start) + " to "+str(i_end))
+            #print("sketch gaussian from "+str(i_start) + " to "+str(i_end))
             sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j, i_start, i_end)
             #print(jj_end)
             #print(self.cnvs[jj_start:(jj_start+4),:,:])
@@ -136,7 +136,7 @@ class Bonsai:
    
         # Get AVC-GROUP
         avc = self.get_avc(X, y, z, i_start, i_end, parallel)
-        print(avc.shape)
+        #print(avc.shape)
         if avc.shape[0] < 2:
             branch["is_leaf"] = True
             return [branch]
@@ -152,24 +152,20 @@ class Bonsai:
         sval = ss["selected"][2]
         missing = ss["selected"][9]
         
-        print(svar)
-        print(sval)
+        #print(svar)
+        #print(sval)
         if (svar.shape == 0) | (sval.shape ==0):
             print(svar, sval)
-            
-        print("X before reorder: ")
-        print(X)
+
         if (svar[1]!=-1) & (sval[2] != -1):
             self.focalpoints = np.vstack((self.focalpoints,[int(sval[0]), X[int(sval[0]), 0], X[int(sval[0]), 1]]))
             self.focalpoints = np.vstack((self.focalpoints,[int(sval[1]), X[int(sval[1]), 0], X[int(sval[1]), 1]]))
-            print("finding focal points:")
-            print(self.focalpoints)
+            #print("finding focal points:")
+            #print(self.focalpoints[-2:])
         
         i_split = reorder(X, y, z, i_start, i_end, 
                             svar, sval, np.array(missing, dtype=np.int32))
 
-        print("X after reorder: ")
-        print(X)
         if i_split==i_start or i_split==i_end:
             # NOTE: this condition may rarely happen
             #       We just ignore this case, and stop the tree growth
@@ -183,8 +179,6 @@ class Bonsai:
 
         right_branch = get_child_branch(ss, branch, i_split, "@r")
         right_branch["is_leaf"] = self.is_leaf(right_branch, branch) 
-        print("left branch: " +str(left_branch))
-        print("right branch: " +str(right_branch))
         return [left_branch, right_branch]
 
     def grow_tree(self, X, y, z, branches, parallel):
@@ -192,7 +186,6 @@ class Bonsai:
         branches_new = []
         leaves_new = []
         print('.. grow tree...')
-        print(X)
         for branch in branches:
             for child in self.split_branch(X, y, z, branch, parallel):
                 if child["is_leaf"]:
@@ -207,7 +200,6 @@ class Bonsai:
         n, m = X.shape
         X = X.astype(np.float, order="C", copy=True)
         y = y.astype(np.float, order="C", copy=True)
-        print(X)
         if self.z_type=="M2":
             z = np.square(y)
         elif self.z_type=="Hessian": # bernoulli hessian
@@ -260,8 +252,8 @@ class Bonsai:
                 branches, leaves_new = self.grow_tree(X, y, z, 
                                             branches, parallel)
                 self.leaves += leaves_new
-        print("fitted leaves: ")
-        print(self.leaves)
+        #print("fitted leaves: ")
+        #print(self.leaves)
         # integer index for leaves (from 0 to len(leaves))
         for i, leaf in enumerate(self.leaves): 
             leaf["index"] = i 
@@ -275,7 +267,7 @@ class Bonsai:
         n, m = X_new.shape
         y = np.zeros(n, dtype=np.float)
         print('predict') 
-        print(self.tree_ind, self.tree_val)
+        #print(self.tree_ind, self.tree_val)
         out = apply_tree(self.tree_ind, self.tree_val, X_new, y, output_type)
         return out 
 
