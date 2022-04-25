@@ -106,7 +106,7 @@ def get_cnvsn(xdim):
     cnvsn[:,0] = np.arange(m)
     return cnvsn
 
-def get_cnvs(xdim, diagonal, gaussian):
+def get_cnvs(xdim, orthogonal, diagonal, gaussian):
     m, _ = xdim.shape
     n = int(np.sum(xdim[:,3]))
     n_samples = int(max(xdim[:,3]))
@@ -119,29 +119,30 @@ def get_cnvs(xdim, diagonal, gaussian):
     cnvs[:,0,0] = np.arange(n_)
     print("initialize canvas")
     last_i=0
-    for j in range(m):
-        x_min = xdim[j, 1]
-        x_delta = xdim[j, 2]
-        n_bin = int(xdim[j, 3])
-        offset = int(xdim[j, 4]) * 2
-        split_val = x_min
-        for k in range(n_bin):
-            i = offset + k
-            split_val += x_delta 
-            cnvs[i, 1, 0] = j
-            cnvs[i, 2, 0] = split_val
-            cnvs[i, 1, 1] = -1
-            cnvs[i, 1, 2] = -1
-            cnvs[i, 2, 1] = -1
-            cnvs[i, 2, 2] = -1
-            cnvs[(n_bin + i), 1, 0] = j
-            cnvs[(n_bin + i), 2, 0] = split_val
-            cnvs[(n_bin + i), 1, 1] = -1
-            cnvs[(n_bin + i), 1, 2] = -1
-            cnvs[(n_bin + i), 2, 1] = -1
-            cnvs[(n_bin + i), 2, 2] = -1
-        last_i = (n_bin*2)+offset
-    #print("orthogonal ends at: "+str(last_i))
+    if orthogonal:
+        for j in range(m):
+            x_min = xdim[j, 1]
+            x_delta = xdim[j, 2]
+            n_bin = int(xdim[j, 3])
+            offset = int(xdim[j, 4]) * 2
+            split_val = x_min
+            for k in range(n_bin):
+                i = offset + k
+                split_val += x_delta 
+                cnvs[i, 1, 0] = j
+                cnvs[i, 2, 0] = split_val
+                cnvs[i, 1, 1] = -1
+                cnvs[i, 1, 2] = -1
+                cnvs[i, 2, 1] = -1
+                cnvs[i, 2, 2] = -1
+                cnvs[(n_bin + i), 1, 0] = j
+                cnvs[(n_bin + i), 2, 0] = split_val
+                cnvs[(n_bin + i), 1, 1] = -1
+                cnvs[(n_bin + i), 1, 2] = -1
+                cnvs[(n_bin + i), 2, 1] = -1
+                cnvs[(n_bin + i), 2, 2] = -1
+            last_i = (n_bin*2)+offset
+        print("orthogonal ends at: "+str(last_i))
     if diagonal:
         for i2 in range(n_samples*(n_samples-1)):
             cnvs[(last_i+i2), 1, 0] = 0
@@ -150,7 +151,7 @@ def get_cnvs(xdim, diagonal, gaussian):
             cnvs[(last_i+i2), 2, 1] = 0.0
             cnvs[(last_i+i2), 2, 1] = -1
         last_i += (n_samples*(n_samples-1))
-        #print("diagonal ends at: "+str(last_i))
+        print("diagonal ends at: "+str(last_i))
     if gaussian:
         for i3 in range(n_samples*(n_samples-1)*(n_samples-2)):
             cnvs[(last_i+i3), 1, 0] = 0
@@ -158,7 +159,7 @@ def get_cnvs(xdim, diagonal, gaussian):
             cnvs[(last_i+i3), 2, 0] = 0.0
             cnvs[(last_i+i3), 2, 1] = 0.0
             cnvs[(last_i+i3), 2, 2] = 0.0
-        #print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
+        print("gaussian ends at: "+str(last_i + (n_samples*(n_samples-1)*(n_samples-2))))
     return cnvs
 
 def reconstruct_tree(leaves, focalpoints):

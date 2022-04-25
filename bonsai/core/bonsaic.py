@@ -37,6 +37,7 @@ class Bonsai:
                 random_state = None,
                 z_type = "M2",
                 n_jobs = -1,
+                orthogonal = True
                 diagonal = True,
                 gaussian = True,
                 rm_outliers = True):
@@ -60,6 +61,7 @@ class Bonsai:
         self.n_jobs     = n_jobs
         if self.n_jobs < 0:
             self.n_jobs = cpu_count()
+        self.orthogonal = orthogonal
         self.diagonal = diagonal
         self.gaussian = gaussian
         self.focalpoints = np.array([-1, -1, -1], dtype=np.float)
@@ -71,6 +73,7 @@ class Bonsai:
         self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
         
+        jj_start=0
         #print("fill canvas from "+str(i_start) +" to "+str(i_end))
         
         # TODO: smart guidance on "n_jobs"
@@ -92,14 +95,14 @@ class Bonsai:
             return 0
 
         #t0 = time.time()
-        parallel(delayed(psketch)(i) for i in range(self.n_jobs))
+        if self.orthogonal:
+            parallel(delayed(psketch)(i) for i in range(self.n_jobs))
+            jj_start = int(self.xdim[m-1,4]*2 + 
+                        self.xdim[m-1,3]*2)
         #t1 = time.time() - t0
         #print(i_end-i_start, t1)
-        
-        #print(self.cnvs[0:3,:,:])
-        #get avc for diagonal & gaussian splits
-        jj_start = int(self.xdim[m-1,4]*2 + 
-                        self.xdim[m-1,3]*2)
+
+            
         #print(jj_start)
             # start after offset + n_bin*2 of last feature
         jj_end = jj_start
@@ -273,7 +276,7 @@ class Bonsai:
 
     def init_cnvs(self, X):
         self.xdim = get_xdim(X, self.n_hist_max, self.rm_outliers)
-        self.cnvs = get_cnvs(self.xdim, self.diagonal, self.gaussian)
+        self.cnvs = get_cnvs(self.xdim, self.orthogonal, self.diagonal, self.gaussian)
         self.cnvsn = get_cnvsn(self.xdim)
 
     def set_cnvs(self, xdim, cnvs, cnvsn):
