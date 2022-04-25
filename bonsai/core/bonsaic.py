@@ -189,7 +189,7 @@ class Bonsai:
         branches_new = []
         leaves_new = []
         print('.. grow tree...')
-        for branch in branches:
+        for i, branch in enumerate(branches):
             for child in self.split_branch(X, y, z, branch, parallel):
                 if child["is_leaf"]:
                     leaves_new.append(child)
@@ -262,7 +262,23 @@ class Bonsai:
             leaf["index"] = i 
         #self.update_feature_importances()
         self.tree_ind, self.tree_val = reconstruct_tree(self.leaves, self.focalpoints)
+        self.print_splits(self.tree_ind, self.tree_val, y)
+        
         return 0
+    
+    def print_splits(self, tree_ind, tree_val, y):
+        for t in range(len(tree_ind)):
+            
+            if tree_ind[t,0]==-1:
+                parent = t-1
+                parent_measure = tree_val[(t-1),6]
+                if parent ==-1:
+                    parent_measure = (np.sum(y**2)/y.shape[0]) - (np.mean(y)**2)
+                gain = tree_val[t,6]
+                if tree_ind[t,2]==-1:
+                    print(str(gain)+ " X["+str(tree_ind[t,1])+"] >= "+str(tree_val[t,0]))
+                elif tree_val[t,2]==-1:
+                    print(str(gain)+ " X["+str(tree_ind[t,2])+"] >= X["+ str(tree_ind[t,1])+"] * "+str(tree_val[t,1]) + " + "+str(tree_val[t,0]))
 
     def predict(self, X_new, output_type="response"):
         """Predict y by applying the trained tree to X."""

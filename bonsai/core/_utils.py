@@ -169,10 +169,10 @@ def reconstruct_tree(leaves, focalpoints):
     # binary search tree
     bst = {}     
 
-    # output tree raw: [isleaf, svar1, svar2, left, right, sval1, sval2, sval3, sval4, sval5, out, index]
+    # output tree raw: [isleaf, svar1, svar2, left, right, sval1, sval2, sval3, sval4, sval5, out, index, varsum]
     # output tree row - 8 columns:
     #       integer section: [isleaf, svar1, svar2, missing, left, right, index,
-    #       float section:      sval1, sval2, sval3, sval4, sval5, out]
+    #       float section:      sval1, sval2, sval3, sval4, sval5, out, varsum]
 
     tree_raw = {} 
     for leaf in leaves:
@@ -212,14 +212,14 @@ def reconstruct_tree(leaves, focalpoints):
             if "children" not in node_ptr:
                 node_ptr["children"] = [{"t": t_max+1}, {"t": t_max+2}]
                 tree_raw[t] = [-1, svar[0], svar[1], missing, t_max+1, t_max+2, -1, 
-                                sval[0], sval[1], sval[2], sval[3], sval[4], -1]
+                                sval[0], sval[1], sval[2], sval[3], sval[4], -1, leaf["varsum"]]
                 t_max += 2
             node_ptr = node_ptr["children"][child_index]
             t = node_ptr["t"]
-        tree_raw[t] = [1, -1, -1, -1, -1, -1, leaf["index"], -1, -1, -1, -1, -1, leaf["y"]]
+        tree_raw[t] = [1, -1, -1, -1, -1, -1, leaf["index"], -1, -1, -1, -1, -1, leaf["y"], leaf["varsum"]]
 
     tree_ind = np.zeros((t_max+1, 7), dtype=np.int, order="C")
-    tree_val = np.zeros((t_max+1, 6), dtype=np.float, order="C")
+    tree_val = np.zeros((t_max+1, 7), dtype=np.float, order="C")
     for t, node in tree_raw.items():
         tree_ind[t,:] = np.array(node[:7], dtype=np.int)
         tree_val[t,:] = np.array(node[7:], dtype=np.float)
