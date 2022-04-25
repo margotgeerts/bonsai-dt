@@ -11,6 +11,7 @@ cimport cython
 from libc.math cimport isnan
 from libc.math cimport sqrt, pow
 from libc.stdio cimport printf
+from libcpp cimport bool
 
 
 DTYPE = np.float64
@@ -23,6 +24,24 @@ cpdef DTYPE_t square(DTYPE_t x) nogil:
 
 cpdef double euclidean(double x10, double x11, double x20, double x21) nogil: 
     return sqrt(square(x10 - x20) + square(x11 - x21))
+
+cpdef DTYPE_t mse(DTYPE_t [:] y, DTYPE_t y_hat) nogil:
+    cdef double diffsq = 0
+    cdef int arr_shape = y.shape[0]
+    cdef int k
+
+    for k in range(arr_shape):
+        diffsq += square((y[k] - y_hat))
+    return diffsq / arr_shape
+
+cpdef DTYPE_t mean(DTYPE_t [:] y) nogil:
+    cdef double sum_y = 0
+    cdef int arr_shape = y.shape[0]
+
+    for k in range(arr_shape):
+        sum_y += y[k]
+    return sum_y / arr_shape
+
 
 def reorder(X, y, z, i_start, i_end, j_split, split_value, missing):
     return _reorder(X, y, z, i_start, i_end, j_split, split_value, missing)
@@ -116,22 +135,24 @@ def sketch(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
         np.ndarray[DTYPE_t, ndim=3] cnvs not None, 
-        np.ndarray[DTYPE_t, ndim=2] cnvsn not None):
+        np.ndarray[DTYPE_t, ndim=2] cnvsn not None,
+          int use_mse):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
-    _sketch(X, y, z, xdim, cnvs, cnvsn)
+    _sketch(X, y, z, xdim, cnvs, cnvsn, use_mse)
     return 0
 
 def sketch_diagonal(np.ndarray[DTYPE_t, ndim=2] X not None, 
         np.ndarray[DTYPE_t, ndim=1] y not None, 
         np.ndarray[DTYPE_t, ndim=1] z not None, 
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
-        np.ndarray[DTYPE_t, ndim=3] cnvs not None):
+        np.ndarray[DTYPE_t, ndim=3] cnvs not None,
+        int use_mse):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
-    _sketch_diagonal(X, y, z, xdim, cnvs)
+    _sketch_diagonal(X, y, z, xdim, cnvs, use_mse)
     return 0
 
 def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None, 
@@ -140,11 +161,12 @@ def sketch_gaussian(np.ndarray[DTYPE_t, ndim=2] X not None,
         np.ndarray[DTYPE_t, ndim=2] xdim not None, 
         np.ndarray[DTYPE_t, ndim=3] cnvs not None,
         size_t i_start,
-        size_t i_end):
+        size_t i_end,
+        int use_mse):
 
     # canvas --> (sketch) --> avc 
     # AVC: Attribute-Value Class group in RainForest
-    _sketch_gaussian(X, y, z, xdim, cnvs, i_start, i_end)
+    _sketch_gaussian(X, y, z, xdim, cnvs, i_start, i_end, use_mse)
     return 0
 
 cdef void _sketch(
@@ -153,7 +175,8 @@ cdef void _sketch(
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
         np.ndarray[DTYPE_t, ndim=3] cnvs, 
-        np.ndarray[DTYPE_t, ndim=2] cnvsn):
+        np.ndarray[DTYPE_t, ndim=2] cnvsn,
+        int use_mse):
 
     cdef size_t i, j, k, k_raw, k_tld
     cdef size_t n = X.shape[0]
@@ -252,7 +275,8 @@ cdef void _sketch_diagonal(
         np.ndarray[DTYPE_t, ndim=1] y, 
         np.ndarray[DTYPE_t, ndim=1] z, 
         np.ndarray[DTYPE_t, ndim=2] xdim, 
-        np.ndarray[DTYPE_t, ndim=3] cnvs):
+        np.ndarray[DTYPE_t, ndim=3] cnvs,
+        int use_mse):
 
     cdef size_t i, j, k
     cdef size_t n = X.shape[0]
@@ -261,6 +285,8 @@ cdef void _sketch_diagonal(
     cdef double x_i_0, x_i_1, x_j_0, x_j_1
     cdef DTYPE_t m1, m2, x2, y2, b
     cdef size_t idx = 0
+    cdef DTYPE_t [:] y_l = np.zeros(n)
+    cdef DTYPE_t [:] y_r = np.zeros(n)
     
     
     with nogil:
@@ -299,12 +325,21 @@ cdef void _sketch_diagonal(
                     #add to left
                     cnvs[k, 3, 0] += 1
                     cnvs[k, 4, 0] += y_i
-                    cnvs[k, 5, 0] += z_i
+                    if use_mse==1:
+                        y_l[i] = y_i
+                    else:
+                        cnvs[k, 5, 0] += z_i
                 else:
                     #add to right
                     cnvs[k, 6, 0] += 1
                     cnvs[k, 7, 0] += y_i
-                    cnvs[k, 8, 0] += z_i
+                    if use_mse==1:
+                        y_r[i] = y_i
+                    else:
+                        cnvs[k, 8, 0] += z_i
+            if use_mse==1:
+                cnvs[k, 5, 0] = mse(y_l, mean(y_l))
+                cnvs[k, 8, 0] = mse(y_r, mean(y_r))
                 
 
             
@@ -320,7 +355,8 @@ cdef void _sketch_gaussian(
         np.ndarray[DTYPE_t, ndim=2] xdim, 
         np.ndarray[DTYPE_t, ndim=3] cnvs,
         size_t i_start,
-        size_t i_end):
+        size_t i_end,
+        int use_mse):
 
     cdef size_t i, j, k, l
     cdef size_t n = X.shape[0]
@@ -333,6 +369,8 @@ cdef void _sketch_gaussian(
     cdef size_t id1, id2
     cdef double dist, dist1, dist2
     cdef double focal1_x, focal1_y, focal2_x, focal2_y
+    cdef DTYPE_t [:] y_l = np.zeros(n)
+    cdef DTYPE_t [:] y_r = np.zeros(n)
 
     with nogil:
         for i in range(n):
@@ -381,12 +419,21 @@ cdef void _sketch_gaussian(
                 if (dist_1 + dist_2) < dist:
                     cnvs[k, 3, 0] += 1
                     cnvs[k, 4, 0] += y_i
-                    cnvs[k, 5, 0] += z_i
+                    if use_mse==1:
+                        y_l[i] = y_i
+                    else:
+                        cnvs[k, 5, 0] += z_i
                 else:
                     #add to right
                     cnvs[k, 6, 0] += 1
                     cnvs[k, 7, 0] += y_i
-                    cnvs[k, 8, 0] += z_i
+                    if use_mse==1:
+                        y_r[i] = y_i
+                    else:
+                        cnvs[k, 8, 0] += z_i
+            if use_mse==1:
+                cnvs[k, 5, 0] = mse(y_l, mean(y_l))
+                cnvs[k, 8, 0] = mse(y_r, mean(y_r))
     
     
     

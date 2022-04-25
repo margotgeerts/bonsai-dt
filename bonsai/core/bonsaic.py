@@ -72,7 +72,7 @@ class Bonsai:
         z_i = z[i_start:i_end]
         self.cnvs[:,3:,:] = 0  # initialize canvas
         self.cnvsn[:,1:] = 0 # initialize canvas for NA
-        
+        use_mse = (self.z_type=="MSE")
         jj_start=0
         #print("fill canvas from "+str(i_start) +" to "+str(i_end))
         
@@ -91,7 +91,7 @@ class Bonsai:
             xdim_j = self.xdim[j_start:j_end,:]
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             cnvsn_j = self.cnvsn[j_start:j_end,:]
-            sketch(X_ij, y_i, z_i, xdim_j, cnvs_j, cnvsn_j)
+            sketch(X_ij, y_i, z_i, xdim_j, cnvs_j, cnvsn_j, use_mse)
             return 0
 
         #t0 = time.time()
@@ -112,7 +112,7 @@ class Bonsai:
         if self.diagonal:
             jj_end += n*(n-1)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
-            sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j)
+            sketch_diagonal(X_ij, y_i, z_i, xdim_j, cnvs_j, use_mse)
             #print(jj_end)
             #print(self.cnvs[(jj_start-3):(jj_start+4),:,:])
             #print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
@@ -121,7 +121,7 @@ class Bonsai:
             jj_end += n*(n-1)*(n-2)
             cnvs_j = self.cnvs[jj_start:jj_end,:,:]
             #print("sketch gaussian from "+str(i_start) + " to "+str(i_end))
-            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j, i_start, i_end)
+            sketch_gaussian(X_ij, y_i, z_i, xdim_j, cnvs_j, i_start, i_end, use_mse)
             #print(jj_end)
             #print(self.cnvs[jj_start:(jj_start+4),:,:])
             #print(self.cnvs[(jj_end-2):(jj_end+2),:,:])
@@ -143,9 +143,13 @@ class Bonsai:
         if avc.shape[0] < 2:
             branch["is_leaf"] = True
             return [branch]
-
+        
+        y_i = y[i_start:i_end]
+        parent_mse=0
+        if self.z_type == "MSE":
+            parent_mse = np.sum((y_i - np.mean(y_i))**2) / len(y_i)
         # Find a split SS: selected split
-        ss = self.find_split(avc, X, y, z, i_start, i_end)     
+        ss = self.find_split(avc, X, y, z, i_start, i_end, parent_mse)     
         if (not isinstance(ss, dict) or
             "selected" not in ss):
             branch["is_leaf"] = True
@@ -208,6 +212,8 @@ class Bonsai:
         elif self.z_type=="Hessian": # bernoulli hessian
             p = expit(y) 
             z = p * (1.0 - p)
+        elif self.z_type=="MSE":
+            z = np.array([np.sum((y-np.mean(y))**2) / y.shape[0] for i in range(n)])
         else:
             z = np.ones(n) 
  
