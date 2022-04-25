@@ -279,7 +279,12 @@ class Bonsai:
                     print(str(gain)+ " X["+str(tree_ind[t,1])+"] >= "+str(tree_val[t,0]))
                 elif tree_val[t,2]==-1:
                     print(str(gain)+ " X["+str(tree_ind[t,2])+"] >= X["+ str(tree_ind[t,1])+"] * "+str(tree_val[t,1]) + " + "+str(tree_val[t,0]))
+                else:
+                    #d(X[0], [0.20560896 0.22449331]) + d(X[1], [0.2980301  0.79909647]) >= 0.6355280056423498
+                    print(str(gain)+ " d(X["+str(tree_ind[t,1])+"], ["+str(tree_val[t,0]) + " " +str(tree_val[t,1])+"])" +
+                          " + d(X["+str(tree_ind[t,2])+"], ["+str(tree_val[t,2]) + " " +str(tree_val[t,3])+"]) >= " + str(tree_val[t,4]))
 
+                          
     def predict(self, X_new, output_type="response"):
         """Predict y by applying the trained tree to X."""
         X_new = X_new.astype(np.float)
