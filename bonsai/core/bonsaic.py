@@ -37,7 +37,7 @@ class Bonsai:
                 random_state = None,
                 z_type = "M2",
                 n_jobs = -1,
-                orthogonal = True
+                orthogonal = True,
                 diagonal = True,
                 gaussian = True,
                 rm_outliers = True):
