@@ -189,6 +189,8 @@ cdef void _sketch(
     cdef double y_tot = 0.0
     cdef double z_tot = 0.0
     cdef double n_na, y_na, z_na
+    cdef DTYPE_t [:] y_l = np.zeros(n)
+    cdef DTYPE_t [:] y_r = np.zeros(n)
 
     # update E[y] & E[z]
     with nogil:
@@ -218,6 +220,7 @@ cdef void _sketch(
                     cnvs[k, 3, 0] += 1
                     cnvs[k, 4, 0] += y_i
                     cnvs[k, 5, 0] += z_i
+                
 
         # accumulate stats
         for j in range(m):
@@ -267,6 +270,17 @@ cdef void _sketch(
                 cnvs[k_tld, 6, 0] += n_na
                 cnvs[k_tld, 7, 0] += y_na
                 cnvs[k_tld, 8, 0] += z_na
+                
+        if use_mse==1:
+            for k in range(n_cnvs):
+                for i in range(n):
+                    y_i = y[i]
+                    if X[i, <size_t>cnvs[k, 1,0]] < <DTYPE_t>cnvs[k,2,0]:
+                        y_l[i] = y_i
+                    else:
+                        y_r[i] = y_i
+                cnvs[k, 5, 0] = mse(y_l, mean(y_l))
+                cnvs[k, 8, 0] = mse(y_r, mean(y_r))
 
     # done _sketch
                     

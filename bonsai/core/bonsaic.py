@@ -269,25 +269,18 @@ class Bonsai:
         #self.update_feature_importances()
         self.tree_ind, self.tree_val = reconstruct_tree(self.leaves, self.focalpoints)
         self.print_splits(self.tree_ind, self.tree_val, y)
-        
         return 0
     
     def print_splits(self, tree_ind, tree_val, y):
         for t in range(len(tree_ind)):
-            
             if tree_ind[t,0]==-1:
-                parent = t-1
-                parent_measure = tree_val[(t-1),6]
-                if parent ==-1:
-                    parent_measure = (np.sum(y**2)/y.shape[0]) - (np.mean(y)**2)
-                gain = tree_val[t,6]
                 if tree_ind[t,2]==-1:
-                    print(str(gain)+ " X["+str(tree_ind[t,1])+"] >= "+str(tree_val[t,0]))
+                    print(" X["+str(tree_ind[t,1])+"] >= "+str(tree_val[t,0]))
                 elif tree_val[t,2]==-1:
-                    print(str(gain)+ " X["+str(tree_ind[t,2])+"] >= X["+ str(tree_ind[t,1])+"] * "+str(tree_val[t,1]) + " + "+str(tree_val[t,0]))
+                    print(" X["+str(tree_ind[t,2])+"] >= X["+ str(tree_ind[t,1])+"] * "+str(tree_val[t,1]) + " + "+str(tree_val[t,0]))
                 else:
                     #d(X[0], [0.20560896 0.22449331]) + d(X[1], [0.2980301  0.79909647]) >= 0.6355280056423498
-                    print(str(gain)+ " d(X["+str(tree_ind[t,1])+"], ["+str(tree_val[t,0]) + " " +str(tree_val[t,1])+"])" +
+                    print(" d(X["+str(tree_ind[t,1])+"], ["+str(tree_val[t,0]) + " " +str(tree_val[t,1])+"])" +
                           " + d(X["+str(tree_ind[t,2])+"], ["+str(tree_val[t,2]) + " " +str(tree_val[t,3])+"]) >= " + str(tree_val[t,4]))
 
                           
